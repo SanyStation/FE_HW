@@ -1,0 +1,38 @@
+body {
+  background-color: rgb(242, 246, 245);
+}
+
+.main_block {
+  margin: auto;
+  width: 500px;
+}
+
+.centered_content {
+  text-align: center;
+}
+
+.page_block {
+  margin: auto;
+  font-family: Myriad Pro;
+  margin: 10px 0px 20px;
+}
+
+.shifted {
+  margin-left: 45px;
+}
+
+.job_title {
+  font-family: arial;
+  font-size: 14px;
+}
+
+a {
+  font-style: italic;
+}
+
+h1 {
+  font-family: arial;
+  font-size: 36px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
