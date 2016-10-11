@@ -1,0 +1,21 @@
+/*212 57*/
+
+body {
+	background-color: #000;
+}
+
+.container {
+	padding: 132px 70px 0px;
+	margin: 0 auto;
+	width: 820px;
+	height: 751px;
+	position: relative;
+	background-image: url(../img/background.png);
+}
+
+.palm-logo {
+	top: 57px;
+	left: 212px;
+	position: absolute;
+	opacity: 0.15;
+}
