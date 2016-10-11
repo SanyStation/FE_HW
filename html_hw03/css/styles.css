@@ -136,6 +136,9 @@ li a {
   float: left;
   text-align: center;
   font-size: 13px;
+}
+
+.footer li a {
   color: rgb(44, 44, 44);
 }
 
@@ -147,7 +150,10 @@ li a {
   color: rgb(44, 44, 44);
 }
 
-.rights {
-  margin-left: 206px;
+li.rights {
+  margin-right: 27px;
+  width: 160px;
+  float: right;
   white-space: nowrap;
+  color: rgb(44, 44, 44);
 }
