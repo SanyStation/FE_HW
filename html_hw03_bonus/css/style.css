@@ -19,3 +19,20 @@ body {
 	position: absolute;
 	opacity: 0.15;
 }
+
+p {
+	font-family: Tahoma;
+	font-size: 10px;
+	color: #fff;
+}
+
+.description {
+	margin: 8px 84px;
+}
+
+.country {
+	margin-top: 14px;
+	width: 270px;
+	height: 188px;
+	background-color: white;
+}
