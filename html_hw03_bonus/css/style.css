@@ -2,6 +2,8 @@
 
 body {
 	background-color: #000;
+	position: relative;
+	z-index: -2;
 }
 
 .container {
@@ -32,12 +34,23 @@ p {
 	margin: 8px 84px;
 }
 
+.wrapper {
+	width: 270px;
+	height: 188px;
+	background-image: url(../img/border.png);
+}
+
 .country {
 	display: inline-block;
-	margin: 7px 0px 20px;
+	margin: 5px 0px 47px;
 	width: 270px;
-	height: 208px;
-	background-image: url(../img/border.png);
+	height: 198px;
+}
+
+.country p {
+	font-size: 15px;
+	text-align: center;
+	line-height: 12px;
 }
 
 .country img {
@@ -48,4 +61,25 @@ p {
 	height: 178px;
 	position: relative;
 	z-index: -1;
+}
+
+.contacts {
+	top: 146px;
+	left: 783px;
+	position: absolute;
+}
+
+.contacts p:nth-child(1) {
+	font-weight: bold;
+	line-height: 22px;
+}
+
+.contacts p:nth-child(n+2) {
+	font-size: 8px;
+	line-height: 11px;
+}
+
+footer {
+	margin-top: 145px;
+	text-align: center;
 }
