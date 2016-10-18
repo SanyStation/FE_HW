@@ -11,13 +11,15 @@ body {
 	height: 751px;
 	position: relative;
 	background-image: url(../img/background.png);
+	z-index: -1;
 }
 
 .palm-logo {
-	top: 57px;
+	top: 59px;
 	left: 212px;
 	position: absolute;
 	opacity: 0.15;
+	z-index: -1;
 }
 
 p {
@@ -31,8 +33,19 @@ p {
 }
 
 .country {
-	margin-top: 14px;
+	display: inline-block;
+	margin: 7px 0px 20px;
 	width: 270px;
-	height: 188px;
-	background-color: white;
+	height: 208px;
+	background-image: url(../img/border.png);
+}
+
+.country img {
+	display: block;
+	margin: 0 auto;
+	padding-top: 4px;
+	width: 261px;
+	height: 178px;
+	position: relative;
+	z-index: -1;
 }
