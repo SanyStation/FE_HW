@@ -1,12 +1,12 @@
 ul {
     display: block;
     margin: 0;
-    padding: 0;
+    padding-left: 67px;
     list-style: none;
 }
 
 ul.menu {
-    width: 1000px;
+    width: 933px;
     height: 34px;
     background-image: url(../img/panel.png);
 }
@@ -25,10 +25,13 @@ ul.menu > li {
 
 ul.menu > li > a {
     display: block;
-    padding: 10px;
+    width: 120px;
+    height: 26px;
+    padding-top: 8px;
     color: white;
-    /*background-color: red;*/
     text-decoration: none;
+    text-align: center;
+    font-size: 14px;
 }
 
 ul.menu > li > a:hover {
