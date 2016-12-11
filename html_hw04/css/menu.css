@@ -5,6 +5,7 @@ ul {
 }
 
 ul.menu {
+    position: relative;
     margin-left: -2px;
     padding-left: 28px;
     width: 976px;

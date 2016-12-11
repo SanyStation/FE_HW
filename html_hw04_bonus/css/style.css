@@ -100,7 +100,7 @@ footer {
 	background-color: rgb(237, 238, 240);
 	float: left;
 	position: relative;
-	right: 580px;
+	right: 581px;
 	border-right: 1px solid rgb(199, 202, 207);
 	color: rgb(66, 76, 67);
 }
@@ -110,7 +110,7 @@ footer {
 	float: left;
 	background-color: white;
 	position: relative;
-	right: 210px;
+	right: 209px;
 	border-right: 1px solid rgb(199, 202, 207);
 }
 
@@ -143,16 +143,16 @@ footer {
 }
 
 .left-column {
-	width: 210px;
+	width: 209px;
 	left: 1000px;
 }
 
 .center-column {
-	width: 579px;
+	width: 581px;
 	left: 1000px;
 }
 
 .right-column {
-	width: 210px;
+	width: 209px;
 	left: 1000px;
 }

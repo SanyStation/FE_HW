@@ -75,6 +75,8 @@ body {
 }
 
 .content-container {
+	margin-top: -4px;
+	padding-top: 7px;
 	width: 1000px;
 	background-image: url("../img/content_background.png");
 	float: left;
@@ -89,11 +91,11 @@ body {
 }
 
 .vertical-panel > p {
-	margin-left: 15px;
+	margin-left: 16px;
 }
 
 .vertical-panel > p:first-child {
-	margin-left: 0px;
+	margin-left: 1px;
 	margin-bottom: 2px;
 }
 
