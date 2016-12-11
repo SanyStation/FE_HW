@@ -16,12 +16,7 @@ body {
   	min-height: 100%;
   	background-color: #fff;
   	box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.75);
-}
-
-.container:after {
-	content: '';
-	display: block;
-	clear: both;
+  	overflow: hidden;
 }
 
 .logo {
@@ -74,36 +69,6 @@ body {
 	color: rgb(8, 68, 97);
 }
 
-.content-container {
-	width: 1000px;
-	background-image: url("../img/content_background.png");
-	float: left;
-}
-
-/*.vertical-panel {
-	padding-bottom: 10px;
-	width: 210px;
-	font-size: 14px;
-	line-height: 24px;
-}
-
-.vertical-panel > p {
-	margin-left: 15px;
-}
-
-.vertical-panel > p:first-child {
-	margin-left: 0px;
-	margin-bottom: 2px;
-}*/
-
-/*.info {
-	float: left;
-}
-
-.news {
-	float: right;
-}*/
-
 .topic {
 	font-size: 18px;
 	line-height: 26px;
@@ -121,49 +86,73 @@ footer {
 	color: white;
 }
 
-
-.content-container1 {  /* фон для левой колонки (синий) */
-	width: 100%;
-	background: #3d2af0;
-	float: left; /* делаем все обертки плавающими блоками чтобы избежать добавления блока с clear: both; */
-	position: relative; /* чтобы иметь возможность сместить фон */
-	right: 30%; /* обнажаем красный фон для центральной колонки. 30% - ширина центральной колонки */
-}
-
-.content-container2 {/* фон для центральной колонки (красный) */
-	width: 100%;
-	background: #e34456;
+.content-container-border {
+	width: 999px;
+	background: green;
 	float: left;
 	position: relative;
-	right: 40%; /* обнажаем желтый фон для правой колонки. 40% - ширина правой колонки */
+	right: 209px;
+	border-right: 1px solid rgb(199, 202, 207);
 }
 
-.content-container3 {/* фон для правой колонки (желтый) */
-	width: 1000px;
-	background: #e3e244;
+.content-container-left {
+	width: 999px;
+	background-color: rgb(237, 238, 240);
 	float: left;
+	position: relative;
+	right: 580px;
+	border-right: 1px solid rgb(199, 202, 207);
+	color: rgb(66, 76, 67);
 }
 
-.leftColumn {
-	width: 30%;
+.content-container-center {
+	width: 999px;
 	float: left;
-	overflow: hidden; /* страховка от ломки верстки объектами шире размера колонки-родителя */
-	position:relative;
-	left:70%; /* возвращаем колонки с контентом на свои позиции. 70% - сумма смещений оберток fon1 и fon2 */
+	background-color: white;
+	position: relative;
+	right: 210px;
+	border-right: 1px solid rgb(199, 202, 207);
 }
 
-.centerColumn {
-	width: 30%;
+.content-container-right {
+	margin-top: -4px;
+	width: 999px;
+	background-color: rgb(237, 238, 240);
+	float: left;
+	border-right: 1px solid rgb(199, 202, 207);
+	z-index: -1;
+}
+
+.content-column > p {
+	margin-left: 15px;
+}
+
+.content-column > p:first-child {
+	margin-left: 0px;
+	margin-bottom: 2px;
+}
+
+.content-column {
+	padding: 7px 0px 10px 0px;
 	float: left;
 	overflow: hidden;
-	position:relative;
-	left:70%;
+	position: relative;
+	font-size: 14px;
+	line-height: 24px;
+	color: rgb(66, 76, 67);
 }
 
-.rightColumn {
-	width: 39%;
-	float: left;
-	overflow: hidden;
-	position:relative;
-	left:70%;
+.left-column {
+	width: 210px;
+	left: 1000px;
+}
+
+.center-column {
+	width: 579px;
+	left: 1000px;
+}
+
+.right-column {
+	width: 210px;
+	left: 1000px;
 }

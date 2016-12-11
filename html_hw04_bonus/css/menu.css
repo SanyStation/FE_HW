@@ -2,6 +2,7 @@ ul {
     display: block;
     margin: 0;
     list-style: none;
+    z-index: 10;
 }
 
 ul.menu {
@@ -10,6 +11,8 @@ ul.menu {
     width: 976px;
     height: 34px;
     background-image: url(../img/panel.png);
+    z-index: 10;
+    position: relative;
 }
 
 ul:after {
