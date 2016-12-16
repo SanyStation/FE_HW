@@ -1,7 +1,9 @@
 body {
 	background: url(../img/background.png) no-repeat;
+	background-position: 0px 36px;
     background-size: cover;
     position: relative;
+    min-height: 600px;
 }
 
 .panel {
@@ -11,21 +13,75 @@ body {
 }
 
 .login-form {
+	margin: -306px 0px 0px -280px;
 	width: 560px;
 	height: 613px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	/*margin: -306px 0px 0px -280px;*/
+	color: white;
 }
 
 .form-name {
-	height: 62px;
+	padding-top: 19px;
+	height: 43px;
 	background-color: rgba(0, 0, 0, 0.63);
+	text-align: center;
+	font-size: 24px;
+	color: white;
 }
 
 .form-reg {
 	margin-top: 2px;
+	padding-top: 36px;
 	height: 549px;
 	background-color: rgba(0, 0, 0, 0.63);
+}
+
+button.btn-facebook {
+	margin: 0 auto;
+	padding-left: 40px;
+	width: 276px;
+	height: 35px;
+	display: block;
+	text-decoration: none;
+	border: none;
+	background-image: url(../img/btn-facebook.png);
+	background-color: transparent;
+	color: white;
+	font-size: 15px;
+}
+
+button.btn-facebook > b {
+	font-weight: bold;
+}
+
+.splitter {
+	margin: 32px auto;
+	width: 276px;
+	height: 16px;
+	background: url(../img/splitter.png) no-repeat;
+	background-position: 0px 7px;
+	text-align: center;
+	font-size: 14px;
+	color: rgb(153, 153, 153);
+}
+
+.reg-field {
+	display: block;
+	margin: 16px auto;
+	padding-left: 19px;
+	width: 257px;
+	height: 35px;
+	background-color: black;
+	border: none;
+	color: white;
+}
+
+.reg-field:hover {
+	background-color: rgb(17, 62, 86);
+}
+
+.reg-field:focus {
+	background-color: rgb(27, 82, 136);
 }
