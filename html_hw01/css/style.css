@@ -1,36 +1,44 @@
-body {
-  background-color: rgb(242, 246, 245);
-}
+/* Main stylesheet*/
 
-.main_block {
-  margin: auto;
+.main-block {
+  margin: 0 auto;
   width: 500px;
 }
 
-.centered_content {
+/*.centered-content {
+  text-align: center;
+}*/
+
+.page-block {
+  /*margin: 10px 0px 20px;*/
+  /*margin: 0 auto;*/
+  /*font-family: "Myriad Pro", sans-serif;*/
+}
+
+.page-block h1 {
   text-align: center;
 }
 
-.page_block {
-  margin: auto;
-  font-family: Myriad Pro;
-  margin: 10px 0px 20px;
+.page-block img {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
 }
 
 .shifted {
   margin-left: 45px;
 }
 
-.job_title {
+.job-title {
   font-family: arial;
   font-size: 14px;
 }
 
-a {
+.italic {
   font-style: italic;
 }
 
-h1 {
+.header-one {
   font-family: arial;
   font-size: 36px;
   text-transform: uppercase;
