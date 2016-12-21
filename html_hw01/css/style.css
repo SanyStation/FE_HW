@@ -2,45 +2,79 @@
 
 .main-block {
   margin: 0 auto;
+  padding-top: 50px;
   width: 500px;
 }
 
-/*.centered-content {
-  text-align: center;
-}*/
+/* Header */
 
-.page-block {
-  /*margin: 10px 0px 20px;*/
-  /*margin: 0 auto;*/
-  /*font-family: "Myriad Pro", sans-serif;*/
+.header {
+  font-family: Arial, "Helvetica CY", "Nimbus Sans L", Sans-serif;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(199, 196, 195);
 }
 
-.page-block h1 {
+.header h1 {
+  font-size: 36px;
+  font-weight: bold;
   text-align: center;
+  text-transform: uppercase;
+  color: rgb(1, 1, 1);
 }
 
-.page-block img {
+.header img {
   display: block;
-  margin: 0 auto;
+  margin: 29px auto;
   width: 200px;
+  border: 1px solid rgb(143, 143, 143);
 }
 
-.shifted {
-  margin-left: 45px;
+.header p {
+  margin-top: 23px;
+  font-size: 14px;
+  color: rgb(31, 31, 31);
+  opacity: 0.8;
 }
 
-.job-title {
-  font-family: arial;
+/* Content */
+
+.content {
+  font-family: "Myriad Pro";
   font-size: 14px;
 }
 
-.italic {
-  font-style: italic;
+.content h2 {
+  margin: 20px 0px 0px 0px;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(31, 31, 31);
 }
 
-.header-one {
-  font-family: arial;
-  font-size: 36px;
-  text-transform: uppercase;
-  font-weight: bold;
+.content h2 + p, .content h2 + a {
+  display: block;
+  margin-top: 24px;
+}
+
+.content p {
+  margin-left: 35px;
+  color: rgb(58, 58, 58);  
+}
+
+.content a {
+  margin-left: 35px;
+  font-style: italic;
+  color: rgb(0, 86, 211);
+}
+
+.decorated-list {
+  margin: 26px 0px 0px 32px;
+  list-style: disc;
+  color: rgb(59, 59, 59);
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.top-separated {
+  padding-top: 20px;
+  border-top: 1px solid rgb(213, 214, 216);
 }
