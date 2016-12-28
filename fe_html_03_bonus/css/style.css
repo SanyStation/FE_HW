@@ -1,83 +1,85 @@
+/* Main stylesheet*/
+
 body {
-	background-color: #000;
-	position: relative;
-	z-index: -2;
+  background-color: black;
+  /*position: relative;*/
+  /*z-index: -2;*/
 }
+
+/* Global Container */
 
 .container {
-	padding: 132px 70px 0px;
-	margin: 0 auto;
-	width: 820px;
-	height: 751px;
-	position: relative;
-	background-image: url(../img/background.png);
-	z-index: -1;
+  padding: 57px 70px;
+  margin: 0 auto;
+  width: 820px;
+  height: 751px;
+  background-image: url(../img/background.png);
+  z-index: -1;
 }
 
-.palm-logo {
-	top: 59px;
-	left: 212px;
-	position: absolute;
-	opacity: 0.15;
-	z-index: -1;
+/* Header */
+
+.header {
+  padding: 0px 2px;
 }
 
 p {
-	font-family: Tahoma;
-	font-size: 10px;
-	color: #fff;
-}
-
-.description {
-	margin: 8px 84px;
-}
-
-.wrapper {
-	width: 270px;
-	height: 188px;
-	background-image: url(../img/border.png);
-}
-
-.country {
-	display: inline-block;
-	margin: 5px 0px 47px;
-	width: 270px;
-	height: 198px;
-}
-
-.country p {
-	font-size: 15px;
-	text-align: center;
-	line-height: 12px;
-}
-
-.country img {
-	display: block;
-	margin: 0 auto;
-	padding-top: 4px;
-	width: 261px;
-	height: 178px;
-	position: relative;
-	z-index: -1;
+  font-family: Tahoma;
+  font-size: 10px;
+  color: #fff;
 }
 
 .contacts {
-	top: 146px;
-	left: 783px;
-	position: absolute;
+  float: right;
+  margin: 88px 17px 0px 0px;
 }
 
-.contacts p:nth-child(1) {
-	font-weight: bold;
-	line-height: 22px;
+.contacts p:first-child {
+  font-weight: bold;
+  line-height: 22px;
 }
 
 .contacts p:nth-child(n+2) {
-	font-size: 8px;
-	line-height: 11px;
+  font-size: 8px;
+  line-height: 11px;
 }
 
-footer {
-	margin-top: 145px;
-	text-align: center;
+/* Content */
+
+.content {
+  margin-top: -7px;
+}
+
+.country {
+  display: inline-block;
+  margin: 5px 0px 47px;
+  width: 270px;
+  height: 198px;
+}
+
+.country p {
+  font-size: 15px;
+  text-align: center;
+  line-height: 12px;
+}
+
+.country img {
+  display: block;
+  margin: 0 auto;
+  padding-top: 4px;
+  width: 261px;
+  height: 178px;
+  position: relative;
+  z-index: -1;
+}
+
+.wrapper {
+  width: 270px;
+  height: 188px;
+  background-image: url(../img/border.png);
+}
+
+.footer {
+  margin-top: 145px;
+  text-align: center;
 }
