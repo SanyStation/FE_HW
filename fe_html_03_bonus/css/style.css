@@ -10,7 +10,7 @@ body {
   padding: 57px 70px;
   margin: 0 auto;
   width: 820px;
-  height: 751px;
+  height: 769px;
   background-image: url(../img/background.png);
   position: relative;
   z-index: -1;
@@ -45,7 +45,6 @@ body {
 
 .content {
   margin-top: -7px;
-  padding: 0px 1px;
 }
 
 .country {
@@ -73,13 +72,21 @@ body {
   z-index: -1;
 }
 
+/* Image Border */
+
 .wrapper {
   width: 270px;
   height: 188px;
   background-image: url(../img/border.png);
 }
 
+/* Footer */
+
 .footer {
   margin-top: 145px;
   text-align: center;
+  font-family: Tahoma, Verdana, Segoe, "Geneva CY", sans-serif;
+  font-size: 10px;
+  line-height: 10px;
+  color: white;
 }
