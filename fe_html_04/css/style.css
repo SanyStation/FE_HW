@@ -5,6 +5,8 @@ body {
   background-repeat: repeat-x;
   background-color: rgb(12, 115, 159);
   font-family: Tahoma, Verdana, Segoe, "Geneva CY", sans-serif;
+  position: relative;
+  z-index: -2;
 }
 
 /* Global Container */
@@ -16,6 +18,8 @@ body {
   min-height: 100%;
   background-color: #fff;
   box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.75);
+  position: relative;
+  z-index: -2;
 }
 
 /* Header */
@@ -87,6 +91,8 @@ body {
   background: linear-gradient(rgb(55, 55, 55), rgb(48, 48, 48));
   border-top: 1px solid rgb(203, 203, 203);
   border-bottom: 1px solid rgb(0, 0, 0);
+  position: relative;
+  z-index: 10;
 }
 
 .main-menu > li {
@@ -147,16 +153,28 @@ body {
 /* Content */
 
 .content {
+  margin-top: 2px;
   padding-top: 7px;
-  width: 1000px;
   background-image: url("../img/content_background.png");
+  min-height: 300px;
+}
+
+.content:after {
+  display: table;
+  content: "";
+  clear: both;
+}
+
+.center {
   float: left;
+  width: 580px;
 }
 
 /* Sidebar */
 
 .sidebar {
   padding-bottom: 10px;
+  float: left;
   width: 210px;
   font-size: 14px;
   line-height: 24px;
