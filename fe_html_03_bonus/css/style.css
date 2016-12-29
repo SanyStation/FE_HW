@@ -33,11 +33,9 @@ body {
 }
 
 .header:after {
+  display: table;
+  content: "";
   clear: both;
-  display: block;
-  content: ".";
-  height: 0;
-  visibility: hidden;
 }
 
 /* Contacts */
