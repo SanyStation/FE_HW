@@ -1,7 +1,8 @@
-/* Main stylesheet*/
+/* Main Stylesheet */
 
 body {
   background-color: black;
+  z-index: -2;
 }
 
 /* Global Container */
@@ -13,7 +14,7 @@ body {
   height: 769px;
   background-image: url(../img/background.png);
   position: relative;
-  z-index: -1;
+  z-index: -2;
 }
 
 /* Header */
@@ -32,10 +33,10 @@ body {
 }
 
 .header:after {
+  clear: both;
   display: block;
   content: ".";
   height: 0;
-  clear: both;
   visibility: hidden;
 }
 
