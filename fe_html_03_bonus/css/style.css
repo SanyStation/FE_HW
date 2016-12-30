@@ -2,6 +2,7 @@
 
 body {
   background-color: black;
+  position: relative;
   z-index: -2;
 }
 
@@ -88,7 +89,7 @@ body {
 
 /* Image Border */
 
-.wrapper {
+.border {
   width: 270px;
   height: 188px;
   background-image: url(../img/border.png);
