@@ -5,8 +5,6 @@ body {
   background-repeat: repeat-x;
   background-color: rgb(12, 115, 159);
   font-family: Tahoma, Verdana, Segoe, "Geneva CY", sans-serif;
-  position: relative;
-  z-index: -2;
 }
 
 /* Global Container */
@@ -15,11 +13,8 @@ body {
   margin: 0 auto;
   padding-top: 11px;
   width: 1000px;
-  min-height: 100%;
   background-color: #fff;
   box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.75);
-  position: relative;
-  z-index: -2;
 }
 
 /* Header */
@@ -91,8 +86,8 @@ body {
   background: linear-gradient(rgb(55, 55, 55), rgb(48, 48, 48));
   border-top: 1px solid rgb(203, 203, 203);
   border-bottom: 1px solid rgb(0, 0, 0);
-  position: relative;
-  z-index: 10;
+  box-shadow: 0px 5px 10px -1px rgba(0, 0, 0, 0.75);
+  opacity: 0.99;
 }
 
 .main-menu > li {
@@ -153,10 +148,9 @@ body {
 /* Content */
 
 .content {
-  margin-top: 2px;
   padding-top: 7px;
   background-image: url("../img/content_background.png");
-  min-height: 300px;
+  min-height: 500px;
 }
 
 .content:after {
@@ -168,6 +162,7 @@ body {
 .center {
   float: left;
   width: 580px;
+  min-height: 1px;
 }
 
 /* Sidebar */
@@ -188,14 +183,6 @@ body {
 .sidebar p:first-child {
   margin-left: 1px;
   margin-bottom: 2px;
-}
-
-.info {
-  float: left;
-}
-
-.news {
-  float: right;
 }
 
 .topic {
