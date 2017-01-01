@@ -2,8 +2,6 @@
 
 body {
   background-color: black;
-  position: relative;
-  z-index: -2;
 }
 
 /* Global Container */
@@ -14,8 +12,6 @@ body {
   width: 820px;
   height: 769px;
   background-image: url(../img/background.png);
-  position: relative;
-  z-index: -2;
 }
 
 /* Header */
@@ -67,14 +63,16 @@ body {
   margin-bottom: 47px;
   width: 270px;
   height: 198px;
+  position: relative;
 }
 
 .country p {
+  margin-top: 6px;
   font-family: Tahoma, Verdana, Segoe, "Geneva CY", sans-serif;
   font-size: 15px;
-  line-height: 12px;
-  text-align: center;
+  line-height: 15px;
   color: white;
+  text-align: center;
 }
 
 .country img {
@@ -83,16 +81,15 @@ body {
   padding-top: 4px;
   width: 261px;
   height: 178px;
-  position: relative;
-  z-index: -1;
 }
 
-/* Image Border */
-
-.border {
+.country:after {
   width: 270px;
   height: 188px;
-  background-image: url(../img/border.png);
+  content: url(../img/border.png);
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* Footer */
