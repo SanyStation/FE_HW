@@ -1,158 +1,239 @@
-html, body {
-	height: 97.5%;
-}
+/* Main Stylesheet */
 
 body {
-	background-image: url(../img/background.png);
-	background-repeat: repeat-x;
-	background-color: rgb(12, 115, 159);
-	font-family: "Tahoma";
+  background-image: url(../img/background.png);
+  background-repeat: repeat-x;
+  background-color: rgb(12, 115, 159);
+  font-family: Tahoma, Verdana, Segoe, "Geneva CY", sans-serif;
 }
+
+/* Global Container */
 
 .container {
-  	margin: 0 auto;
-  	padding-top: 11px;
-  	width: 1000px;
-  	min-height: 100%;
-  	background-color: #fff;
-  	box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.75);
-  	overflow: hidden;
+  margin: 0 auto;
+  padding-top: 11px;
+  width: 1000px;
+  background-color: #fff;
+  box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.75);
 }
 
+/* Header */
+
 .logo {
-	margin-left: 28px;
-	float: left;
-	height: 164px;
+  margin-left: 28px;
+  float: left;
+}
+
+.logo img {
+  display: block;
 }
 
 .contacts {
-	margin-top: -5px;
-	margin-right: 33px;
-	float: right;
-	font-size: 12px;
-	color: rgb(18, 138, 167);
-	line-height: 19px;
+  margin-top: -5px;
+  margin-right: 33px;
+  float: right;
+  font-size: 12px;
+  line-height: 19px;
+  color: rgb(18, 138, 167);
 }
 
-.contacts-bold {
-	font-weight: bold;
+.contacts b {
+  font-weight: bold;
 }
+
+/* Menu Countries */
+
+.countries-menu {
+  clear: right;
+  float: right;
+  margin-top: 28px;
+  margin-right: 28px;
+}
+
+.countries-menu li {
+  margin-left: 4px;
+  float: left;
+  width: 53px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.countries-menu a {
+  color: rgb(18, 138, 167);
+}
+
+.countries-menu a:hover {
+  color: rgb(8, 68, 97);
+}
+
+/* Slide */
 
 .slide {
-	clear: both;
-	padding-top: 1px;
-	padding-bottom: 1px;
-	height: 237px;
-	background-color: rgb(18, 138, 167);
+  clear: both;
 }
 
-.countries {
-	clear: right;
-	float: right;
-	margin-top: 28px;
-	margin-right: 28px;
+.slide img {
+  display: block;
+  border-top: 1px solid rgb(18, 138, 167);
+  border-bottom: 1px solid rgb(19, 138, 167);
 }
 
-.country {
-	margin-left: 4px;
-	float: left;
-	width: 53px;
-	font-size: 10px;
-	text-align: center;
+/* Main Menu */
+
+.main-menu {
+  padding-left: 28px;
+  height: 30px;
+  background: linear-gradient(rgb(55, 55, 55), rgb(48, 48, 48));
+  border-top: 1px solid rgb(203, 203, 203);
+  border-bottom: 1px solid rgb(0, 0, 0);
+  box-shadow: 0px 5px 10px -1px rgba(0, 0, 0, 0.75);
+  position: relative;
+  z-index: 1;
 }
 
-.country > a > p {
-	color: rgb(18, 138, 167);
+.main-menu > li {
+  float: left;
+  position: relative;
 }
 
-.country > a:hover > p {
-	color: rgb(8, 68, 97);
+.main-menu > li > a {
+  display: block;
+  padding: 0px 33px;
+  height: 30px;
+  font-size: 14px;
+  line-height: 30px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
 }
 
-.topic {
-	font-size: 18px;
-	line-height: 26px;
-	font-weight: bold;
-	color: rgb(66, 76, 67);
-	text-align: center;
+/* Submenu */
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 31px;
+  left: 23px;
+  padding: 1px 0px 9px 10px;
+  width: 140px;
+  background-color: rgb(48, 48, 48);
+  box-shadow: 0px 5px 15px -1px rgba(0, 0, 0, 0.6);
 }
 
-footer {
-	margin-bottom: 10px;
-	height: 20px;
-	line-height: 30px;
-	font-size: 12px;
-	text-align: center;
-	color: white;
+.submenu li {
+  display: block;
 }
 
-.content-container-border {
-	width: 999px;
-	background: green;
-	float: left;
-	position: relative;
-	right: 209px;
-	border-right: 1px solid rgb(199, 202, 207);
+.submenu a {
+  font-size: 14px;
+  line-height: 24px;
+  color: white;
+  text-decoration: none;
 }
 
-.content-container-left {
-	width: 999px;
-	background-color: rgb(237, 238, 240);
-	float: left;
-	position: relative;
-	right: 581px;
-	border-right: 1px solid rgb(199, 202, 207);
-	color: rgb(66, 76, 67);
+.submenu a:hover {
+  color: rgb(18, 138, 167);
 }
 
-.content-container-center {
-	width: 999px;
-	float: left;
-	background-color: white;
-	position: relative;
-	right: 209px;
-	border-right: 1px solid rgb(199, 202, 207);
+.main-menu li:hover .submenu {
+  display: block;
 }
 
-.content-container-right {
-	margin-top: -4px;
-	width: 999px;
-	background-color: rgb(237, 238, 240);
-	float: left;
-	border-right: 1px solid rgb(199, 202, 207);
-	z-index: -1;
+.dropdown > a:after {
+  margin-left: 5px;
+  width: 5px;
+  height: 6px;
+  content: url(../img/triangle.png);
 }
 
-.content-column > p {
-	margin-left: 15px;
+/* Content */
+
+.content {
+  overflow: hidden;
 }
 
-.content-column > p:first-child {
-	margin-left: 0px;
-	margin-bottom: 2px;
+.content-border {
+  width: 999px;
+  float: left;
+  position: relative;
+  right: 209px;
+  border-right: 1px solid rgb(199, 202, 207);
+}
+
+.content-left {
+  width: 999px;
+  background-color: rgb(237, 238, 240);
+  float: left;
+  position: relative;
+  right: 581px;
+  border-right: 1px solid rgb(199, 202, 207);
+  color: rgb(66, 76, 67);
+}
+
+.content-center {
+  width: 999px;
+  float: left;
+  background-color: white;
+  position: relative;
+  right: 209px;
+  border-right: 1px solid rgb(199, 202, 207);
+}
+
+.content-right {
+  width: 999px;
+  background-color: rgb(237, 238, 240);
+  float: left;
+  border-right: 1px solid rgb(199, 202, 207);
+}
+
+.content-column p {
+  margin-left: 15px;
+}
+
+.content-column p:first-child {
+  margin-left: 0px;
+  margin-bottom: 2px;
 }
 
 .content-column {
-	padding: 7px 0px 10px 0px;
-	float: left;
-	overflow: hidden;
-	position: relative;
-	font-size: 14px;
-	line-height: 24px;
-	color: rgb(66, 76, 67);
+  padding: 7px 0px 10px 0px;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgb(66, 76, 67);
 }
 
 .left-column {
-	width: 209px;
-	left: 1000px;
+  width: 209px;
+  left: 1000px;
 }
 
 .center-column {
-	width: 581px;
-	left: 1000px;
+  width: 581px;
+  left: 1000px;
 }
 
 .right-column {
-	width: 209px;
-	left: 1000px;
+  width: 209px;
+  left: 1000px;
+}
+
+.topic {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Footer */
+
+.footer {
+  margin-bottom: 10px;
+  height: 20px;
+  line-height: 30px;
+  font-size: 12px;
+  color: white;
+  text-align: center;
 }
