@@ -1,135 +1,145 @@
+/* Main Stylesheet */
+
+html {
+  height: 100%;
+  background: url(../img/upper_panel_mini.png);
+}
+
 body {
-	background: url(../img/background.png) no-repeat;
-	background-position: 0px 36px;
-    background-size: cover;
-    position: relative;
-    min-height: 600px;
+  height: 100%;
+  background: url(../img/background.png);
+  background-position: 0px 36px;
+  background-size: cover;
 }
 
-.panel {
-	width: 100%;
-	height: 36px;
-	background-image: url(../img/upper-panel.png);
+/* Header */
+
+.header {
+  height: 36px;
+  background: url(../img/upper_panel_mini.png) repeat-x;
 }
 
-.login-form {
-	margin: -306px 0px 0px -280px;
-	width: 560px;
-	height: 613px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	color: white;
+/* Content */
+
+.content {
+  min-height: 96.1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.form-name {
-	padding-top: 19px;
-	height: 43px;
-	background-color: rgba(0, 0, 0, 0.63);
-	text-align: center;
-	font-size: 24px;
-	color: white;
+.main-form {
+  margin: 20px 0px;
+  width: 560px;
 }
 
-.form-reg {
-	margin-top: 2px;
-	padding-top: 36px;
-	height: 549px;
-	background-color: rgba(0, 0, 0, 0.63);
-	font-size: 14px;
+.form-header {
+  padding-top: 19px;
+  height: 43px;
+  background-color: rgba(0, 0, 0, 0.63);
+  font-size: 24px;
+  color: white;
+  text-align: center;
 }
 
-button.btn-facebook {
-	margin: 0 auto;
-	padding-left: 40px;
-	width: 276px;
-	height: 35px;
-	display: block;
-	text-decoration: none;
-	border: none;
-	background-image: url(../img/btn-facebook.png);
-	background-color: transparent;
-	color: white;
-	font-size: 15px;
+.form-body {
+  margin-top: 2px;
+  padding: 36px 0px 26px;
+  background-color: rgba(0, 0, 0, 0.63);
+  font-size: 14px;
 }
 
-button.btn-facebook > b {
-	font-weight: bold;
+.btn-facebook {
+  margin: 0 auto;
+  padding-left: 40px;
+  width: 276px;
+  height: 35px;
+  display: block;
+  text-decoration: none;
+  border: none;
+  background-image: url(../img/btn-facebook.png);
+  background-color: transparent;
+  color: white;
+  font-size: 15px;
 }
 
-button.btn-facebook:hover {
-	color: #FBFBFB;
-	opacity: 0.8; 
-	filter: alpha(opacity = 80);
+.btn-facebook > b {
+  font-weight: bold;
+}
+
+.btn-facebook:hover {
+  color: #FBFBFB;
+  opacity: 0.8; 
+  filter: alpha(opacity = 80);
 }
 
 .splitter {
-	margin: 30px auto 22px auto;
-	width: 276px;
-	height: 16px;
-	background: url(../img/splitter.png) no-repeat;
-	background-position: 0px 7px;
-	text-align: center;
-	font-size: 14px;
-	color: rgb(153, 153, 153);
+  margin: 30px auto 22px auto;
+  width: 276px;
+  height: 16px;
+  background: url(../img/splitter.png) no-repeat;
+  background-position: 0px 7px;
+  text-align: center;
+  font-size: 14px;
+  color: rgb(153, 153, 153);
 }
 
 .reg-field {
-	display: block;
-	margin: 19px auto;
-	padding-left: 19px;
-	width: 257px;
-	height: 35px;
-	background-color: black;
-	border: none;
-	color: white;
-	border-bottom: 1px solid rgb(72, 72, 72);
+  display: block;
+  margin: 19px auto;
+  padding-left: 19px;
+  width: 257px;
+  height: 35px;
+  background-color: black;
+  border: none;
+  color: white;
+  border-bottom: 1px solid rgb(72, 72, 72);
 }
 
 .reg-field:hover {
-	background-color: rgb(7, 22, 36);
-	border-bottom: 1px solid rgb(54, 105, 134);
-	box-shadow: 0px 0px 5px 0px rgba(79, 138, 178, 1);
+  background-color: rgb(7, 22, 36);
+  border-bottom: 1px solid rgb(54, 105, 134);
+  box-shadow: 0px 0px 5px 0px rgba(79, 138, 178, 1);
 }
 
 .reg-field:focus {
-	background-color: rgb(27, 82, 136);
-	border-bottom: 1px solid rgb(104, 155, 204);
-	box-shadow: 0px 0px 10px 2px rgba(79, 138, 178, 1);
+  background-color: rgb(27, 82, 136);
+  border-bottom: 1px solid rgb(104, 155, 204);
+  box-shadow: 0px 0px 10px 2px rgba(79, 138, 178, 1);
 }
 
 .agreement-box {
-	display: block;
-	margin: 0 auto;
-	width: 276px;
-	color: rgb(204, 204, 204);
+  display: block;
+  margin: 0 auto;
+  width: 276px;
+  color: rgb(204, 204, 204);
 }
 
 .agreement-box > input {
-	position: relative;
-	top: 1px;
-	margin-right: 6px;
+  position: relative;
+  top: 1px;
+  margin-right: 6px;
 }
 
-button.btn-create {
-	display: block;
-	margin: 23px auto;
-	width: 151px;
-	height: 37px;
-	background: url(../img/btn-create.png) no-repeat;
-	border: none;
-	color: white;
+.btn-create {
+  display: block;
+  margin: 23px auto;
+  width: 151px;
+  height: 37px;
+  background: url(../img/btn-create.png) no-repeat;
+  border: none;
+  color: white;
 }
 
-button.btn-create:hover {
-	color: #FBFBFB;
-	opacity: 0.8; 
-	filter: alpha(opacity = 80);
+.btn-create:hover {
+  color: #FBFBFB;
+  opacity: 0.8; 
+  filter: alpha(opacity = 80);
 }
 
 .comment {
-	text-align: center;
-	color: rgb(204, 204, 204);
-	font-size: 11px;
-	line-height: 16px;
+  text-align: center;
+  color: rgb(204, 204, 204);
+  font-size: 11px;
+  line-height: 16px;
 }
