@@ -15,7 +15,7 @@ body {
 /* Content */
 
 .content {
-  min-height: 96.1%;
+  /*min-height: 96.1%;*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,7 +68,7 @@ body {
   width: 37px;
   height: 36px;
   content: url('../img/facebook-logo.png');
-  line-height: 42px;
+  line-height: 44px;
   text-align: center;
 }
 
@@ -109,46 +109,50 @@ body {
 /* Splitter */
 
 .splitter {
+  position: relative;
   margin: 30px auto 22px;
   width: 276px;
   height: 16px;
-  text-align: center;
   font-size: 14px;
   color: rgb(153, 153, 153);
+  text-align: center;
 }
 
 .splitter:before {
-  /*background: url(../img/splitter.png) no-repeat;*/
+  display: block;
+  position: absolute;
+  top: 6px;
+  left: 0px;
+  width: 123px;
+  border-top: 1px solid rgb(102, 102, 102);
+  border-bottom: 1px solid rgb(0, 0, 0);
+  content: "";
 }
 
 .splitter:after {
-  /*background: url(../img/splitter.png) no-repeat;*/
+  display: block;
+  position: absolute;
+  top: 6px;
+  right: 0px;
+  width: 123px;
+  border-top: 1px solid rgb(102, 102, 102);
+  border-bottom: 1px solid rgb(0, 0, 0);
+  content: "";
 }
 
-/*.splitter {
-  margin: 30px auto 22px auto;
-  width: 276px;
-  height: 16px;
-  background: url(../img/splitter.png) no-repeat;
-  background-position: 0px 7px;
-  text-align: center;
-  font-size: 14px;
-  color: rgb(153, 153, 153);
-}*/
-
-
+/* Input Fields */
 
 .reg-field {
   display: block;
-  /*margin: 19px 0px;*/
-  /*padding-left: 19px;*/
-  /*width: 257px;*/
+  margin-top: 19px;
+  padding-left: 19px;
+  width: 100%;
   height: 35px;
   background-color: black;
   border: none;
   color: white;
   border-bottom: 1px solid rgb(72, 72, 72);
-  /*box-sizing: border-box;*/
+  box-sizing: border-box;
 }
 
 .reg-field:hover {
@@ -165,38 +169,53 @@ body {
   transition: 0.2s all;
 }
 
+/* Agreement Check-box */
+
 .agreement-box {
   display: block;
-  margin: 0 auto;
-  width: 276px;
+  margin-top: 19px;
   color: rgb(204, 204, 204);
 }
 
-.agreement-box > input {
+.agreement-box input {
+  margin: 0px 6px 0px 0px;
   position: relative;
-  top: 1px;
-  margin-right: 6px;
+  top: 2px;
 }
+
+/* Create Button */
 
 .btn-create {
   display: block;
   margin: 23px auto;
   width: 151px;
-  height: 37px;
-  background: url(../img/btn-create.png) no-repeat;
-  border: none;
+  height: 36px;
+  background: linear-gradient(rgb(106, 174, 219), rgb(46, 123, 196));
+  border-top: 1px solid rgb(107, 184, 231);
+  border-radius: 3px;
+  text-decoration: none;
+  line-height: 37px;
   color: white;
+  text-align: center;
+  font-weight: bold;
 }
 
 .btn-create:hover {
-  color: #FBFBFB;
-  opacity: 0.8; 
-  filter: alpha(opacity = 80);
+  background: linear-gradient(rgb(126, 194, 239), rgb(66, 143, 206));
+  box-shadow: 0px 0px 5px 0px rgb(79, 138, 178);
+  transition: 0.2s all;
 }
 
+.btn-create:active {
+  background: linear-gradient(rgb(86, 154, 199), rgb(26, 103, 176));
+  box-shadow: inset 0px 0px 5px 0px rgb(79, 138, 178);
+}
+
+/* Agreement Comment */
+
 .comment {
-  text-align: center;
-  color: rgb(204, 204, 204);
   font-size: 11px;
   line-height: 16px;
+  color: rgb(204, 204, 204);
+  text-align: center;
 }
