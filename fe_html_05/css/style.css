@@ -1,14 +1,7 @@
 /* Main Stylesheet */
 
-html {
-  min-height: 100%;
-  background: url(../img/upper_panel_mini.png);
-}
-
 body {
-  height: 100%;
-  background: url(../img/background.png);
-  background-position: 0px 36px;
+  background: url(../img/background.png) no-repeat center center fixed; 
   background-size: cover;
 }
 
@@ -16,7 +9,7 @@ body {
 
 .header {
   height: 36px;
-  background: url(../img/upper_panel_mini.png) repeat-x;
+  background: url(../img/upper_panel_mini.png);
 }
 
 /* Content */
@@ -28,16 +21,18 @@ body {
   align-items: center;
 }
 
+/* Form */
+
 .main-form {
   margin: 20px 0px;
   width: 560px;
 }
 
 .form-header {
-  padding-top: 19px;
-  height: 43px;
+  height: 62px;
   background-color: rgba(0, 0, 0, 0.63);
   font-size: 24px;
+  line-height: 62px;
   color: white;
   text-align: center;
 }
@@ -49,33 +44,69 @@ body {
   font-size: 14px;
 }
 
-.form-body li {
-  display: block;
-}
+/* Facebook Button */
 
 .btn-facebook {
-  margin: 0 auto;
-  padding-left: 40px;
-  /*width: 276px;*/
-  height: 35px;
   display: block;
+  position: relative;
+  padding-left: 70px;
+  height: 35px;
   text-decoration: none;
-  border: none;
-  background-image: url(../img/btn-facebook.png);
-  background-color: transparent;
-  color: white;
+  border-top: 1px solid rgb(117, 139, 180);
+  border-radius: 3px 3px 4px 4px;
+  background: linear-gradient(rgb(61, 87, 146), rgb(51, 65, 102));
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
   font-size: 15px;
+  line-height: 35px;
+  color: white;
 }
 
-.btn-facebook > b {
+.btn-facebook:before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 37px;
+  height: 36px;
+  content: url('../img/facebook-logo.png');
+  line-height: 42px;
+  text-align: center;
+}
+
+.btn-facebook:after {
+  position: absolute;
+  top: -1px;
+  left: 38px;
+  height: 36px;
+  border-left: 1px solid rgb(32, 58, 117);
+  border-right: 1px solid rgb(77, 104, 171);
+  content: "";
+}
+
+.btn-facebook p:after {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  height: 36px;
+  line-height: 38px;
+  content: url("../img/right-triangle.png");
+}
+
+.btn-facebook b {
   font-weight: bold;
 }
 
 .btn-facebook:hover {
-  color: #FBFBFB;
-  opacity: 0.8; 
-  filter: alpha(opacity = 80);
+  background: linear-gradient(rgb(71, 107, 176), rgb(61, 75, 112));
+  box-shadow: 0px 0px 5px 0px rgb(79, 138, 178);
+  transition: 0.2s all;
 }
+
+.btn-facebook:active {
+  background: linear-gradient(rgb(41, 67, 116), rgb(31, 55, 82));
+  box-shadow: inset 0px 0px 5px 0px rgb(79, 138, 178);
+}
+
+/* Splitter */
 
 .splitter {
   margin: 30px auto 22px;
@@ -120,7 +151,7 @@ body {
   /*box-sizing: border-box;*/
 }
 
-/*.reg-field:hover {
+.reg-field:hover {
   background-color: rgb(7, 22, 36);
   border-bottom: 1px solid rgb(54, 105, 134);
   box-shadow: 0px 0px 5px 0px rgba(79, 138, 178, 1);
@@ -132,7 +163,7 @@ body {
   border-bottom: 1px solid rgb(104, 155, 204);
   box-shadow: 0px 0px 10px 2px rgba(79, 138, 178, 1);
   transition: 0.2s all;
-}*/
+}
 
 .agreement-box {
   display: block;
