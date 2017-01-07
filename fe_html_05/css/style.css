@@ -8,14 +8,116 @@ body {
 /* Header */
 
 .header {
+  min-width: 770px;
   height: 36px;
   background: url(../img/upper_panel_mini.png);
+}
+
+.header:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+/* User Menu */
+
+.user-menu {
+  margin-right: 20px;
+  float: right;
+  height: 36px;
+}
+
+.user-menu li {
+  float: left;
+  font-family: Tahoma, Verdana, Segoe, "Geneva CY", sans-serif;
+  font-size: 14px;
+  line-height: 36px;
+  text-align: center;
+  color: white;
+}
+
+.user-name {
+  padding: 0px 17px;
+}
+
+.user-name:before {
+  display: block;
+  margin-right: 10px;
+  padding: 6px 0px;
+  float: left;
+  width: 21px;
+  height: 23px;
+  content: url(../img/flag.png);
+}
+
+.menu-login {
+  width: 189px;
+  height: 35px;
+  border-bottom: 1px solid rgb(66, 153, 210);
+  background: linear-gradient(rgb(81, 177, 220), rgb(46, 122, 196));
+}
+
+.menu-login a {
+  color: white;
+}
+
+.menu-login:before {
+  display: block;
+  float: left;
+  width: 1px;
+  height: 35px;
+  background: linear-gradient(rgb(100, 168, 227), rgb(67, 153, 211));
+  content: "";
+}
+
+.menu-login:after {
+  display: block;
+  float: right;
+  width: 1px;
+  height: 35px;
+  background: linear-gradient(rgb(100, 168, 227), rgb(67, 153, 211));
+  content: "";
+}
+
+/* Main Menu */
+
+.main-menu {
+  float: right;
+}
+
+.main-menu li {
+  float: left;
+  padding: 0px 13px;
+  font-family: Tahoma, Verdana, Segoe, "Geneva CY", sans-serif;
+  font-size: 14px;
+  line-height: 36px;
+  text-align: center;
+  color: white;
+}
+
+.main-menu li {
+  color: rgb(96, 181, 237);
+}
+
+.main-menu li:hover {
+  background: rgb(78, 171, 218);
+  color: white;
+}
+
+.main-menu:after {
+  display: block;
+  float: right;
+  margin: 2px 0px 2px 9px;
+  width: 1px;
+  height: 32px;
+  background: rgb(86, 162, 220);
+  content: "";
 }
 
 /* Content */
 
 .content {
-  /*min-height: 96.1%;*/
+  min-height: 96%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,9 +141,14 @@ body {
 
 .form-body {
   margin-top: 2px;
-  padding: 36px 142px 26px;
+  padding: 36px 142px 19px;
   background-color: rgba(0, 0, 0, 0.63);
   font-size: 14px;
+}
+
+.form-footer {
+  padding-bottom: 17px;
+  background-color: rgba(0, 0, 0, 0.63);
 }
 
 /* Facebook Button */
@@ -67,7 +174,7 @@ body {
   left: 0px;
   width: 37px;
   height: 36px;
-  content: url('../img/facebook-logo.png');
+  content: url(../img/facebook-logo.png);
   line-height: 44px;
   text-align: center;
 }
@@ -88,7 +195,7 @@ body {
   right: 25px;
   height: 36px;
   line-height: 38px;
-  content: url("../img/right-triangle.png");
+  content: url(../img/right-triangle.png);
 }
 
 .btn-facebook b {
@@ -187,7 +294,7 @@ body {
 
 .btn-create {
   display: block;
-  margin: 23px auto;
+  margin: 23px auto 0px;
   width: 151px;
   height: 36px;
   background: linear-gradient(rgb(106, 174, 219), rgb(46, 123, 196));
