@@ -40,8 +40,12 @@ body {
   padding: 0px 17px;
 }
 
+.user-name a {
+  text-decoration: none;
+  color: white;
+}
+
 .user-name:before {
-  display: block;
   margin-right: 10px;
   padding: 6px 0px;
   float: left;
@@ -51,7 +55,7 @@ body {
 }
 
 .menu-login {
-  width: 189px;
+  padding: 0px 13px;
   height: 35px;
   border-bottom: 1px solid rgb(66, 153, 210);
   background: linear-gradient(rgb(81, 177, 220), rgb(46, 122, 196));
@@ -87,19 +91,23 @@ body {
 
 .main-menu li {
   float: left;
+}
+
+.main-menu a {
+  display: block;
   padding: 0px 13px;
   font-family: Tahoma, Verdana, Segoe, "Geneva CY", sans-serif;
   font-size: 14px;
   line-height: 36px;
   text-align: center;
-  color: white;
+  text-decoration: none;
 }
 
-.main-menu li {
+.main-menu a {
   color: rgb(96, 181, 237);
 }
 
-.main-menu li:hover {
+.main-menu a:hover {
   background: rgb(78, 171, 218);
   color: white;
 }
