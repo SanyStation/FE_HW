@@ -29,7 +29,7 @@ body {
 
 .user-menu li {
   float: left;
-  font-family: Tahoma, Verdana, Segoe, "Geneva CY", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 36px;
   text-align: center;
@@ -96,7 +96,7 @@ body {
 .main-menu a {
   display: block;
   padding: 0px 13px;
-  font-family: Tahoma, Verdana, Segoe, "Geneva CY", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 36px;
   text-align: center;
