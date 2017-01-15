@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/reset.css">
@@ -10,16 +10,20 @@
 <body>
   <header class="header">
     <p class="contacts">(044)123-45-67 (044)567-89-10</p>
-    <div class="login-panel">
-      
-    </div>
-    <nav class="nav-btn-group">
+    <form action="#" class="auth-form">
+      <input type="text" class="auth-form-login" id="login" placeholder="логин" required>
+      <input type="password" class="auth-form-password" id="password" placeholder="пароль" required>
+      <input type="submit" class="auth-form-submit" value="вход">
+      <a href="#" class="auth-form-register" >регистрация</a>
+      <a href="#" class="auth-form-forgotten-pass">забыли пароль?</a>
+    </form>
+<!--     <nav class="nav-btn-group">
       <ul>
-        <li><a href="#" class="nav-btn-home"></a></li>
-        <li><a href="#" class="nav-btn-net"></a></li>
-        <li><a href="#" class="nav-btn-mail"></a></li>
+        <li class="nav-btn-home"><a href="#"><img src="img/nav-btn-home.png" alt="Home"></a></li>
+        <li class="nav-btn-map"><a href="#"><img src="img/nav-btn-map.png" alt="Map"></a></li>
+        <li class="nav-btn-mail"><a href="#"><img src="img/nav-btn-mail.png" alt="Mail"></a></li>
       </ul>
-    </nav>
+    </nav> -->
   </header>
   <main class="content">
     
