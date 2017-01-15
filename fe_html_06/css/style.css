@@ -18,7 +18,7 @@ body {
 
 .contacts {
   float: left;
-  margin-top: 2px;
+  margin: 3px 0px 7px 7px;
   font-family: Arial, "Helvetica Neue", "Helvetica CY", "Nimbus Sans L", Helvetica, sans-serif;
   font-size: 18px;
   line-height: 27px;
@@ -29,10 +29,10 @@ body {
 .contacts:before {
   display: block;
   float: left;
-  margin-top: 3px;
-  margin-right: 3px;
-  width: 22px;
-  height: 21px;
+  margin: 2px 4px 0px 0px;
+  padding-top: 1px;
+  width: 21px;
+  height: 20px;
   background: linear-gradient(rgb(12, 51, 87), rgb(30, 101, 132));
   border-radius: 100%;
   text-align: center;
@@ -52,6 +52,7 @@ body {
   border-radius: 4px;
   border-top: 1px solid rgb(166, 195, 207);
   border-bottom: 1px solid rgb(89, 109, 128);
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.35);
 }
 
 .auth-form:before {
@@ -75,11 +76,13 @@ body {
   display: block;
   float: left;
   margin: 0px 3px;
-  padding: 0px 4px;
-  width: 105px;
-  height: 16px;
+  padding: 0px 0px 2px;
+  width: 113px;
+  height: 14px;
   border: 1px solid rgb(130, 148, 156);
-  line-height: 20px;
+  border-radius: 2px;
+  text-indent: 4px;
+  letter-spacing: -1px;
 }
 
 .auth-form .auth-form-submit {
@@ -92,10 +95,18 @@ body {
   color: white;
 }
 
+.auth-form .auth-form-submit:hover {
+  text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.75);
+}
+
 .auth-form .auth-form-register {
   margin-left: 4px;
   text-decoration: none;
   color: white;
+}
+
+.auth-form .auth-form-register:hover {
+  text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.75);
 }
 
 /* Login-Register Splitter */
@@ -113,21 +124,43 @@ body {
 /* Forgotten pass */
 
 .auth-form .auth-form-forgotten-pass {
+  display: inline-block;
   margin-left: 17px;
+  height: 13px;
+  border-bottom: 1px solid rgb(124, 135, 148);
+  text-decoration: none;
   color: rgb(191, 191, 191);
-  letter-spacing: 0.1px;
+  letter-spacing: 0px;
+}
+
+.auth-form .auth-form-forgotten-pass:hover {
+  text-shadow: 0px 0px 2px rgba(200, 200, 200, 0.75);
 }
 
 /* Navigation Buttons Group */
 
 .nav-btn-group {
+  position: relative;
   float: left;
   margin: 2px 0px 0px 17px;
-  padding: 2px 5px;
-  width: 66px;
+  padding: 2px 4px;
+  width: 67px;
   height: 15px;
   border: 1px solid rgb(193, 200, 203);
-  border-radius: 10px;
+  border-radius: 12px;
+  background: white;
+}
+
+.nav-btn-group:before {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  width: 63px;
+  height: 13px;
+  box-shadow: 0px 0px 6px 3px rgba(0, 0, 0, 0.25);
+  transform: rotate(2deg);
+  content: "";
+  z-index: -1;
 }
 
 .nav-btn-group:after {
@@ -152,5 +185,24 @@ body {
 }
 
 .nav-btn-mail img {
-  margin-top: 2px;
+  margin: 2px 1px 0px;
 }
+
+/* Site Logo */
+
+.logo {
+  float: left;
+  width: 909px;
+  height: 237px;
+  background: url(../img/logo-photo.png);
+}
+
+.logo a {
+  display: block;
+  margin: 100px 0 0 2px;
+  width: 266px;
+  height: 70px;
+}
+
+/* Main Panel */
+
