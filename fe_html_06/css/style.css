@@ -228,7 +228,7 @@ body {
   height: 32px;
 }
 
-.main-menu a {
+.main-menu ul a {
   padding: 3px 13px 2px;
   border-radius: 12px;
   font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Geneva, Verdana, sans-serif;
@@ -248,7 +248,7 @@ body {
   padding: 3px 9px 2px;
 }
 
-.main-menu a:hover {
+.main-menu ul a:hover {
   background: linear-gradient(to bottom, rgba(31, 103, 135, 1) 0%, rgba(27, 90, 123, 1) 25%, rgba(13, 52, 88, 1) 100%);
   border-radius: 15px;
   color: white;
@@ -291,11 +291,9 @@ body {
   left: 49px;
 }
 
-.main-menu .goods:before {
-  position: absolute;
-  top: 5px;
-  left: -28px;
-  content: url(../img/cart.png);
+.cart {
+  float: right;
+  margin: 7px 7px;
 }
 
 /* Search Forms */
@@ -315,15 +313,15 @@ body {
 
 .search-by-car {
   margin-left: 5px;
-  padding: 1px 10px;
-  width: 393px;
+  padding: 1px 13px 0px 18px;
+  width: 382px;
   height: 130px;
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
 .search-by-car p {
   float: left;
-  margin-left: 10px;
+  margin-left: 2px;
   font-family: Arial, "Helvetica Neue", "Helvetica CY", "Nimbus Sans L", Helvetica, sans-serif;
   font-size: 10px;
   line-height: 16px;
@@ -331,24 +329,42 @@ body {
   letter-spacing: 0.4px;
 }
 
-.search-by-car .column-title {
+.search-by-car dt {
+  float: left;
+  clear: left;
+  width: 75px;
+  font-family: Arial, "Helvetica Neue", "Helvetica CY", "Nimbus Sans L", Helvetica, sans-serif;
+  font-size: 10px;
+  color: rgb(0, 0, 0);
+}
+
+.search-by-car select {
+  width: 102px;
+}
+
+.search-by-car span {
+  font-size: 8px;
+  color: rgb(119, 133, 139);
+}
+
+.search-by-car .title {
   margin-left: 66px;
   font-size: 12px;
   line-height: 12px;
   letter-spacing: 0.28px;
 }
 
-.search-by-car .column-tire {
+.search-by-car .tire {
   margin-left: 73px;
   line-height: 13px;
 }
 
-/* Search Tire Form */
+/* Fieldset Disc */
 
-.search-tire {
-  margin: -1px 0px 0px 14px;
-  width: 191px;
-  height: 134px;
+.column-disc {
+  clear: left;
+  float: left;
+  width: 177px;
 }
 
 /* Search Disc Form */
@@ -356,6 +372,22 @@ body {
 .search-disc {
   margin: -2px 0px 0px 10px;
   width: 266px;
+  height: 134px;
+}
+
+/* Fieldset Tire */
+
+.column-tire {
+  clear: right;
+  float: right;
+  width: 177px;
+}
+
+/* Search Tire Form */
+
+.search-tire {
+  margin: -1px 0px 0px 14px;
+  width: 191px;
   height: 134px;
 }
 
