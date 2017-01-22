@@ -14,7 +14,7 @@
       <input type="text" class="auth-form-login" id="login" placeholder="логин" required>
       <input type="password" class="auth-form-password" id="password" placeholder="пароль" required>
       <input type="submit" class="auth-form-submit" value="вход">
-      <a href="#register" class="auth-form-register" >регистрация</a>
+      <a href="#register" class="auth-form-register">регистрация</a>
       <a href="#forgotten-pass" class="auth-form-forgotten-pass">забыли пароль?</a>
     </form>
     <nav class="nav-btn-group">
@@ -35,8 +35,8 @@
         <li><a href="#articles" class="menu-articles">Статьи</a></li>
         <li><a href="#contacts" class="menu-contacts">Контакты</a></li>
       </ul>
-      <p class="total">на сумму:<span>0,00 грн.</span></p>
-      <p class="goods">товаров:<span>0</span></p>
+      <p class="total">на сумму<span>:</span><span>0,00 грн.</span></p>
+      <p class="goods">товаров<span>:</span><span>0</span></p>
       <a href="#cart" class="cart"><img src="img/cart.png" alt="Cart"></a>
     </nav>
     <form action="#" class="search search-by-car">
@@ -68,12 +68,29 @@
     <form action="#" class="search search-tire">
       <p class="title">поиск шин</p>
       <dl>
-        <dt><label for="">Размер:</label></dt>
-        <dd><select id=""></select><span>/</span><select id=""></select></dd>
+        <dt><label for="width">Размер:</label></dt>
+        <dd class="size">
+          <div class="width"><select id="width"><option value="145">145</option></select></div>
+          <div class="separator">/</div>
+          <div class="profile"><select id="profile"></select></div>
+        </dd>
+        <dt class="r-label"><label for="r">R</label></dt>
+        <dd class="r"><select name="r"><option value="12">12</option></select></dd>
+        <dt><label for="season">Сезон</label></dt>
+        <dd>
+          <input type="checkbox" name="season" id="season-summer">
+          <label for="season-summer">лето</label>
+          <input type="checkbox" name="season" id="season-winter">
+          <label for="season-winter">зима</label>
+          <input type="checkbox" name="season" id="season-all">
+          <label for="season-all">всесез</label>
+        </dd>
       </dl>
+      <!-- <button type="button" class="search-button">поиск...</button> -->
     </form>
     <form action="#" class="search search-disc">
       <p class="title">поиск дисков</p>
+      <!-- <button type="button" class="search-button">поиск...</button> -->
     </form>
   </header>
   <main class="content">

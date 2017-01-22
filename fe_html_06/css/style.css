@@ -261,7 +261,7 @@ body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 11px;
   line-height: 30px;
-  color: rgb(146, 155, 159);
+  color: rgb(136, 145, 149);
 }
 
 .main-menu span {
@@ -275,21 +275,31 @@ body {
 }
 
 .main-menu .total {
-  margin-right: 74px;
-  letter-spacing: 0.25px;
+  margin-right: 78px;
+  letter-spacing: 0.15px;
+  font-weight: 600;
 }
 
 .main-menu .goods {
-  margin-right: 23px;
-  letter-spacing: 0.4px;
+  margin-right: 26px;
+  letter-spacing: -0.3px;
+  font-weight: 600;
 }
 
-.main-menu .total span {
-  right: -62px;
+.main-menu .goods span:first-child,
+.main-menu .total span:first-child {
+  font-size: 11px;
+  line-height: 28px;
+  font-weight: normal;
+  color: rgb(146, 155, 159);
 }
 
-.main-menu .goods span {
+.main-menu .goods span:last-child {
   left: 49px;
+}
+
+.main-menu .total span:last-child {
+  right: -66px;
 }
 
 .cart {
@@ -307,6 +317,17 @@ body {
   border-radius: 18px;
   box-shadow: 2px 3px 5px 1px rgba(0, 0, 0, 0.3);
   font-family: Arial, "Helvetica Neue", "Helvetica CY", "Nimbus Sans L", Helvetica, sans-serif;
+}
+
+.search select {
+  background: transparent;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.search select::-ms-expand {
+  display: none;
 }
 
 .search .title {
@@ -374,16 +395,16 @@ body {
   position: relative;
   float: left;
   margin-bottom: 5px;
-  width: 100px;
+  width: 99px;
   height: 15px;
-  border-top: 2px solid rgb(148, 148, 148);
+  border-top: 2px solid rgb(156, 156, 156);
   border-left: 2px solid rgb(148, 148, 148);
 }
 
 .search-by-car dd:after {
   position: absolute;
-  top: -2px;
-  right: 0px;
+  top: 0px;
+  right: -1px;
   width: 18px;
   height: 18px;
   content: url(../img/down-arrow.png);
@@ -392,17 +413,9 @@ body {
 
 .search-by-car select {
   position: relative;
-  width: 100px;
+  width: 55px;
   height: 17px;
-  background: transparent;
-  border: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   z-index: 2;
-}
-
-.search-by-car select::-ms-expand {
-    display: none;
 }
 
 .search-by-car .model-title {
@@ -436,7 +449,7 @@ body {
 }
 
 .search-by-car .year {
-  width: 56px;
+  width: 55px;
 }
 
 .search-by-car .year-title label {
@@ -533,53 +546,126 @@ body {
   align-items: flex-end;
   float: left;
   clear: left;
-  padding: 2px 5px 1px 0px;
-  width: 47px;
+  padding: 2px 0px 4px 7px;
+  width: 38px;
   height: 15px;
   font-size: 10px;
   font-weight: bold;
   line-height: 8px;
+  letter-spacing: -0.2px;
 }
 
 .search-tire dd {
-  position: relative;
   float: left;
-  margin-bottom: 5px;
+  margin: 0px 0px 5px 7px;
   width: 119px;
   height: 14px;
 }
 
-.search-tire span {
-  display: inline-block;
-  padding: 0px 5px;
-  font-size: 14px;
+.search-tire dd:after {
+  display: table;
+  clear: both;
+  content: "";
 }
 
-/*.search-tire dd:after {
-  position: absolute;
-  top: -2px;
-  right: 0px;
-  width: 18px;
-  height: 18px;
-  content: url(../img/down-arrow.png);
-  z-index: 1;
-}*/
+.search-tire div {
+  float: left;
+}
 
-.search-tire select {
-  position: relative;
-  width: 52px;
+.search-tire .width {
+  border-left: 1px solid rgb(213, 213, 213);
+  box-shadow: inset 1px 1px 2px 0px rgba(0, 0, 0, 0.35);
+}
+
+.search-tire .separator {
+  font-size: 13px;
+  line-height: 21px;
+  margin: 0px 5px;
+}
+
+.search-tire .width select {
+  padding: 0px 2px;
+  width: 51px;
   height: 17px;
-  background: transparent;
-  border: none;
-  border-top: 2px solid rgb(148, 148, 148);
-  border-left: 2px solid rgb(148, 148, 148);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  z-index: 2;
+  background: url(../img/down-arrow-bold.png) no-repeat right 0px top -1px;
+  border-top: 2px solid rgb(166, 166, 166);
+  border-left: 1px solid rgb(134, 134, 134);
+  font-size: 11px;
+  line-height: 11px;
 }
 
-.search-tire select::-ms-expand {
-  display: none;
+.search-tire .profile {
+  position: relative;
+  border-right: 1px solid rgb(199, 199, 199);
+  box-shadow: inset 1px 1px 5px 2px rgba(0, 0, 0, 0.4);
+}
+
+.search-tire .profile:after {
+  position: absolute;
+  top: 0px;
+  right: 1px;
+  width: 13px;
+  height: 0px;
+  border-top: 1px solid rgb(167, 167, 167);
+  border-bottom: 1px solid rgb(216, 216, 216);
+  content: "";
+}
+
+.search-tire .profile select {
+  padding: 0px 2px;
+  width: 52px;
+  height: 15px;
+  background: url(../img/down-arrow-light.png) no-repeat right -1px top 0px;
+  font-size: 11px;
+  line-height: 11px;
+}
+
+.search-tire .r-label {
+  width: 39px;
+}
+
+.search-tire .r-label label {
+  font-size: 11px;
+}
+
+.search-tire .r {
+  position: relative;
+  margin-top: 3px;
+  width: 44px;
+  height: 17px;
+  border-right: 1px solid rgb(199, 199, 199);
+  box-shadow: inset 1px 1px 5px 2px rgba(0, 0, 0, 0.4);
+}
+
+.search-tire .r:after {
+  position: absolute;
+  top: 0px;
+  right: 1px;
+  width: 13px;
+  height: 0px;
+  border-top: 1px solid rgb(167, 167, 167);
+  border-bottom: 1px solid rgb(216, 216, 216);
+  content: "";
+}
+
+.search-tire .r select {
+  padding: 0px 2px;
+  width: 44px;
+  height: 15px;
+  background: url(../img/down-arrow-light.png) no-repeat right -1px top 0px;
+  font-size: 11px;
+  line-height: 11px;
+}
+
+.search-tire input[type="checkbox"] {
+  display: block;
+  clear: left;
+  float: left;
+}
+
+.search-tire input[type="checkbox"] + label {
+  display: block;
+  float: left;
 }
 
 /* Search Disc Form */
@@ -594,8 +680,6 @@ body {
 .search-disc .title {
   letter-spacing: 0.95px;
 }
-
-
 
 
 
