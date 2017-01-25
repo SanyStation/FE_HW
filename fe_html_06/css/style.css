@@ -530,7 +530,6 @@ body {
 
 .search-tire dl {
   margin-top: 7px;
-  height: 21px;
 }
 
 .search-tire dl:after {
@@ -557,9 +556,8 @@ body {
 
 .search-tire dd {
   float: left;
-  margin: 0px 0px 5px 7px;
+  margin: 0px 0px 0px 7px;
   width: 119px;
-  height: 14px;
 }
 
 .search-tire dd:after {
@@ -657,15 +655,66 @@ body {
   line-height: 11px;
 }
 
-.search-tire input[type="checkbox"] {
-  display: block;
-  clear: left;
-  float: left;
+.search-tire .season-label {
+  margin-left: -4px;
+  height: 8px;
+  letter-spacing: -0.1px;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Geneva, Verdana, sans-serif;
+  font-weight: 500;
 }
 
-.search-tire input[type="checkbox"] + label {
+.search-tire .season-label {
+  margin-top: 4px;
+}
+
+.search-tire .season {
+  margin-top: 4px;
+}
+
+/* Styled Checkboxes */
+
+.search-tire .season input[type="checkbox"]:not(checked) {
+  position: absolute;
+  opacity: 0;
+}
+
+.search-tire .season input[type="checkbox"]:not(checked) + label {
   display: block;
-  float: left;
+  position: relative;
+  margin-top: 2px;
+  padding: 0 0 0 18px;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Geneva, Verdana, sans-serif;
+  font-size: 12px;
+}
+
+.search-tire .season input[type="checkbox"]:not(checked) + label:before {
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  width: 9px;
+  height: 9px;
+  background: white;
+  border-top: 1px solid rgb(112, 112, 112);
+  border-left: 1px solid rgb(175, 175, 175);
+  box-shadow: inset 1px 1px 1px 0px rgba(157, 157, 157, 1);
+  content: "";
+}
+
+.search-tire .season input[type="checkbox"]:checked + label:before {
+  background-color: rgba(230, 230, 230, 0.75);
+  content: url(../img/checkbox-flag.png);
+}
+
+.search-tire .season label:nth-child(4) {
+  margin-left: -1px;
+}
+
+.search-tire .season label:nth-child(4):before {
+  margin-left: 1px;
+}
+
+.search-button.tire {
+  margin: -3px 5px 0px;
 }
 
 /* Search Disc Form */
@@ -680,6 +729,7 @@ body {
 .search-disc .title {
   letter-spacing: 0.95px;
 }
+
 
 
 

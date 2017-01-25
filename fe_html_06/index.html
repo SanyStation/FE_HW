@@ -63,7 +63,7 @@
         <dt class="equipment-title"><label for="tire-equipment">Комплектация:</label></dt>
         <dd class="equipment"><select id="tire-equipment"></select></dd>
       </dl>
-      <button type="button" class="search-button">поиск...</button>
+      <button type="button" class="search-button car">поиск...</button>
     </form>
     <form action="#" class="search search-tire">
       <p class="title">поиск шин</p>
@@ -76,8 +76,8 @@
         </dd>
         <dt class="r-label"><label for="r">R</label></dt>
         <dd class="r"><select name="r"><option value="12">12</option></select></dd>
-        <dt><label for="season">Сезон</label></dt>
-        <dd>
+        <dt class="season-label"><label for="season">Сезон:</label></dt>
+        <dd class="season">
           <input type="checkbox" name="season" id="season-summer">
           <label for="season-summer">лето</label>
           <input type="checkbox" name="season" id="season-winter">
@@ -86,11 +86,11 @@
           <label for="season-all">всесез</label>
         </dd>
       </dl>
-      <!-- <button type="button" class="search-button">поиск...</button> -->
+      <button type="button" class="search-button tire">поиск...</button>
     </form>
     <form action="#" class="search search-disc">
       <p class="title">поиск дисков</p>
-      <!-- <button type="button" class="search-button">поиск...</button> -->
+      <!-- <button type="button" class="search-button disc">поиск...</button> -->
     </form>
   </header>
   <main class="content">
