@@ -63,7 +63,7 @@
         <dt class="equipment-title"><label for="tire-equipment">Комплектация:</label></dt>
         <dd class="equipment"><select id="tire-equipment"></select></dd>
       </dl>
-      <button type="button" class="search-button car">поиск...</button>
+      <button type="button" class="search-button">поиск...</button>
     </form>
     <form action="#" class="search search-tire">
       <p class="title">поиск шин</p>
@@ -86,11 +86,25 @@
           <label for="season-all">всесез</label>
         </dd>
       </dl>
-      <button type="button" class="search-button tire">поиск...</button>
+      <button type="button" class="search-button">поиск...</button>
     </form>
     <form action="#" class="search search-disc">
       <p class="title">поиск дисков</p>
-      <!-- <button type="button" class="search-button disc">поиск...</button> -->
+      <dl class="first-column">
+        <dt class="diameter-disc-label"><label for="diameter-disc">Диаметр <span>диска:</span></label></dt>
+        <dd class="diameter-disc"><select id="diameter-disc"><option value="14">14</option></select></dd>
+        <dt class="amount-label"><label for="amount">Количество<br><span>крепежных</span><br><span>отверстий:</span></label></dt>
+        <dd class="amount"><select id="amount"><option value="3">3</option></select></dd>
+        <dt class="diameter-mh-label"><label for="diameter-mh">Диаметр<br><span>расположения</span><br><span>крепежных</span><br><span>отверстий:</span></label></dt>
+        <dd class="diameter-mh"><select id="diameter-mh"><option value="12">12</option></select></dd>
+      </dl>
+      <dl class="second-column">
+        <dt class="dch-title"><label for="dch">ДЦО<br><span>(диаметр</span><br><span>центрального</span><br><span>отверстия):</span></label></dt>
+        <dd class="dch"><select id="dch"><option value="12">12</option></select></dd>
+        <dt class="et-title"><label for="et">ЕТ<br><span>(вылет диска):</span></label></dt>
+        <dd class="et"><select id="et"><option value="12">12</option></select></dd>
+      </dl>
+      <button type="button" class="search-button">поиск...</button>
     </form>
   </header>
   <main class="content">
