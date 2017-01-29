@@ -8,7 +8,7 @@
   <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </head>
 <body>
-  <header class="header">
+  <header class="header clearfix">
     <p class="contacts">(044)123-45-67 (044)567-89-10</p>
     <form action="#" class="auth-form">
       <input type="text" class="auth-form-login" id="login" placeholder="логин" required>
@@ -17,16 +17,14 @@
       <a href="#register" class="auth-form-register">регистрация</a>
       <a href="#forgotten-pass" class="auth-form-forgotten-pass">забыли пароль?</a>
     </form>
-    <nav class="nav-btn-group">
+    <nav class="nav-btn-group clearfix">
       <ul>
         <li class="nav-btn-home"><a href="#home"><img src="img/nav-btn-home.png" alt="Home"></a></li>
         <li class="nav-btn-map"><a href="#map"><img src="img/nav-btn-map.png" alt="Map"></a></li>
         <li class="nav-btn-mail"><a href="#mail"><img src="img/nav-btn-mail.png" alt="Mail"></a></li>
       </ul>
     </nav>
-    <h1 class="logo">
-      <a href="index.html">&nbsp;</a>
-    </h1>
+    <h1 class="logo"><a href="index.html">&nbsp;</a></h1>
     <nav class="main-menu">
       <ul>
         <li><a href="#about" class="menu-about">О компани</a></li>
@@ -39,11 +37,11 @@
       <p class="goods">товаров<span>:</span><span>0</span></p>
       <a href="#cart" class="cart"><img src="img/cart.png" alt="Cart"></a>
     </nav>
-    <form action="#" class="search search-by-car">
-      <p class="disc">Диски:</p>
-      <p class="title">Поиск по автомобилю</p>
-      <p class="tire">Шины:</p>
-      <dl class="column-disc">
+    <form action="#" class="search search-by-car clearfix">
+      <h2 class="disc">Диски:</h2>
+      <h1 class="title">Поиск по автомобилю</h1>
+      <h2 class="tire">Шины:</h2>
+      <dl class="column-disc clearfix">
         <dt class="brand-title"><label for="disc-brand">Марка <span>авто:</span></label></dt>
         <dd class="brand"><select id="disc-brand"></select></dd>
         <dt class="model-title"><label for="disc-model">Модель<br><span>автомобиля:</span></label></dt>
@@ -53,7 +51,7 @@
         <dt class="equipment-title"><label for="disc-equipment">Комплектация:</label></dt>
         <dd class="equipment"><select id="disc-equipment"></select></dd>
       </dl>
-      <dl class="column-tire">
+      <dl class="column-tire clearfix">
         <dt class="brand-title"><label for="tire-brand">Марка <span>авто</span></label></dt>
         <dd class="brand"><select id="tire-brand"></select></dd>
         <dt class="model-title"><label for="tire-model">Модель<br><span>автомобиля:</span></label></dt>
@@ -63,11 +61,11 @@
         <dt class="equipment-title"><label for="tire-equipment">Комплектация:</label></dt>
         <dd class="equipment"><select id="tire-equipment"></select></dd>
       </dl>
-      <button type="button" class="search-button">поиск...</button>
+      <button type="submit" class="search-button">поиск...</button>
     </form>
-    <form action="#" class="search search-tire">
-      <p class="title">поиск шин</p>
-      <dl>
+    <form action="#" class="search search-tire clearfix">
+      <h1 class="title">поиск шин</h1>
+      <dl class="clearfix">
         <dt><label for="width">Размер:</label></dt>
         <dd class="size">
           <div class="width"><select id="width"><option value="145">145</option></select></div>
@@ -75,8 +73,8 @@
           <div class="profile"><select id="profile"></select></div>
         </dd>
         <dt class="r-label"><label for="r">R</label></dt>
-        <dd class="r"><select name="r"><option value="12">12</option></select></dd>
-        <dt class="season-label"><label for="season">Сезон:</label></dt>
+        <dd class="r"><select id="r"><option value="12">12</option></select></dd>
+        <dt class="season-label"><label for="season-all">Сезон:</label></dt>
         <dd class="season">
           <input type="checkbox" name="season" id="season-summer">
           <label for="season-summer">лето</label>
@@ -86,11 +84,11 @@
           <label for="season-all">всесез</label>
         </dd>
       </dl>
-      <button type="button" class="search-button">поиск...</button>
+      <button type="submit" class="search-button">поиск...</button>
     </form>
     <form action="#" class="search search-disc">
-      <p class="title">поиск дисков</p>
-      <dl class="first-column">
+      <h1 class="title">поиск дисков</h1>
+      <dl class="first-column clearfix">
         <dt class="diameter-disc-label"><label for="diameter-disc">Диаметр <span>диска:</span></label></dt>
         <dd class="diameter-disc"><select id="diameter-disc"><option value="14">14</option></select></dd>
         <dt class="amount-label"><label for="amount">Количество<br><span>крепежных</span><br><span>отверстий:</span></label></dt>
@@ -98,22 +96,81 @@
         <dt class="diameter-mh-label"><label for="diameter-mh">Диаметр<br><span>расположения</span><br><span>крепежных</span><br><span>отверстий:</span></label></dt>
         <dd class="diameter-mh"><select id="diameter-mh"><option value="12">12</option></select></dd>
       </dl>
-      <dl class="second-column">
+      <dl class="second-column clearfix">
         <dt class="dch-title"><label for="dch">ДЦО<br><span>(диаметр</span><br><span>центрального</span><br><span>отверстия):</span></label></dt>
         <dd class="dch"><select id="dch"><option value="12">12</option></select></dd>
         <dt class="et-title"><label for="et">ЕТ<br><span>(вылет диска):</span></label></dt>
         <dd class="et"><select id="et"><option value="12">12</option></select></dd>
       </dl>
-      <button type="button" class="search-button">поиск...</button>
+      <button type="submit" class="search-button">поиск...</button>
     </form>
   </header>
-  <main class="content">
-    <div class="tmp">
+  <main class="content clearfix">
+    <!-- <aside class="catalog">
       
+    </aside>
+    <aside class="brands">
+      
+    </aside> -->
+    <div class="container clearfix">
+      <figure class="product-item">
+        <figcaption>Goodyear<br><span>Ultra Grip Extreme</span></figcaption>
+        <a href="#goodyear"><img src="img/goodyear.png" alt="Goodyear Ultra Grip Extreme"></a>
+        <span class="price">90.00 <small>грн.</small></span>
+      </figure>
+      <figure class="product-item">
+        <figcaption>Nokian<br><span>Hakkapeliitta R</span></figcaption>
+        <a href="#nokian"><img src="img/nokian.png" alt="Nokian Hakkapeliitta R"></a>
+        <span class="price">115.00 <small>грн.</small></span>
+      </figure>
+      <figure class="product-item">
+        <figcaption>Hankook<br><span>K 708 155/65 R14</span></figcaption>
+        <a href="#hankook"><img src="img/hankook.png" alt="Hankook K 708 155/65 R14"></a>
+        <span class="price">393.00 <small>грн.</small></span>
+      </figure>
+      <figure class="product-item">
+        <figcaption>Goodyear<br><span>Ultra Grip Extreme</span></figcaption>
+        <a href="#goodyear"><img src="img/goodyear.png" alt="Goodyear Ultra Grip Extreme"></a>
+        <span class="price">90.00 <small>грн.</small></span>
+      </figure>
+      <figure class="product-item">
+        <figcaption>Nokian<br><span>Hakkapeliitta R</span></figcaption>
+        <a href="#nokian"><img src="img/nokian.png" alt="Nokian Hakkapeliitta R"></a>
+        <span class="price">115.00 <small>грн.</small></span>
+      </figure>
+      <figure class="product-item">
+        <figcaption>Hankook<br><span>K 708 155/65 R14</span></figcaption>
+        <a href="#hankook"><img src="img/hankook.png" alt="Hankook K 708 155/65 R14"></a>
+        <span class="price">393.00 <small>грн.</small></span>
+      </figure>
+      <figure class="product-item">
+        <figcaption>Goodyear<br><span>Ultra Grip Extreme</span></figcaption>
+        <a href="#goodyear"><img src="img/goodyear.png" alt="Goodyear Ultra Grip Extreme"></a>
+        <span class="price">90.00 <small>грн.</small></span>
+      </figure>
+      <figure class="product-item">
+        <figcaption>Nokian<br><span>Hakkapeliitta R</span></figcaption>
+        <a href="#nokian"><img src="img/nokian.png" alt="Nokian Hakkapeliitta R"></a>
+        <span class="price">115.00 <small>грн.</small></span>
+      </figure>
+      <figure class="product-item">
+        <figcaption>Hankook<br><span>K 708 155/65 R14</span></figcaption>
+        <a href="#hankook"><img src="img/hankook.png" alt="Hankook K 708 155/65 R14"></a>
+        <span class="price">393.00 <small>грн.</small></span>
+      </figure>
     </div>
   </main>
   <footer class="footer">
-    
+    <img src="img/brand-logo.png" alt="Brands Logo">
+    <div class="footer-links">
+      <ul class="clearfix">
+        <li><a href="#about">О компании</a></li>
+        <li><a href="#delivery">Доставка</a></li>
+        <li><a href="#articles">Статьи</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+      <span>Создание сайта &copy; Global Vision</span>
+    </div>
   </footer>
 </body>
 </html>
