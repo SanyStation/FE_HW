@@ -941,6 +941,54 @@ body {
   content: url(../img/icon-file.png);
 }
 
+.catalog h3 {
+  margin-left: 0px;
+  padding-top: 3px;
+  width: 148px;
+  border: 1px solid rgb(121, 135, 141);
+  border-radius: 13px;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 23px;
+  text-transform: uppercase;
+  color: rgb(17, 65, 161);
+  letter-spacing: -0.1px;
+}
+
+.catalog h3:before {
+  display: block;
+  float: left;
+  margin: -1px 3px 0px 4px;
+  padding: 1px 4px 1px;
+  width: 4px;
+  height: 10px;
+  border-radius: 100%;
+  border: 5px solid rgb(17, 65, 101);
+  content: "";
+}
+
+.catalog-tire {
+  margin: 13px 0px 0px 2px;
+}
+
+.catalog ul {
+  padding-left: 52px;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  line-height: 25px;
+  list-style: circle;
+  color: rgb(70, 89, 97);
+}
+
+.catalog li {
+  /*margin-left: 10px;*/
+}
+
+.catalog a {
+  color: rgb(70, 89, 97);
+  text-decoration: none;
+}
+
 /* Sidebar Brands */
 
 .brands {
