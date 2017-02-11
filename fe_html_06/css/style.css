@@ -95,6 +95,7 @@ body {
   background: transparent;
   border: none;
   color: white;
+  cursor: pointer;
 }
 
 .auth-form .auth-form-submit:hover {
@@ -366,7 +367,8 @@ body {
 }
 
 .search-by-car .tire {
-  margin-left: 71px;
+  float: right;
+  margin-right: 7px;
   line-height: 13px;
 }
 
@@ -493,6 +495,7 @@ body {
   font-style: italic;
   color: rgb(21, 68, 103);
   transform: scale(1.03, 1.0);
+  cursor: pointer;
 }
 
 .search-button:after {
@@ -731,6 +734,7 @@ body {
 /* First Column */
 
 .search-disc .first-column {
+  clear: left;
   float: left;
   margin-left: 14.5px;
   width: 144px;
