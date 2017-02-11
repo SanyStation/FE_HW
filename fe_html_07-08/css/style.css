@@ -1,2 +1,59 @@
 /* Main Stylesheet */
 
+/* Header */
+
+.header {
+  height: 846px;
+  background: url(../img/background.png) no-repeat center 0;
+  background-size: cover;
+}
+
+/* About */
+
+.about {
+  height: 339px;
+  background: linear-gradient(#745083, #322539);
+  border-top: 1px solid #33253a;
+  border-bottom: 1px solid #1d2f37;
+}
+
+/* Posts */
+
+.posts {
+  height: 486px;
+  background: #f9f9f9;
+  border-top: 1px solid #0d151b;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+/*.posts:before {
+  display: block;
+  height: 1px;
+  background: #f9f9f9;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 1);
+  content: "";
+}*/
+
+/* Logos */
+
+.logos {
+  height: 118px;
+  background: #f9f9f9;
+  border-top: 1px solid #fefefe;
+  border-bottom: 1px solid #fefefe;
+}
+
+/* Comments */
+
+.comments {
+  height: 396px;
+  background: #ececec;
+  border-top: 1px solid #d8d8d8;
+}
+
+/* Footer */
+
+.footer {
+  height: 114px;
+  background: url(../img/footer-bg.png) no-repeat center 0;
+}
