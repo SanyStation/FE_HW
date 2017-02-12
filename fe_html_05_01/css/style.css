@@ -1,5 +1,10 @@
 /* Main Stylesheet */
 
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url(../font/HelveticaNeue.ttf);
+}
+
 body {
   background: url(../img/background.png) no-repeat center center fixed; 
   background-size: cover;
