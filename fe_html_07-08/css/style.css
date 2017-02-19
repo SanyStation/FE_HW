@@ -104,6 +104,13 @@
   text-shadow: 0 1px #000;
 }
 
+.heading3 {
+  font-family: "League Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  color: #454545;
+  text-transform: uppercase;
+}
+
 .paragraph {
   margin-top: 6px;
   font-family: "Open Sans Light", Arial, Tahoma, sans-serif;
@@ -270,38 +277,147 @@
 
 /* Posts */
 
-.wrapper--for-posts {
-  margin-top: 100px;
-}
-
 .posts {
   height: 486px;
   background: #f9f9f9;
-  /*background: black;*/
   border-top: 1px solid #0d151b;
   border-bottom: 1px solid #e6e6e6;
 }
 
-/*.posts:before {
-  display: block;
-  height: 1px;
-  background: #f9f9f9;
-  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 1);
-  content: "";
-}*/
+/* Post Slider Block */
 
-.post {
-  padding: 38px;
-  width: 349px;
-  background: white;
-  border: 1px solid #f6f6f6;
+.post-slider {
+  float: left;
+  width: 450px;
 }
 
+.post {
+  position: relative;
+  margin-left: 21px;
+  padding: 29px 39px 35px;
+  background: white;
+  border-left: 1px solid #f6f6f6;
+  border-right: 1px solid #f6f6f6;
+  border-bottom: 1px solid #efefef;
+}
 
+/* Post Triangle */
+
+.post:before {
+  position: absolute;
+  top: 100%;
+  right: 39px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 22px 22px 0;
+  border-color: transparent rgba(0, 0, 0, 0.05) transparent transparent;
+  content: "";
+}
+
+.post:after {
+  position: absolute;
+  top: 100%;
+  right: 40px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 20px 20px 0;
+  border-color: transparent #fff transparent transparent;
+  content: "";
+}
+
+.post__heading3 {
+  font-size: 30px;
+  color: #454545;
+  text-shadow: none;
+}
+
+.post__span {
+  color: #edbfff;
+}
 
 .post__paragraph {
+  margin-top: 10px;
   font-size: 16px;
   color: #454545;
+}
+
+.post__img {
+  position: absolute;
+  top: 18px;
+  left: -24px;
+  width: 49px;
+  height: 49px;
+  object-fit: none;
+  object-position: 0 0;
+}
+
+/* Updates Block */
+
+.updates {
+  float: left;
+  margin-left: 58px;
+  padding-top: 29px;
+  width: 440px;
+}
+
+.updates__list {
+  margin: -2px 0 0 1px;
+}
+
+.updates__item {
+  margin-top: 18px;
+}
+
+.updates__img {
+  float: left;
+  width: 49px;
+  height: 49px;
+  object-fit: none;
+}
+
+.updates__img--news {
+  object-position: -51px 0;
+}
+
+.updates__img--category {
+  object-position: -102px 0;
+}
+
+.updates__img--blog {
+  object-position: -153px 0;
+}
+
+.updates__caption {
+  float: left;
+  margin: 1px 0 0 17px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.updates__link {
+  font-family: "Open Sans Extra Bold", "Open Sans Light", Arial, Tahoma, sans-serif;
+  font-weight: 900;
+  color: #454545;
+  text-decoration: none;
+}
+
+.updates__posted-by {
+  font-family: "Open Sans Light", Arial, Tahoma, sans-serif;
+  letter-spacing: -0.15px;
+}
+
+.link--read-more {
+  float: right;
+  margin: 22px 11px;
+  font-size: 19px;
+  color: #454545;
+  letter-spacing: -0.3px;
+}
+
+.link--read-more:hover {
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
 }
 
 /* Logos */
@@ -311,6 +427,57 @@
   background: #f9f9f9;
   border-top: 1px solid #fefefe;
   border-bottom: 1px solid #fefefe;
+}
+
+.logos__list {
+  margin: 0 27px;
+}
+
+.logos__item {
+  float: left;
+  margin-left: 65px;
+}
+
+.logos__img1 {
+  width: 69px;
+  height: 64px;
+  object-fit: none;
+  object-position: 0 -52px;
+}
+
+.logos__img2 {
+  width: 72px;
+  height: 64px;
+  object-fit: none;
+  object-position: -72px -52px;
+}
+
+.logos__img3 {
+  width: 65px;
+  height: 65px;
+  object-fit: none;
+  object-position: -146px -52px;
+}
+
+.logos__img4 {
+  width: 50px;
+  height: 63px;
+  object-fit: none;
+  object-position: -214px -6px;
+}
+
+.logos__img5 {
+  width: 103px;
+  height: 21px;
+  object-fit: none;
+  object-position: -214px -74px;
+}
+
+.logos__img6 {
+  width: 78px;
+  height: 61px;
+  object-fit: none;
+  object-position: -269px -3px;
 }
 
 /* Comments */
@@ -326,18 +493,4 @@
 .footer {
   height: 114px;
   background: url(../img/footer-bg.png) no-repeat center 0;
-}
-
-/* Spot Fixes */
-
-.margin-left-114 {
-  margin-left: 114px;
-}
-
-.margin-left-116 {
-  margin-left: 116px;
-}
-
-.margin-right-3 {
-  margin-right: 3px;
 }

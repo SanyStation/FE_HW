@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/spotfixes.css">
   <title>FE_HTML_07-08</title>
   <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </head>
@@ -25,7 +26,7 @@
     <div class="slider">
       <div class="wrapper wrapper--for-slider">
         <article class="slider__article">
-          <h1 class="heading1">Lorem Ipsum Dolor</h1>
+          <h1 class="heading1 heading1--slider">Lorem Ipsum Dolor</h1>
           <h2 class="heading2">It will make all of your dreams come true</h2>
           <p class="paragraph">
             Semper sollicitudin gravida eget, vestibulum sit amet sapien. Nunc dignissim tincidunt est, et auctor turpis ornare a. Nam venenatis hendrerit est at volutpat. Morbi elementum euismod lacus id semper. In odio nunc, imperdiet eget aliquam quis, euismod id lectus. Nulla interdum arcu et felis aliquam a tempus lectus lobortis.
@@ -47,7 +48,7 @@
         <p class="paragraph paragraph--about">
           Nunc turpis neque, feugiat eget eleifend et, lacinia non neque. Praesent rhoncus ultrices po&shy;suere. Pellentesque vel lacus eget nisi convallis auctor. Nam
         </p>
-        <a href="#readmore" class="link link--about">Read more</a>
+        <a href="#read-more" class="link link--about">Read more</a>
       </article>
       <article class="about__article margin-left-116">
         <!-- <figure class="about__icon">
@@ -57,7 +58,7 @@
         <p class="paragraph paragraph--about">
           Nunc turpis neque, feugiat eget eleifend et, lacinia non neque. Praesent rhoncus ultrices po&shy;suere. Pellentesque vel lacus eget nisi convallis auctor. Nam
         </p>
-        <a href="#readmore" class="link link--about margin-right-3">Read more</a>
+        <a href="#read-more" class="link link--about margin-right-3">Read more</a>
       </article>
       <article class="about__article margin-left-114">
         <!-- <figure class="about__icon">
@@ -67,26 +68,74 @@
         <p class="paragraph paragraph--about">
           Nunc turpis neque, feugiat eget eleifend et, lacinia non neque. Praesent rhoncus ultrices po&shy;suere. Pellentesque vel lacus eget nisi convallis auctor. Nam
         </p>
-        <a href="#readmore" class="link link--about margin-right-3">Read more</a>
+        <a href="#read-more" class="link link--about margin-right-3">Read more</a>
       </article>
     </div>
   </div>
   <div class="posts">
-    <div class="wrapper wrapper--for-posts">
-      <article class="post">
-        <figure class="post__avatar">
-          <img class="post__img" src="img/sprite-post.png" alt="Avatar">
-        </figure>
-        <h2 class="heading2 post__heading2">Pingbuller <span class="post__heading2-span">starts here<span></h2>
-        <p class="paragraph post__paragraph">
-          “Nunc turpis neque, feu-giat eget eleifend et, lacinia non neque. Prae-sent rhoncus ultrices posuere. Pellentesque vel lacus eget nisi conval-lis auctor. Nam vitae lectus eu libero pellentesque pulvinar urna risus, mattis pulvinar bibendum in, venenatis quis neque. Mauris nec metus ultricies erat consequat dignissim non eu nisl.”
-        </p>
-      </article>
+    <div class="wrapper margin-top-100 clearfix">
+      <section class="post-slider">
+        <article class="post">
+          <figure class="post__avatar">
+            <img class="post__img" src="img/sprite.png" alt="Pingbuller avatar">
+          </figure>
+          <h3 class="heading3">Pingbuller <span class="post__span">starts here<span></h3>
+          <p class="paragraph post__paragraph">
+            “Nunc turpis neque, feugiat eget eleifend et, lacinia non neque. Praesent rhoncus ultrices po&shy;suere. Pellentesque vel lacus eget nisi convallis auctor. Nam vitae lectus eu libero pellentesque pulvinar urna risus, mattis pulvinar bibendum in, venenatis quis neque. Mauris nec metus ultricies erat consequat dignissim non eu nisl.”
+          </p>
+        </article>
+        <ul class="post-switcher">
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </section>
+      <section class="updates">
+        <h3 class="heading3">Recent updates</h3>
+        <ul class="updates__list">
+          <li class="updates__item clearfix">
+            <figure class="updates__figure">
+              <img class="updates__img updates__img--news" src="img/sprite.png" alt="Recent News Img">
+              <figcaption class="updates__caption">
+                <a class="updates__link" href="#post">Nunc turpis neque feugiat eget</a><br>
+                <span class="updates__posted-by">Posted by Admin on March 13 2012 in Recent News</span>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="updates__item clearfix">
+            <figure class="updates__figure">
+              <img class="updates__img updates__img--category" src="img/sprite.png" alt="Category Img">
+              <figcaption class="updates__caption">
+                <a class="updates__link" href="#post">Nunc turpis neque feugiat eget</a><br>
+                <span class="updates__posted-by">Posted by Admin on March 13 2012 in Category</span>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="updates__item margin-top-15 clearfix">
+            <figure class="updates__figure">
+              <img class="updates__img updates__img--blog" src="img/sprite.png" alt="Blog Updates Img">
+              <figcaption class="updates__caption">
+                <a class="updates__link" href="#post">Nunc turpis neque feugiat eget</a><br>
+                <span class="updates__posted-by">Posted by Admin on March 13 2012 in Blog Updates</span>
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+        <a href="#read-more" class="link link--read-more">Read more here</a>
+      </section>
     </div>
   </div>
   <div class="logos">
-    <div class="wrapper">
-      
+    <div class="wrapper margin-top-24">
+      <ul class="logos__list clearfix">
+        <li class="logos__item"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img1"></a></li>
+        <li class="logos__item"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img2"></a></li>
+        <li class="logos__item margin-left-64"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img3"></a></li>
+        <li class="logos__item margin-top-1 margin-left-75"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img4"></a></li>
+        <li class="logos__item margin-top-22 margin-left-68"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img5"></a></li>
+        <li class="logos__item margin-top-2 margin-left-66"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img6"></a></li>
+      </ul>
     </div>
   </div>
   <div class="comments">
