@@ -13,13 +13,13 @@
     <div class="wrapper wrapper--menu clearfix">
       <h1><a href="#" class="logo logo--main">Pingbull<span class="logo__tail logo__tail--main">er</span></a></h1>
       <nav class="menu">
-        <ul>
-         <li class="menu__item"><a class="menu__link" href="#home">Home</a></li>
-         <li class="menu__item"><a class="menu__link" href="#about">About</a></li>
-         <li class="menu__item"><a class="menu__link" href="#blog">Blog</a></li>
-         <li class="menu__item"><a class="menu__link" href="#products">Products</a></li>
-         <li class="menu__item"><a class="menu__link" href="#lorem">Lorem Ipsum</a></li>
-         <li class="menu__item"><a class="menu__link" href="#dolor">Dolor Sit Amet</a></li>
+        <ul class="clearfix">
+         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#home">Home</a></li>
+         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#about">About</a></li>
+         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#blog">Blog</a></li>
+         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#products">Products</a></li>
+         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#lorem">Lorem Ipsum</a></li>
+         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#dolor">Dolor Sit Amet</a></li>
         </ul> 
       </nav>
     </div>
@@ -35,13 +35,15 @@
             <img src="img/iphones.png" alt="Iphones">
           </figure>
         </article>
-        <ul class="switcher switcher--slider">
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-          </ul>
       </div>
+    </div>
+    <div class="wrapper wrapper--slider-switcher">
+      <ul class="switcher switcher--slider">
+        <li class="switcher__item switcher__item--slider"><a class="switcher__link switcher__link--slider" href="#"></a></li>
+        <li class="switcher__item switcher__item--slider"><a class="switcher__link switcher__link--slider" href="#"></a></li>
+        <li class="switcher__item switcher__item--slider"><a class="switcher__link switcher__link--slider" href="#"></a></li>
+        <li class="switcher__item switcher__item--slider"><a class="switcher__link switcher__link--slider" href="#"></a></li>
+      </ul>
     </div>
   </header>
   <main>
@@ -170,8 +172,18 @@
     </div>
   </main>
   <footer class="footer">
-    <div class="wrapper">
-      
+    <div class="wrapper wrapper--footer clearfix">
+      <nav class="menu menu--footer">
+        <ul class="clearfix">
+         <li class="menu__item menu__item--footer"><a class="menu__link menu__link--footer" href="#home">Home</a></li>
+         <li class="menu__item menu__item--footer pr-44"><a class="menu__link menu__link--footer" href="#about">About</a></li>
+         <li class="menu__item menu__item--footer"><a class="menu__link menu__link--footer" href="#blog">Blog</a></li>
+         <li class="menu__item menu__item--footer"><a class="menu__link menu__link--footer" href="#products">Products</a></li>
+         <li class="menu__item menu__item--footer"><a class="menu__link menu__link--footer" href="#lorem">Lorem Ipsum</a></li>
+         <li class="menu__item menu__item--footer"><a class="menu__link menu__link--footer" href="#dolor">Dolor Sit Amet</a></li>
+        </ul> 
+      </nav>
+      <p class="designed-by">Designed by <span class="designed-by__tail">Pingbull AS</span></p>
     </div>
   </footer>
 </body>
