@@ -89,6 +89,10 @@
 
 .logo {
   font-family: "League Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 48px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: -0.4px;
 }
 
 .link {
@@ -100,6 +104,7 @@
 
 .article__h {
   font-family: "League Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
 }
 
 .article__p {
@@ -121,11 +126,8 @@
 .logo--main {
   float: left;
   position: relative;
-  font-size: 48px;
   color: #fff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-  text-decoration: none;
-  letter-spacing: -0.4px;
 }
 
 .logo:before {
@@ -202,13 +204,13 @@
   color: #fefefe;
   letter-spacing: -0.45px;
   text-shadow: 0 1px #000;
+  text-transform: none;
 }
 
 .article__h--slider-h2 {
   font-size: 32px;
   color: #edbfff;
   letter-spacing: -0.05px;
-  text-transform: uppercase;
   text-shadow: 0 1px #000;
 }
 
@@ -221,7 +223,7 @@
   text-shadow: 0 1px #000; 
 }
 
-.article__figure {
+.article__figure--slider {
   position: absolute;
   top: -95px;
   right: -375px;
@@ -237,7 +239,7 @@
 }
 
 .wrapper--about {
-  margin-top: 76px;
+  padding-top: 76px;
 }
 
 .article--about {
@@ -257,7 +259,6 @@
   margin-left: 1px;
   font-size: 30px;
   color: white;
-  text-transform: uppercase;
 }
 
 .article__p--about {
@@ -291,12 +292,7 @@
 }
 
 .wrapper--posts {
-  margin-top: 100px;
-}
-
-.heading3 {
-  color: #454545;
-  font-size: 30px;
+  padding-top: 100px;
 }
 
 .post-slider {
@@ -342,7 +338,7 @@
 
 .article__h--post {
   font-size: 30px;
-  text-transform: uppercase;
+  color: #454545;
 }
 
 .article__h-span {
@@ -352,13 +348,18 @@
 .article__p--post {
   margin-top: 10px;
   font-size: 16px;
+  line-height: 24px;
   color: #454545;
+  letter-spacing: -0.05px;
 }
 
-.article__img {
+.article__figure--post {
   position: absolute;
   top: 18px;
   left: -24px;
+}
+
+.article__img--post {
   width: 49px;
   height: 49px;
   object-fit: none;
@@ -372,6 +373,13 @@
   margin-left: 58px;
   padding-top: 29px;
   width: 440px;
+}
+
+.updates__h {
+  font-family: "League Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  color: #454545;
+  text-transform: uppercase;
 }
 
 .updates__list {
@@ -495,10 +503,50 @@
 
 /* Comments */
 
+.wrapper--comments {
+  padding: 94px 4px 0 0;
+}
+
 .comments {
   height: 396px;
   background: #ececec;
   border-top: 1px solid #d8d8d8;
+}
+
+.article--comment {
+  float: left;
+  margin-right: 59px;
+  width: 280px;
+  height: 210px;
+  overflow: hidden;
+}
+
+.logo--comment {
+  color: #454545;
+}
+
+.logo__tail--comment {
+  color: #b9b9b9;
+}
+
+.article__h--comment {
+  font-size: 30px;
+  color: #454545;
+}
+
+.article__copyrights {
+  margin-top: 14px;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  color: #c5c5c5;
+  font-style: italic;
+  text-shadow: 1px 1px 2px white;
+  letter-spacing: -0.15px;
+}
+
+.article__p--comment {
+  margin-top: 11px;
+  line-height: 24px;
+  letter-spacing: -0.1px;
 }
 
 /* Footer */
