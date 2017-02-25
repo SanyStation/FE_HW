@@ -187,6 +187,16 @@
   border-bottom: 2px solid #edbfff;
 }
 
+.switcher__item {
+  float: left;
+  border-radius: 100%;
+}
+
+.switcher__link {
+  display: block;
+  border-radius: 100%;
+}
+
 /* Slider */
 
 .slider {
@@ -298,16 +308,13 @@
 }
 
 .switcher__item--slider {
-  float: left;
-  padding-left: 6px;
+  margin-left: 6px;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .switcher__link--slider {
-  display: block;
   width: 16px;
   height: 16px;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 100%;
 }
 
 .switcher__link--slider:hover {
@@ -324,6 +331,15 @@
   background: #f9f9f9;
   border-top: 1px solid #0d151b;
   border-bottom: 1px solid #e6e6e6;
+}
+
+.posts:before {
+  display: block;
+  margin: 1px auto;
+  width: 60%;
+  height: 10px;
+  background: radial-gradient(ellipse at top, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 100%);
+  content: "";
 }
 
 .wrapper--posts {
@@ -399,6 +415,31 @@
   height: 49px;
   object-fit: none;
   object-position: 0 0;
+}
+
+.switcher--post {
+  float: right;
+  margin-top: 23px;
+  margin-right: 172px;
+}
+
+.switcher__item--post {
+  margin-left: 4px;
+  background: white;
+  border: 1px solid #e8e8e8;
+}
+
+.switcher__link--post {
+  width: 16px;
+  height: 16px;
+}
+
+.switcher__link--post:hover {
+  margin: 2px;
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(#888888 0%, #7a7a7a 20%, #4a4a4a 100%);
+  border: 1px solid rgba(0, 0, 0, 0.7);
 }
 
 /* Updates Block */
