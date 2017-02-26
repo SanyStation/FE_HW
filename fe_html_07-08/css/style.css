@@ -148,7 +148,7 @@
 }
 
 .wrapper--menu {
-  padding: 66px 4px 0 0;
+  padding-top: 66px;
 }
 
 .logo--main {
@@ -235,7 +235,7 @@
 }
 
 .wrapper--slider {
-  padding: 78px 4px 0 0;
+  padding-top: 78px;
 }
 
 .article__icon {
@@ -370,6 +370,7 @@
   height: 16px;
 }
 
+.switcher__link--slider--active,
 .switcher__link--slider:hover {
   width: 10px;
   height: 10px;
@@ -478,6 +479,7 @@
   height: 16px;
 }
 
+.switcher__link--post--active,
 .switcher__link--post:hover {
   margin: 2px;
   width: 10px;
@@ -623,7 +625,7 @@
 /* Comments */
 
 .wrapper--comments {
-  padding: 94px 4px 0 0;
+  padding-top: 94px;
 }
 
 .comments {
