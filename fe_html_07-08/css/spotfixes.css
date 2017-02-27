@@ -40,8 +40,12 @@
   margin-right: 0;
 }
 
-.mr-3 {
-  margin-right: 3px;
+.mr-1 {
+  margin-right: 1px;
+}
+
+.mr-60 {
+  margin-right: 60px;
 }
 
 /* Margin Left */
@@ -62,15 +66,20 @@
   margin-left: 68px;
 }
 
-.ml-114 {
-  margin-left: 114px;
+.ml-115 {
+  margin-left: 115px;
 }
 
-.ml-116 {
-  margin-left: 116px;
+.ml-118 {
+  margin-left: 118px;
 }
 
 /* Padding Right */
+
+
+.pr-0 {
+  padding-right: 0px;
+}
 
 .pr-44 {
   padding-right: 44px;

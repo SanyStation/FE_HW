@@ -10,20 +10,10 @@
   .wrapper {
     width: 768px;
   }
-
-  .menu {
-    clear: left;
-    float: left;
-  }
 }
 
 @media (min-width: 960px) {
   .wrapper {
     width: 960px;
-  }
-
-  .menu {
-    clear: none;
-    float: right;
   }
 }

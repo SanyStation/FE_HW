@@ -90,7 +90,6 @@
 .menu {
   float: right;
   margin-top: 8px;
-  margin-right: -26px;
 }
 
 .menu__item {
@@ -108,9 +107,12 @@
 .logo {
   font-family: "League Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 48px;
-  text-decoration: none;
   text-transform: uppercase;
   letter-spacing: -0.4px;
+}
+
+.logo__link {
+  text-decoration: none;
 }
 
 .link {
@@ -143,7 +145,7 @@
 
 .header {
   height: 846px;
-  background: url(../img/background.png) no-repeat center 0;
+  background: url(../img/background.png) center no-repeat;
   background-size: cover;
 }
 
@@ -156,6 +158,10 @@
   position: relative;
   color: #fff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.logo__link--main {
+  color: white;
 }
 
 .logo:before {
@@ -216,22 +222,22 @@
   background: rgba(0, 0, 0, 0.2);
 }
 
-.slider__arrow-left {
+.slider__arrow--left {
   display: block;
   position: absolute;
   top: 50%;
   left: 2%;
   margin-top: -15px;
-  width: 30px;
+  width: 35px;
 }
 
-.slider__arrow-right {
+.slider__arrow--right {
   display: block;
   position: absolute;
   top: 50%;
   right: 2%;
   margin-top: -15px;
-  width: 30px;
+  width: 35px;
 }
 
 .wrapper--slider {
@@ -245,6 +251,7 @@
 .article--slider {
   position: relative;
   float: left;
+  margin-left: 1px;
   width: 515px;
 }
 
@@ -296,8 +303,8 @@
 .article--about {
   position: relative;
   float: left;
-  margin-left: 61px;
-  width: 223px;
+  margin-left: 64px;
+  width: 221px;
 }
 
 .article__icon--wrench {
@@ -334,14 +341,14 @@
   font-size: 16px;
   line-height: 24px;
   color: white;
-  letter-spacing: -0.1px;
+  letter-spacing: -0.2px;
   text-shadow: 0 1px #000;
   overflow: hidden;
 }
 
 .article__link--about {
   float: right;
-  margin: 19px 7px 0 0;
+  margin: 19px 6px 0 0;
   font-size: 18px;
   transform: scale(1.0, 1.05);
 }
@@ -357,7 +364,7 @@
 
 .switcher--slider {
   float: right;
-  margin-right: 169px;
+  margin-right: 165px;
 }
 
 .switcher__item--slider {
@@ -393,6 +400,7 @@
 
 .post-slider {
   float: left;
+  margin-left: 3px;
   width: 450px;
 }
 
@@ -572,7 +580,7 @@
 }
 
 .logos__list {
-  margin: 0 27px;
+  margin: 0 30px;
 }
 
 .logos__item {
@@ -642,7 +650,7 @@
   overflow: hidden;
 }
 
-.logo--comment {
+.logo__link--comment {
   color: #454545;
 }
 

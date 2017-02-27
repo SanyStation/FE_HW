@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/spotfixes.css">
+  <link rel="stylesheet" href="css/responsive.css">
   <title>FE_HTML_07-08</title>
   <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </head>
 <body>
   <header class="header">
     <div class="wrapper wrapper--menu clearfix">
-      <h1><a href="#" class="logo logo--main">Pingbull<span class="logo__tail logo__tail--main">er</span></a></h1>
+      <h1 class="logo logo--main"><a href="#" class="logo__link logo__link--main">Pingbull<span class="logo__tail logo__tail--main">er</span></a></h1>
       <nav class="menu">
         <ul class="clearfix">
          <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#home">Home</a></li>
@@ -21,13 +21,13 @@
          <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#blog">Blog</a></li>
          <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#products">Products</a></li>
          <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#lorem">Lorem Ipsum</a></li>
-         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#dolor">Dolor Sit Amet</a></li>
+         <li class="menu__item menu__item--header pr-0"><a class="menu__link menu__link--header pr-0" href="#dolor">Dolor Sit Amet</a></li>
         </ul> 
       </nav>
     </div>
     <div class="slider">
-      <a href="#" class="slider__arrow-left"><img src="img/arrow-left.svg" alt="Arrow Left"></a>
-      <a href="#" class="slider__arrow-right"><img src="img/arrow-right.svg" alt="Arrow Right"></a>
+      <a href="#" class="slider__arrow--left"><img src="img/arrow-left.svg" alt="Arrow Left"></a>
+      <a href="#" class="slider__arrow--right"><img src="img/arrow-right.svg" alt="Arrow Right"></a>
       <div class="wrapper wrapper--slider">
         <article class="article article--slider">
           <h1 class="article__h article__h--slider-h1">Lorem Ipsum Dolor</h1>
@@ -63,7 +63,7 @@
           </p>
           <a href="#read-more" class="link article__link--about">Read more</a>
         </article>
-        <article class="article article--about ml-116">
+        <article class="article article--about ml-118">
           <figure class="article__icon article__icon--comment">
             <img src="img/comment.svg" alt="Comment">
           </figure>
@@ -71,9 +71,9 @@
           <p class="article__p article__p--about">
             Nunc turpis neque, feugiat eget eleifend et, lacinia non neque. Praesent rhoncus ultrices po&shy;suere. Pellentesque vel lacus eget nisi convallis auctor. Nam
           </p>
-          <a href="#read-more" class="link article__link--about mr-3">Read more</a>
+          <a href="#read-more" class="link article__link--about mr-1">Read more</a>
         </article>
-        <article class="article article--about ml-114">
+        <article class="article article--about ml-115">
           <figure class="article__icon article__icon--note">
             <img src="img/note.svg" alt="Note">
           </figure>
@@ -81,7 +81,7 @@
           <p class="article__p article__p--about">
             Nunc turpis neque, feugiat eget eleifend et, lacinia non neque. Praesent rhoncus ultrices po&shy;suere. Pellentesque vel lacus eget nisi convallis auctor. Nam
           </p>
-          <a href="#read-more" class="link article__link--about mr-3">Read more</a>
+          <a href="#read-more" class="link article__link--about mr-0">Read more</a>
         </article>
       </div>
     </div>
@@ -154,13 +154,13 @@
     <div class="comments">
       <div class="wrapper wrapper--comments clearfix">
         <article class="article article--comment">
-          <h1><a href="#" class="logo logo--comment">Pigbull<span class="logo__tail logo__tail--comment">er</span></a></h1>
+          <h1 class="logo logo--comment"><a href="#" class="logo__link logo__link--comment">Pigbull<span class="logo__tail logo__tail--comment">er</span></a></h1>
           <p class="article__copyrights">Copyright 2013, Pingbull AS</p>
           <p class="article__p article__p--comment">
             Nunc turpis neque, feugiat eget eleif&shy;end et, lacinia non neque. Praesent rhoncus ultrices posuere. Pellentesque vel lacus eget nisi convallis auctor. Nam vitae lectus eu libero pellentesque pul&shy;vinar. Quisque urna risus, mattis pulvi&shy;nar bibendum in, venenatis quis neque. Mauris nec metus ultricies erat consequat dignissim non eu nisl. Quisque libero tellus, pharetra et eleifend id, interdum elementum arcu. Suspendisse quis mauris non ligula rutrum faucibus eu quis odio. Phasellus eu lobortis odio. In hac habitasse platea dictumst. Proin vestibulum turpis at mauris aliquam non euismod lorem euismod. Aenean dapibus ultricies enim, eget vulputate leo feugiat non.
           </p>
         </article>
-        <article class="article article--comment">
+        <article class="article article--comment mr-60">
           <h3 class="article__h article__h--comment mt-2">Recent comments</h3>
           <p class="article__p article__p--comment mt-9">
             Nunc turpis neque, feugiat eget eleif&shy;end et, lacinia non neque. Praesent rhoncus ultrices posuere. Pellentesque vel lacus eget nisi convallis auctor. Nam vitae lectus eu libero pellentesque pul&shy;vinar. Quisque urna risus, mattis pulvi&shy;nar bibendum in, venenatis quis neque. Mauris nec metus ultricies erat consequat dignissim non eu nisl. Quisque libero tellus, pharetra et eleifend id, interdum elementum arcu. Suspendisse quis mauris non ligula rutrum faucibus eu quis odio. Phasellus eu lobortis odio. In hac habitasse platea dictumst. Proin vestibulum turpis at mauris aliquam non euismod lorem euismod. Aenean dapibus ultricies enim, eget vulputate leo feugiat non.
