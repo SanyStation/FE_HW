@@ -87,11 +87,6 @@
   width: 960px;
 }
 
-.menu {
-  float: right;
-  margin-top: 8px;
-}
-
 .menu__item {
   float: left;
 }
@@ -141,6 +136,31 @@
   content: "";
 }
 
+.article__figure-flash {
+  display: none;
+  position: absolute;
+  top: 38px;
+  left: 112px;
+  width: 42px;
+  height: 42px;
+  object-fit: none;
+  object-position: -358px 0;
+}
+
+.text-320,
+.text-480,
+.text-768,
+.text-960 {
+  display: none;
+}
+
+.block-320,
+.block-480,
+.block-768,
+.block-960 {
+  display: none;
+}
+
 /* Header */
 
 .header {
@@ -164,7 +184,7 @@
   color: white;
 }
 
-.logo:before {
+.logo--main:before {
   display: block;
   position: absolute;
   top: -4px;
@@ -188,6 +208,11 @@
   background: -ms-linear-gradient(#745083, #33263a);
   -ms-background-clip: text;
   -ms-text-fill-color: transparent;
+}
+
+.menu--header {
+  float: right;
+  margin-top: 8px;
 }
 
 .menu__item--header {
@@ -226,7 +251,7 @@
   display: block;
   position: absolute;
   top: 50%;
-  left: 2%;
+  left: 0.5%;
   margin-top: -15px;
   width: 35px;
 }
@@ -235,7 +260,7 @@
   display: block;
   position: absolute;
   top: 50%;
-  right: 2%;
+  right: 0.5%;
   margin-top: -15px;
   width: 35px;
 }
@@ -451,10 +476,12 @@
 
 .article__p--post {
   margin-top: 10px;
+  height: 168px;
   font-size: 16px;
   line-height: 24px;
   color: #454545;
   letter-spacing: -0.05px;
+  overflow: hidden;
 }
 
 .article__figure--post {
@@ -541,7 +568,7 @@
 
 .updates__caption {
   float: left;
-  margin: 1px 0 0 17px;
+  margin: 1px 0 0 16px;
   font-size: 16px;
   line-height: 24px;
 }
@@ -555,6 +582,7 @@
 .updates__posted-by {
   font-family: "Open Sans Light", Arial, Tahoma, sans-serif;
   letter-spacing: -0.15px;
+  white-space: nowrap;
 }
 
 .link--read-more {
@@ -571,6 +599,10 @@
 }
 
 /* Logos */
+
+.wrapper--logos {
+  margin-top: 24px;
+}
 
 .logos {
   height: 118px;
@@ -683,14 +715,16 @@
 .footer {
   height: 114px;
   background: url(../img/footer-bg.png) no-repeat center 0;
+  background-size: cover;
 }
 
 .wrapper--footer {
-  padding: 27px 4px 0 0;
+  padding-top: 27px;
 }
 
 .menu--footer {
   float: left;
+  margin-left: 1px;
   font-size: 20px;
 }
 
@@ -700,7 +734,7 @@
 
 .designed-by {
   float: right;
-  margin: 16px -2px 0 0;
+  margin-top: 16px;
   font-family: "Open Sans Light", Arial, Tahoma, sans-serif;
   font-size: 12px;
   color: white;
