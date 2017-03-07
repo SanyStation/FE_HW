@@ -13,14 +13,28 @@
   <header class="header">
     <div class="wrapper wrapper--menu clearfix">
       <h1 class="logo logo--main"><a href="#" class="logo__link logo__link--main">Pingbull<span class="logo__tail logo__tail--main">er</span></a></h1>
-      <nav class="menu menu--header">
+      <nav class="menu menu--header block-768 block-960">
         <ul class="clearfix">
          <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#home">Home</a></li>
-         <li class="menu__item menu__item--header block-768 block-960"><a class="menu__link menu__link--header" href="#about">About</a></li>
-         <li class="menu__item menu__item--header block-768 block-960"><a class="menu__link menu__link--header" href="#blog">Blog</a></li>
-         <li class="menu__item menu__item--header block-768 block-960"><a class="menu__link menu__link--header" href="#products">Products</a></li>
-         <li class="menu__item menu__item--header block-768 block-960"><a class="menu__link menu__link--header" href="#lorem">Lorem Ipsum</a></li>
-         <li class="menu__item menu__item--header block-768 block-960 pr-0-960"><a class="menu__link menu__link--header pr-0-960" href="#dolor">Dolor Sit Amet</a></li>
+         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#about">About</a></li>
+         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#blog">Blog</a></li>
+         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#products">Products</a></li>
+         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#lorem">Lorem Ipsum</a></li>
+         <li class="menu__item menu__item--header pr-0-960"><a class="menu__link menu__link--header pr-0-960" href="#dolor">Dolor Sit Amet</a></li>
+        </ul>
+      </nav>
+      <nav class="menu menu--header block-480">
+        <ul class="clearfix">
+         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#home">Home</a>
+          <ul class="menu menu--dropdown clearfix">
+            <li class="menu__item menu__item--dropdown"><a class="menu__link menu__link--dropdown menu__link--dropdown-home" href="#home" >Home</a></li>
+            <li class="menu__item menu__item--dropdown"><a class="menu__link menu__link--dropdown" href="#about">About</a></li>
+            <li class="menu__item menu__item--dropdown"><a class="menu__link menu__link--dropdown" href="#blog" >Blog</a></li>
+            <li class="menu__item menu__item--dropdown"><a class="menu__link menu__link--dropdown" href="#products">Products</a></li>
+            <li class="menu__item menu__item--dropdown"><a class="menu__link menu__link--dropdown" href="#lorem">Lorem Ipsum</a></li>
+            <li class="menu__item menu__item--dropdown"><a class="menu__link menu__link--dropdown" href="#dolor">Dolor Sit Amet</a></li>
+          </ul>
+         </li>
         </ul>
       </nav>
     </div>
@@ -30,19 +44,19 @@
       <div class="wrapper wrapper--slider">
         <article class="article article--slider">
           <h1 class="article__h article__h--slider-h1">Lorem Ipsum Dolor</h1>
-          <h2 class="article__h article__h--slider-h2">It will make all of your dreams come true</h2>
-          <p class="article__p article__p--slider">
+          <h2 class="article__h article__h--slider-h2">It will make all of your dreams come<span class="text-960"> true</span></h2>
+          <p class="article__p article__p--slider block-768 block-960">
             <span class="first-line">Semper sollicitudin gravida eget, ves</span>&shy;tibulum sit amet sapien. Nunc dignis&shy;sim tincidunt est, et auctor turpis ornare a. Nam venenatis hendrerit est at volutpat. Morbi elementum euismod lacus id semper. In odio nunc, imperdiet eget aliquam quis, euismod id lectus. Nulla interdum arcu et felis aliquam a tempus lectus lobortis.
           </p>
-          <figure class="article__figure article__figure--slider">
-            <img src="img/iphones.png" alt="Iphones">
-            <img src="img/sprite.png" alt="Flash" class="article__figure-flash">
+          <figure class="article__figure article__figure--slider block-480 block-768 block-960">
+            <img src="img/iphones.png" alt="Iphones" class="article__figure--iphones">
+            <img src="img/sprite.png" alt="Flash" class="article__figure--flash">
           </figure>
         </article>
       </div>
     </div>
     <div class="wrapper wrapper--slider-switcher">
-      <ul class="switcher switcher--slider">
+      <ul class="switcher switcher--slider clearfix">
         <li class="switcher__item switcher__item--slider"><a class="switcher__link switcher__link--slider" href="#"></a></li>
         <li class="switcher__item switcher__item--slider"><a class="switcher__link switcher__link--slider" href="#"></a></li>
         <li class="switcher__item switcher__item--slider"><a class="switcher__link switcher__link--slider" href="#"></a></li>
@@ -85,7 +99,7 @@
         </article>
       </div>
     </div>
-    <div class="posts block-shadow">
+    <!-- <div class="posts block-shadow">
       <div class="wrapper wrapper--posts clearfix">
         <section class="post-slider">
           <article class="article article--post">
@@ -150,8 +164,8 @@
           <li class="logos__item mt-2-768 ml-56-768 mt-2-960 ml-66-960"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img6"></a></li>
         </ul>
       </div>
-    </div>
-    <div class="comments">
+    </div> -->
+    <!-- <div class="comments">
       <div class="wrapper wrapper--comments clearfix">
         <article class="article article--comment">
           <h1 class="logo logo--comment text-960"><a href="#" class="logo__link logo__link--comment">Pigbull<span class="logo__tail logo__tail--comment">er</span></a></h1>
@@ -175,9 +189,9 @@
           </p>
         </article>
       </div>
-    </div>
+    </div> -->
   </main>
-  <footer class="footer block-shadow">
+  <!-- <footer class="footer block-shadow">
     <div class="wrapper wrapper--footer clearfix">
       <nav class="menu menu--footer">
         <ul class="clearfix">
@@ -191,6 +205,6 @@
       </nav>
       <p class="designed-by">Designed by <span class="designed-by__tail">Pingbull AS</span></p>
     </div>
-  </footer>
+  </footer> -->
 </body>
 </html>

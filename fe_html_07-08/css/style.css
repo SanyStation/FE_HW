@@ -161,6 +161,10 @@
   display: none;
 }
 
+.article__figure--flash {
+  display: none;
+}
+
 /* Header */
 
 .header {
@@ -384,7 +388,7 @@
 }
 
 .wrapper--slider-switcher {
-  margin-top: 93px;
+  padding-top: 93px;
 }
 
 .switcher--slider {
@@ -601,7 +605,7 @@
 /* Logos */
 
 .wrapper--logos {
-  margin-top: 24px;
+  padding-top: 24px;
 }
 
 .logos {
