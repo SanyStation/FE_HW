@@ -388,6 +388,7 @@
 }
 
 .wrapper--slider-switcher {
+  position: relative;
   padding-top: 93px;
 }
 
