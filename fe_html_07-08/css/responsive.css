@@ -71,7 +71,7 @@
   .menu--dropdown {
     display: none;
     position: absolute;
-    top: -14px;
+    top: -10px;
     left: -79px;
     width: 244px;
     background: rgba(54, 41, 62, 0.9);
@@ -162,11 +162,104 @@
   /* About Block */
 
   .article--about {
+    clear: left;
+    float: left;
+    margin-bottom: 24px;
     width: auto;
   }
 
+  .wrapper--about {
+    padding: 77px 25px 44px 20px;
+    box-sizing: border-box;
+  }
 
+  .article__h--about {
+    font-size: 24px;
+  }
 
+  .article__p--about {
+    margin-top: 4px;
+    margin-left: 1px;
+    font-size: 16px;
+    height: auto;
+    letter-spacing: -0.07px;
+  }
+
+  .article__link--about {
+    margin-top: 15px;
+    margin-right: 0px;
+  }
+
+  .article__icon--wrench,
+  .article__icon--comment,
+  .article__icon--note {
+    top: 2px;
+    left: -50px;
+    width: 29px;
+    height: 29px;
+    content: url(../img/wrench.svg);
+  }
+
+  /* Posts */
+
+  .block-shadow:before {
+    width: 100%;
+  }
+
+  .wrapper--posts {
+    padding-top: 58px;
+    padding-bottom: 69px;
+    padding-left: 21px;
+    box-sizing: border-box;
+  }
+
+  .article--post {
+    margin-right: 11px;
+    padding-top: 27px;
+    padding-right: 30px;
+    padding-bottom: 32px;
+    width: auto;
+  }
+
+  .article__p--post {
+    margin-top: 15px;
+    letter-spacing: -0.06px;
+  }
+
+  .article--post:before,
+  .article--post:after {
+    display: none;
+  }
+
+  .switcher--post {
+    margin-right: 183px;
+  }
+
+  /* Updates Section */
+
+  .updates {
+    margin-top: 47px;
+    margin-left: 64px;
+    width: 338px;
+  }
+
+  .link--read-more {
+    margin: 19px 0px;
+  }
+
+  /* Spotfixes */
+
+  .mt-17-480 {
+    margin-top: 17px;
+  }
+
+  .mt-19-480 {
+    margin-top: 19px;
+  }
+
+  .mb-28-480 {
+    margin-bottom: 28px;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 959px) {
@@ -317,14 +410,14 @@
     margin-top: 10px;
   }
 
-  .block-shadow:before {
-    width: 100%;
-  }
-
   /* Posts Block */
 
   .post-slider {
     width: 356px;
+  }
+
+  .block-shadow:before {
+    width: 100%;
   }
 
   .article--post {

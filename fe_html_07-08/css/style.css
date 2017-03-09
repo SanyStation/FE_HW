@@ -319,7 +319,6 @@
 /* About */
 
 .about {
-  height: 339px;
   background: linear-gradient(#745083, #322539);
   border-top: 1px solid #33253a;
   border-bottom: 1px solid #1d2f37;
@@ -327,6 +326,7 @@
 
 .wrapper--about {
   padding-top: 76px;
+  padding-bottom: 67px;
 }
 
 .article--about {
@@ -417,7 +417,6 @@
 /* Posts */
 
 .posts {
-  height: 486px;
   background: #f9f9f9;
   border-top: 1px solid #0d151b;
   border-bottom: 1px solid #e6e6e6;
@@ -425,6 +424,7 @@
 
 .wrapper--posts {
   padding-top: 88px;
+  padding-bottom: 68px;
 }
 
 .post-slider {
@@ -531,8 +531,8 @@
 
 .updates {
   float: left;
+  margin-top: 29px;
   margin-left: 58px;
-  padding-top: 29px;
   width: 440px;
 }
 
@@ -604,15 +604,15 @@
 
 /* Logos */
 
-.wrapper--logos {
-  padding-top: 24px;
-}
-
 .logos {
-  height: 118px;
   background: #f9f9f9;
   border-top: 1px solid #fefefe;
   border-bottom: 1px solid #fefefe;
+}
+
+.wrapper--logos {
+  padding-top: 24px;
+  padding-bottom: 26px;
 }
 
 .logos__list {
@@ -668,14 +668,15 @@
 
 /* Comments */
 
-.wrapper--comments {
-  padding-top: 94px;
-}
-
 .comments {
-  height: 395px;
+  /*height: 395px;*/
   background: #ececec;
   border-top: 1px solid #d8d8d8;
+}
+
+.wrapper--comments {
+  padding-top: 94px;
+  padding-bottom: 91px;
 }
 
 .article--comment {
@@ -717,13 +718,13 @@
 /* Footer */
 
 .footer {
-  height: 114px;
   background: url(../img/footer-bg.png) no-repeat center 0;
   background-size: cover;
 }
 
 .wrapper--footer {
   padding-top: 27px;
+  padding-bottom: 48px;
 }
 
 .menu--footer {
