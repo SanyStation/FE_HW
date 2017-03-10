@@ -76,6 +76,10 @@
 
 /* Common Objects */
 
+body {
+  min-width: 320px;
+}
+
 .clearfix:after {
   display: table;
   clear: both;

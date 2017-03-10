@@ -162,7 +162,7 @@
   }
 
   .wrapper--about {
-    padding: 70px 25px 44px 19px;
+    padding: 70px 25px 39px 19px;
     box-sizing: border-box;
   }
 
@@ -173,13 +173,12 @@
   .article__p--about {
     margin-top: 4px;
     margin-left: 1px;
-    font-size: 16px;
-    height: auto;
+    height: 70px;
     letter-spacing: -0.07px;
   }
 
   .article__link--about {
-    margin-top: 15px;
+    margin-top: 17px;
     margin-right: 0px;
   }
 
@@ -191,6 +190,147 @@
     width: 29px;
     height: 29px;
     content: url(../img/wrench.svg);
+  }
+
+  /* Posts Block */
+
+  .block-shadow:before {
+    width: 100%;
+  }
+
+  .post-slider {
+    width: auto;
+  }
+
+  .wrapper--posts {
+    padding: 58px 17px 69px 21px;
+    box-sizing: border-box;
+  }
+
+  .article--post {
+    padding: 25px 41px 26px 35px;
+    width: auto;
+  }
+
+  .article__h--post {
+    width: 100px;
+    font-size: 24px;
+  }
+
+  .article__p--post {
+    margin-top: 5px;
+    margin-left: 3px;
+    letter-spacing: -0.04px;
+  }
+
+  .article--post:before,
+  .article--post:after {
+    display: none;
+  }
+
+  .switcher--post {
+    margin-right: 76px;
+  }
+
+  /* Updates Section */
+
+  .updates {
+    margin-top: 47px;
+    margin-left: 0px;
+    width: auto;
+  }
+
+  .link--read-more {
+    margin-top: 17px;
+    margin-right: 5px;
+  }
+
+   .updates__posted-by {
+    letter-spacing: -0.1px;
+  }
+
+   /* Logos Block */
+
+  .wrapper--logos {
+    padding: 48px 20px 72px 43px;
+    box-sizing: border-box;
+  }
+
+  .logos__list {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+  .logos__item {
+    margin-left: 21px;
+  }
+
+  /* Footer */
+
+  .wrapper--footer {
+    padding: 14px 22px 146px 23px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .designed-by {
+    display: inline-block;
+    float: none;
+    margin-left: 3px;
+  }
+
+  /* Spotfixes */
+
+  .mt-16-320 {
+    margin-top: 16px;
+  }
+
+  .mt-40-320 {
+    margin-top: 40px;
+  }
+
+  .mt-22-320 {
+    margin-top: 22px;
+  }
+
+  .mt-58-320 {
+    margin-top: 58px;
+  }
+
+  .mt-59-320 {
+    margin-top: 59px;
+  }
+
+  .mt-60-320 {
+    margin-top: 60px;
+  }
+
+  .mb-1-320 {
+    margin-bottom: 1px;
+  }
+
+  .mb-40-320 {
+    margin-bottom: 40px;
+  }
+
+  .ml-1-320 {
+    margin-left: 1px;
+  }
+
+  .ml-29-320 {
+    margin-left: 29px;
+  }
+
+  .ml-55-320 {
+    margin-left: 55px;
+  }
+
+  .ml-56-320 {
+    margin-left: 56px;
+  }
+
+  .ml-65-320 {
+    margin-left: 65px;
   }
 }
 
@@ -360,7 +500,6 @@
   .article__p--about {
     margin-top: 4px;
     margin-left: 1px;
-    font-size: 16px;
     height: auto;
     letter-spacing: -0.07px;
   }
@@ -380,21 +519,22 @@
     content: url(../img/wrench.svg);
   }
 
-  /* Posts */
+  /* Posts Block */
 
   .block-shadow:before {
     width: 100%;
   }
 
+  .post-slider {
+    width: auto;
+  }
+
   .wrapper--posts {
-    padding-top: 58px;
-    padding-bottom: 69px;
-    padding-left: 21px;
+    padding: 58px 17px 69px 21px;
     box-sizing: border-box;
   }
 
   .article--post {
-    margin-right: 11px;
     padding-top: 27px;
     padding-right: 30px;
     padding-bottom: 32px;
@@ -426,6 +566,8 @@
   .link--read-more {
     margin: 19px 0px;
   }
+
+  /* Logos Block */
 
   .wrapper--logos {
     padding-top: 36px;
