@@ -4,6 +4,10 @@
   
   /* Common */
 
+  body {
+    min-width: 320px;
+  }
+
   .text-320 {
     display: inline;
   }
@@ -337,6 +341,10 @@
 @media screen and (min-width: 480px) and (max-width: 767px) {
   
   /* Common */
+
+  body {
+    min-width: 480px;
+  }
 
   .text-480 {
     display: inline;
@@ -689,6 +697,10 @@
   
   /* Common */
 
+  body {
+    min-width: 768px;
+  }
+
   .text-768 {
     display: inline;
   }
@@ -1003,6 +1015,10 @@
 @media screen and (min-width: 960px) {
   
   /* Common */
+
+  body {
+    min-width: 960px;
+  }
 
   .slider__arrow--left,
   .slider__arrow--right {

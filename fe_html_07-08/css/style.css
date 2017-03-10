@@ -77,7 +77,7 @@
 /* Common Objects */
 
 body {
-  min-width: 320px;
+  min-width: 960px;
 }
 
 .clearfix:after {
