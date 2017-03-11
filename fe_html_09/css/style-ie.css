@@ -1,0 +1,38 @@
+/* Main Stylesheet for IE */
+
+body {
+  min-width: 960px;
+}
+
+header,
+nav,
+section,
+article,
+aside,
+figure,
+figcaption,
+footer {
+  display:block;
+}
+
+/* Common */
+
+.text-960 {
+  display: inline-block;
+}
+
+.block-960 {
+  display: block;
+}
+
+.wrapper {
+  max-width: 960px;
+}
+
+/* Slider */
+
+.slider {
+  background: transparent;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#33000000, endColorstr=#33000000); 
+  zoom: 1;
+}

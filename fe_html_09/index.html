@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <title>FE_HTML_09</title>
+  <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" media="all" href="css/style-ie.css"/>
+  <![endif]-->
+  <!--[if lte IE 8]>
+   <script>
+      document.createElement('header');
+      document.createElement('nav');
+      document.createElement('section');
+      document.createElement('article');
+      document.createElement('aside');
+      document.createElement('figure');
+      document.createElement('figcaption');
+      document.createElement('footer');
+   </script>
+<![endif]-->
+</head>
+<body>
+  <header class="header">
+    <div class="wrapper wrapper--menu clearfix">
+      <h1 class="logo logo--main"><a href="#" class="logo__link logo__link--main">Pingbull<span class="logo__tail logo__tail--main">er</span></a></h1>
+      <nav class="menu menu--header block-768 block-960">
+        <ul class="clearfix">
+         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#home">Home</a></li>
+         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#about">About</a></li>
+         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#blog">Blog</a></li>
+         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#products">Products</a></li>
+         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#lorem">Lorem Ipsum</a></li>
+         <li class="menu__item menu__item--header pr-0-960"><a class="menu__link menu__link--header pr-0-960" href="#dolor">Dolor Sit Amet</a></li>
+        </ul>
+      </nav>
+      <nav class="menu menu--header block-320 block-480">
+        <ul class="clearfix">
+         <li class="menu__item menu__item--header"><a class="menu__link menu__link--header" href="#home">Home</a>
+          <ul class="menu menu--dropdown">
+            <li class="menu__item menu__item--dropdown"><a class="menu__link menu__link--dropdown menu__link--dropdown-home" href="#home" >Home</a></li>
+            <li class="menu__item menu__item--dropdown"><a class="menu__link menu__link--dropdown" href="#about">About</a></li>
+            <li class="menu__item menu__item--dropdown"><a class="menu__link menu__link--dropdown" href="#blog" >Blog</a></li>
+            <li class="menu__item menu__item--dropdown"><a class="menu__link menu__link--dropdown" href="#products">Products</a></li>
+            <li class="menu__item menu__item--dropdown"><a class="menu__link menu__link--dropdown" href="#lorem">Lorem Ipsum</a></li>
+            <li class="menu__item menu__item--dropdown"><a class="menu__link menu__link--dropdown" href="#dolor">Dolor Sit Amet</a></li>
+          </ul>
+         </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="slider">
+      <a href="#" class="slider__arrow--left"><img src="img/arrow-left.svg" alt="Arrow Left"></a>
+      <a href="#" class="slider__arrow--right"><img src="img/arrow-right.svg" alt="Arrow Right"></a>
+      <div class="wrapper wrapper--slider clearfix">
+        <article class="article article--slider">
+          <h1 class="article__h article__h--slider-h1">Lorem Ipsum Dolor</h1>
+          <h2 class="article__h article__h--slider-h2">It will make all of your dreams come<span class="text-960"> true</span></h2>
+          <p class="article__p article__p--slider block-768 block-960">
+            <span class="first-line">Semper sollicitudin gravida eget, ves</span>&shy;tibulum sit amet sapien. Nunc dignis&shy;sim tincidunt est, et auctor turpis ornare a. Nam venenatis hendrerit est at volutpat. Morbi elementum euismod lacus id semper. In odio nunc, imperdiet eget aliquam quis, euismod id lectus. Nulla interdum arcu et felis aliquam a tempus lectus lobortis.
+          </p>
+          <figure class="article__figure article__figure--slider block-480 block-768 block-960">
+            <img src="img/iphones.png" alt="Iphones" class="article__figure--iphones">
+            <img src="img/sprite.png" alt="Flash" class="article__figure--flash">
+          </figure>
+        </article>
+      </div>
+    </div>
+    <div class="wrapper wrapper--slider-switcher clearfix">
+      <ul class="switcher switcher--slider clearfix">
+        <li class="switcher__item switcher__item--slider"><a class="switcher__link switcher__link--slider" href="#"></a></li>
+        <li class="switcher__item switcher__item--slider"><a class="switcher__link switcher__link--slider" href="#"></a></li>
+        <li class="switcher__item switcher__item--slider"><a class="switcher__link switcher__link--slider" href="#"></a></li>
+        <li class="switcher__item switcher__item--slider"><a class="switcher__link switcher__link--slider" href="#"></a></li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <div class="about">
+      <div class="wrapper wrapper--about clearfix">
+        <article class="article article--about">
+          <figure class="article__icon article__icon--wrench">
+            <img src="img/wrench.svg" alt="Wrench">
+          </figure>
+          <h3 class="article__h article__h--about">About our company</h3>
+          <p class="article__p article__p--about">
+            Nunc turpis neque, feugiat eget eleifend et, lacinia non neque. Praesent rhoncus ultrices po&shy;suere. Pel&shy;lentesque vel lacus eget nisi convallis auctor. Nam
+          </p>
+          <a href="#read-more" class="link article__link--about">Read more</a>
+        </article>
+        <article class="article article--about mb-40-320 mb-28-480 ml-98-768 ml-118-960">
+          <figure class="article__icon article__icon--comment">
+            <img src="img/comment.svg" alt="Comment">
+          </figure>
+          <h3 class="article__h article__h--about">About our company</h3>
+          <p class="article__p article__p--about">
+            Nunc turpis neque, feugiat eget eleifend et, lacinia non neque. Praesent rhoncus ultrices po&shy;suere. Pel&shy;lentesque vel lacus eget nisi convallis auctor. Nam
+          </p>
+          <a href="#read-more" class="link article__link--about mr-1-960 mr-7-768">Read more</a>
+        </article>
+        <article class="article article--about ml-107-768 ml-115-960">
+          <figure class="article__icon article__icon--note">
+            <img src="img/note.svg" alt="Note">
+          </figure>
+          <h3 class="article__h article__h--about">About our company</h3>
+          <p class="article__p article__p--about">
+            Nunc turpis neque, feugiat eget eleifend et, lacinia non neque. Praesent rhoncus ultrices po&shy;suere. Pel&shy;lentesque vel lacus eget nisi convallis auctor. Nam
+          </p>
+          <a href="#read-more" class="link article__link--about mr-0-960 mr-6-768">Read more</a>
+        </article>
+      </div>
+    </div>
+    <div class="posts block-shadow">
+      <div class="wrapper wrapper--posts clearfix">
+        <section class="post-slider">
+          <article class="article article--post">
+            <figure class="article__figure article__figure--post">
+              <img class="article__img article__img--post" src="img/sprite.png" alt="Pingbuller avatar">
+            </figure>
+            <h3 class="article__h article__h--post">Pingbuller <span class="article__h-span">starts here<span></h3>
+            <p class="article__p article__p--post">
+              “Nunc turpis neque, feu&shy;giat eget eleifend et, lacinia non neque. Prae&shy;sent rhoncus ultrices po&shy;suere. Pellentesque vel lacus eget nisi conval&shy;lis auctor. Nam vitae lectus eu libero pellentesque pulvinar urna risus, mattis pulvinar bibendum in, venenatis quis neque. Mauris nec metus ultricies erat consequat dignissim non eu nisl.”
+            </p>
+          </article>
+          <ul class="switcher switcher--post clearfix">
+            <li class="switcher__item switcher__item--post"><a class="switcher__link switcher__link--post" href="#"></a></li>
+            <li class="switcher__item switcher__item--post"><a class="switcher__link switcher__link--post" href="#"></a></li>
+            <li class="switcher__item switcher__item--post"><a class="switcher__link switcher__link--post" href="#"></a></li>
+            <li class="switcher__item switcher__item--post"><a class="switcher__link switcher__link--post" href="#"></a></li>
+          </ul>
+        </section>
+        <section class="updates">
+          <h3 class="updates__h">Recent updates</h3>
+          <ul class="updates__list">
+            <li class="updates__item clearfix">
+              <figure class="updates__figure clearfix">
+                <img class="updates__img updates__img--news" src="img/sprite.png" alt="Recent News Img">
+                <figcaption class="updates__caption">
+                  <a class="updates__link" href="#post">Nunc turpis neque<span class="text-480 text-768 text-960"> feugiat eget</span></a><br>
+                  <span class="updates__posted-by">Posted by Admin on March 13<span class="text-480 text-768 text-960"> 2012</span><span class="text-960"> in Recent News</span></span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="updates__item mt-16-320 mt-19-480 mt-19-768 learfix">
+              <figure class="updates__figure clearfix">
+                <img class="updates__img updates__img--category" src="img/sprite.png" alt="Category Img">
+                <figcaption class="updates__caption">
+                  <a class="updates__link" href="#post">Nunc turpis neque<span class="text-480 text-768 text-960"> feugiat eget</span></a><br>
+                  <span class="updates__posted-by">Posted by Admin on March 13<span class="text-480 text-768 text-960"> 2012</span><span class="text-960"> in Category</span></span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="updates__item mt-22-320 mt-17-480 mt-17-768 mt-15-960 clearfix">
+              <figure class="updates__figure clearfix">
+                <img class="updates__img updates__img--blog" src="img/sprite.png" alt="Blog Updates Img">
+                <figcaption class="updates__caption">
+                  <a class="updates__link" href="#post">Nunc turpis neque<span class="text-480 text-768 text-960"> feugiat eget</span></a><br>
+                  <span class="updates__posted-by">Posted by Admin on March 13<span class="text-480 text-768 text-960"> 2012</span><span class="text-960"> in Blog Updates</span></span>
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+          <a href="#read-more" class="link link--read-more"><span class="text-960">Read more here</span><span class="text-320 text-480 text-768">More Blog Posts</span></a>
+        </section>
+      </div>
+    </div>
+    <div class="logos">
+      <div class="wrapper wrapper--logos clearfix">
+        <ul class="logos__list clearfix">
+          <li class="logos__item ml-0-768"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img1"></a></li>
+          <li class="logos__item ml-55-320"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img2"></a></li>
+          <li class="logos__item mt-58-320 ml-29-320 ml-54-480 ml-54-768 ml-64-960"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img3"></a></li>
+          <li class="logos__item mt-59-320 mb-1-320 ml-65-320 mt-23-480 ml-40-480 mt-1-768 ml-65-768 mt-1-960 ml-75-960"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img4"></a></li>
+          <li class="logos__item mt-60-320 ml-1-320 mt-58-320 mt-44-480 ml-58-480 mt-22-768 ml-58-768 mt-22-960 ml-68-960"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img5"></a></li>
+          <li class="logos__item mt-40-320 ml-56-320 mt-24-480 ml-56-480 mt-2-768 ml-56-768 mt-2-960 ml-66-960"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img6"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="comments block-480 block-768 block-960">
+      <div class="wrapper wrapper--comments clearfix">
+        <article class="article article--comment">
+          <h1 class="logo logo--comment block-960"><a href="#" class="logo__link logo__link--comment">Pigbull<span class="logo__tail logo__tail--comment">er</span></a></h1>
+          <p class="article__copyrights block-960">Copyright 2013, Pingbull AS</p>
+          <h3 class="article__h article__h--comment text-480 text-768">News categories</h3>
+          <p class="article__p article__p--comment">
+            Nunc turpis neque, feugiat eget eleif&shy;end et, lacinia non neque. Praesent rhoncus ultrices posuere. Pellen&shy;tesque vel lacus eget nisi convallis auctor. Nam vitae lectus eu libero pellen&shy;tesque pul&shy;vinar. Quisque urna risus, mattis pulvi&shy;nar biben&shy;dum in, venenatis quis neque. Mauris nec metus ultricies erat consequat dignissim non eu nisl. Quisque libero tellus, pharetra et eleifend id, interdum elementum arcu. Suspendisse quis mauris non ligula rutrum faucibus eu quis odio. Phasellus eu lobortis odio. In hac habitasse platea dictumst. Proin vestibulum turpis at mauris aliquam non euismod lorem euismod. Aenean dapibus ultricies enim, eget vulputate leo feugiat non.
+          </p>
+        </article>
+        <article class="article article--comment mb-59-480 mr-32-768 mr-60-960">
+          <h3 class="article__h article__h--comment mt-2-960 text-960">Recent comments</h3>
+          <h3 class="article__h article__h--comment mt-2-960 text-480 text-768">News categories</h3>
+          <p class="article__p article__p--comment mt-9-960">
+            Nunc turpis neque, feugiat eget eleif&shy;end et, lacinia non neque. Praesent rhoncus ultrices posuere. Pellen&shy;tesque vel lacus eget nisi convallis auctor. Nam vitae lectus eu libero pellen&shy;tesque pul&shy;vinar. Quisque urna risus, mattis pulvi&shy;nar biben&shy;dum in, venenatis quis neque. Mauris nec metus ultricies erat consequat dignissim non eu nisl. Quisque libero tellus, pharetra et eleifend id, interdum elementum arcu. Suspendisse quis mauris non ligula rutrum faucibus eu quis odio. Phasellus eu lobortis odio. In hac habitasse platea dictumst. Proin vestibulum turpis at mauris aliquam non euismod lorem euismod. Aenean dapibus ultricies enim, eget vulputate leo feugiat non.
+          </p>
+        </article>
+        <article class="article article--comment mr-0-768 mr-0-960">
+          <h3 class="article__h article__h--comment mt-2-960">News categories</h3>
+          <p class="article__p article__p--comment mt-9-960">
+            Nunc turpis neque, feugiat eget eleif&shy;end et, lacinia non neque. Praesent rhoncus ultrices posuere. Pellen&shy;tesque vel lacus eget nisi convallis auctor. Nam vitae lectus eu libero pellen&shy;tesque pul&shy;vinar. Quisque urna risus, mattis pulvi&shy;nar biben&shy;dum in, venenatis quis neque. Mauris nec metus ultricies erat consequat dignissim non eu nisl. Quisque libero tellus, pharetra et eleifend id, interdum elementum arcu. Suspendisse quis mauris non ligula rutrum faucibus eu quis odio. Phasellus eu lobortis odio. In hac habitasse platea dictumst. Proin vestibulum turpis at mauris aliquam non euismod lorem euismod. Aenean dapibus ultricies enim, eget vulputate leo feugiat non.
+          </p>
+        </article>
+      </div>
+    </div>
+  </main>
+  <footer class="footer block-shadow">
+    <div class="wrapper wrapper--footer clearfix">
+      <nav class="menu menu--footer block-480 block-768 block-960 clearfix">
+        <ul class="clearfix">
+         <li class="menu__item menu__item--footer"><a class="menu__link menu__link--footer" href="#home">Home</a></li>
+         <li class="menu__item menu__item--footer pr-25-480 pr-44-960"><a class="menu__link menu__link--footer" href="#about">About</a></li>
+         <li class="menu__item menu__item--footer"><a class="menu__link menu__link--footer" href="#blog">Blog</a></li>
+         <li class="menu__item menu__item--footer pr-26-480"><a class="menu__link menu__link--footer" href="#products">Products</a></li>
+         <li class="menu__item menu__item--footer"><a class="menu__link menu__link--footer" href="#lorem">Lorem Ipsum</a></li>
+         <li class="menu__item menu__item--footer pr-0-480"><a class="menu__link menu__link--footer" href="#dolor">Dolor Sit Amet</a></li>
+        </ul> 
+      </nav>
+      <p class="designed-by">Designed by <span class="designed-by__tail">Pingbull AS</span></p>
+    </div>
+  </footer>
+</body>
+</html>
