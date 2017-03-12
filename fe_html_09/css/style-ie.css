@@ -12,7 +12,7 @@ aside,
 figure,
 figcaption,
 footer {
-  display:block;
+  display: block;
 }
 
 /* Common */
@@ -34,5 +34,29 @@ footer {
 .slider {
   background: transparent;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#33000000, endColorstr=#33000000); 
+  zoom: 1;
+}
+
+.slider__arrow--left,
+.slider__arrow--right,
+.slider__img--left,
+.slider__img--right {
+  width: 24px;
+  height: 37px;
+}
+
+.slider__img--left {
+  background: url(../img/sprite.png) -325px -78px;
+}
+
+.slider__img--right {
+  background: url(../img/sprite.png) -352px -78px;
+}
+
+/* About Block */
+
+.about {
+  background: transparent;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#745083, endColorstr=#322539);
   zoom: 1;
 }

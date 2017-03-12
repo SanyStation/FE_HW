@@ -80,6 +80,11 @@ body {
   min-width: 960px;
 }
 
+object {
+  display: inline-block;
+  pointer-events: none;
+}
+
 .clearfix:after {
   display: table;
   clear: both;
@@ -288,7 +293,7 @@ body {
   width: 515px;
 }
 
-.article__h--slider-h1 {
+.article__h--slider-h2 {
   font-size: 60px;
   color: #fefefe;
   letter-spacing: -0.45px;
@@ -296,7 +301,7 @@ body {
   text-transform: none;
 }
 
-.article__h--slider-h2 {
+.article__h--slider-h3 {
   font-size: 32px;
   color: #edbfff;
   letter-spacing: -0.05px;
