@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
   <title>FE_HTML_09</title>
-  <!--[if lte IE 8]>
+  <!--[if lte IE 9]>
   <link rel="stylesheet" media="all" href="css/style-ie.css"/>
   <![endif]-->
-  <!--[if lte IE 8]>
+  <!--[if lte IE 9]>
    <script>
       document.createElement('header');
       document.createElement('nav');
@@ -55,13 +55,13 @@
     </div>
     <div class="slider">
       <a href="#" class="slider__arrow--left">
-        <object data="img/arrow-left.svg" type="">
-          <div class="slider__img--left"></div>
+        <object data="img/arrow-left.svg" type="image/svg+xml">
+          <div class="sprite-img sprite-img--arrow-left"></div>
         </object>
       </a>
       <a href="#" class="slider__arrow--right">
-        <object data="img/arrow-right.svg" type="">
-        <div class="slider__img--right"></div>
+        <object data="img/arrow-right.svg" type="image/svg+xml">
+          <div class="sprite-img sprite-img--arrow-right"></div>
         </object>
       </a>
       <div class="wrapper wrapper--slider clearfix">
@@ -92,7 +92,9 @@
       <div class="wrapper wrapper--about clearfix">
         <article class="article article--about">
           <figure class="article__icon article__icon--wrench">
-            <img src="img/wrench.svg" alt="Wrench">
+            <object data="img/wrench.svg" type="image/svg+xml">
+              <div class="sprite-img sprite-img--wrench"></div>
+            </object>
           </figure>
           <h3 class="article__h article__h--about">About our company</h3>
           <p class="article__p article__p--about">
@@ -102,7 +104,9 @@
         </article>
         <article class="article article--about mb-40-320 mb-28-480 ml-98-768 ml-118-960">
           <figure class="article__icon article__icon--comment">
-            <img src="img/comment.svg" alt="Comment">
+            <object data="img/comment.svg" type="image/svg+xml">
+              <div class="sprite-img sprite-img--comment"></div>
+            </object>
           </figure>
           <h3 class="article__h article__h--about">About our company</h3>
           <p class="article__p article__p--about">
@@ -112,7 +116,9 @@
         </article>
         <article class="article article--about ml-107-768 ml-115-960">
           <figure class="article__icon article__icon--note">
-            <img src="img/note.svg" alt="Note">
+            <object data="img/note.svg" type="image/svg+xml">
+              <div class="sprite-img sprite-img--note"></div>
+            </object>
           </figure>
           <h3 class="article__h article__h--about">About our company</h3>
           <p class="article__p article__p--about">
@@ -127,7 +133,7 @@
         <section class="post-slider">
           <article class="article article--post">
             <figure class="article__figure article__figure--post">
-              <img class="article__img article__img--post" src="img/sprite.png" alt="Pingbuller avatar">
+              <div class="sprite-img sprite-img--post"></div>
             </figure>
             <h3 class="article__h article__h--post">Pingbuller <span class="article__h-span">starts here<span></h3>
             <p class="article__p article__p--post">
@@ -146,7 +152,7 @@
           <ul class="updates__list">
             <li class="updates__item clearfix">
               <figure class="updates__figure clearfix">
-                <img class="updates__img updates__img--news" src="img/sprite.png" alt="Recent News Img">
+                <div class="sprite-img sprite-img--updates-news"></div>
                 <figcaption class="updates__caption">
                   <a class="updates__link" href="#post">Nunc turpis neque<span class="text-480 text-768 text-960"> feugiat eget</span></a><br>
                   <span class="updates__posted-by">Posted by Admin on March 13<span class="text-480 text-768 text-960"> 2012</span><span class="text-960"> in Recent News</span></span>
@@ -155,7 +161,7 @@
             </li>
             <li class="updates__item mt-16-320 mt-19-480 mt-19-768 learfix">
               <figure class="updates__figure clearfix">
-                <img class="updates__img updates__img--category" src="img/sprite.png" alt="Category Img">
+                <div class="sprite-img sprite-img--updates-category"></div>
                 <figcaption class="updates__caption">
                   <a class="updates__link" href="#post">Nunc turpis neque<span class="text-480 text-768 text-960"> feugiat eget</span></a><br>
                   <span class="updates__posted-by">Posted by Admin on March 13<span class="text-480 text-768 text-960"> 2012</span><span class="text-960"> in Category</span></span>
@@ -164,7 +170,7 @@
             </li>
             <li class="updates__item mt-22-320 mt-17-480 mt-17-768 mt-15-960 clearfix">
               <figure class="updates__figure clearfix">
-                <img class="updates__img updates__img--blog" src="img/sprite.png" alt="Blog Updates Img">
+                <div class="sprite-img sprite-img--updates-blog"></div>
                 <figcaption class="updates__caption">
                   <a class="updates__link" href="#post">Nunc turpis neque<span class="text-480 text-768 text-960"> feugiat eget</span></a><br>
                   <span class="updates__posted-by">Posted by Admin on March 13<span class="text-480 text-768 text-960"> 2012</span><span class="text-960"> in Blog Updates</span></span>
@@ -179,12 +185,12 @@
     <div class="logos">
       <div class="wrapper wrapper--logos clearfix">
         <ul class="logos__list clearfix">
-          <li class="logos__item ml-0-768"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img1"></a></li>
-          <li class="logos__item ml-55-320"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img2"></a></li>
-          <li class="logos__item mt-58-320 ml-29-320 ml-54-480 ml-54-768 ml-64-960"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img3"></a></li>
-          <li class="logos__item mt-59-320 mb-1-320 ml-65-320 mt-23-480 ml-40-480 mt-1-768 ml-65-768 mt-1-960 ml-75-960"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img4"></a></li>
-          <li class="logos__item mt-60-320 ml-1-320 mt-58-320 mt-44-480 ml-58-480 mt-22-768 ml-58-768 mt-22-960 ml-68-960"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img5"></a></li>
-          <li class="logos__item mt-40-320 ml-56-320 mt-24-480 ml-56-480 mt-2-768 ml-56-768 mt-2-960 ml-66-960"><a href="#"><img src="img/sprite.png" alt="Sponsor Logo" class="logos__img6"></a></li>
+          <li class="logos__item ml-0-768"><a href="#"><div class="sprite-img sprite-img--logos-img1"></div></a></li>
+          <li class="logos__item ml-55-320"><a href="#"><div class="sprite-img sprite-img--logos-img2"></div></a></li>
+          <li class="logos__item mt-58-320 ml-29-320 ml-54-480 ml-54-768 ml-64-960"><a href="#"><div class="sprite-img sprite-img--logos-img3"></div></a></li>
+          <li class="logos__item mt-59-320 mb-1-320 ml-65-320 mt-23-480 ml-40-480 mt-1-768 ml-65-768 mt-1-960 ml-75-960"><a href="#"><div class="sprite-img sprite-img--logos-img4"></div></a></li>
+          <li class="logos__item mt-60-320 ml-1-320 mt-58-320 mt-44-480 ml-58-480 mt-22-768 ml-58-768 mt-22-960 ml-68-960"><a href="#"><div class="sprite-img sprite-img--logos-img5"></div></a></li>
+          <li class="logos__item mt-40-320 ml-56-320 mt-24-480 ml-56-480 mt-2-768 ml-56-768 mt-2-960 ml-66-960"><a href="#"><div class="sprite-img sprite-img--logos-img6"></div></a></li>
         </ul>
       </div>
     </div>
@@ -205,7 +211,7 @@
             Nunc turpis neque, feugiat eget eleif&shy;end et, lacinia non neque. Praesent rhoncus ultrices posuere. Pellen&shy;tesque vel lacus eget nisi convallis auctor. Nam vitae lectus eu libero pellen&shy;tesque pul&shy;vinar. Quisque urna risus, mattis pulvi&shy;nar biben&shy;dum in, venenatis quis neque. Mauris nec metus ultricies erat consequat dignissim non eu nisl. Quisque libero tellus, pharetra et eleifend id, interdum elementum arcu. Suspendisse quis mauris non ligula rutrum faucibus eu quis odio. Phasellus eu lobortis odio. In hac habitasse platea dictumst. Proin vestibulum turpis at mauris aliquam non euismod lorem euismod. Aenean dapibus ultricies enim, eget vulputate leo feugiat non.
           </p>
         </article>
-        <article class="article article--comment mr-0-768 mr-0-960">
+        <article class="article article--comment mr-0-768 mr-0-960 mr-0-ie">
           <h3 class="article__h article__h--comment mt-2-960">News categories</h3>
           <p class="article__p article__p--comment mt-9-960">
             Nunc turpis neque, feugiat eget eleif&shy;end et, lacinia non neque. Praesent rhoncus ultrices posuere. Pellen&shy;tesque vel lacus eget nisi convallis auctor. Nam vitae lectus eu libero pellen&shy;tesque pul&shy;vinar. Quisque urna risus, mattis pulvi&shy;nar biben&shy;dum in, venenatis quis neque. Mauris nec metus ultricies erat consequat dignissim non eu nisl. Quisque libero tellus, pharetra et eleifend id, interdum elementum arcu. Suspendisse quis mauris non ligula rutrum faucibus eu quis odio. Phasellus eu lobortis odio. In hac habitasse platea dictumst. Proin vestibulum turpis at mauris aliquam non euismod lorem euismod. Aenean dapibus ultricies enim, eget vulputate leo feugiat non.

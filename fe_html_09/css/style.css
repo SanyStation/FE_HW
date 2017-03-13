@@ -85,6 +85,10 @@ object {
   pointer-events: none;
 }
 
+.sprite-img {
+  background: url(../img/sprite.png);
+}
+
 .clearfix:after {
   display: table;
   clear: both;
@@ -140,6 +144,7 @@ object {
   margin: 1px auto;
   width: 60%;
   height: 10px;
+  background: url(../img/block-shadow.png) top center no-repeat;
   background: radial-gradient(ellipse at top, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 75%);
   border-radius: 0 0 100% 100%;
   content: "";
@@ -209,18 +214,13 @@ object {
 
 .logo__tail--main {
   text-shadow: none;
+  color: #745083;
   background: -webkit-linear-gradient(#745083, #33263a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background: -moz-linear-gradient(#745083, #33263a);
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
   background: -o-linear-gradient(#745083, #33263a);
   -o-background-clip: text;
   -o-text-fill-color: transparent;
-  background: -ms-linear-gradient(#745083, #33263a);
-  -ms-background-clip: text;
-  -ms-text-fill-color: transparent;
 }
 
 .menu--header {
@@ -328,6 +328,7 @@ object {
 /* About */
 
 .about {
+  background: -moz-linear-gradient(#745083, #322539);
   background: linear-gradient(#745083, #322539);
   border-top: 1px solid #33253a;
   border-bottom: 1px solid #1d2f37;
@@ -420,6 +421,10 @@ object {
 .switcher__link--slider:hover {
   width: 10px;
   height: 10px;
+  background: -o-linear-gradient(#fdfdfd, #dedede);
+  background: -moz-linear-gradient(#fdfdfd, #dedede);
+  background: -ms-linear-gradient(#fdfdfd, #dedede);
+  background: -webkit-linear-gradient(#fdfdfd, #dedede);
   background: linear-gradient(#fdfdfd, #dedede);
   border: 3px solid rgba(0, 0, 0, 0.7);
 }
@@ -462,7 +467,7 @@ object {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 0 22px 22px 0;
+  border-width: 0 20px 20px 0;
   border-color: transparent #eee transparent transparent;
   content: "";
 }
@@ -504,11 +509,10 @@ object {
   left: -24px;
 }
 
-.article__img--post {
+.sprite-img--post {
   width: 49px;
   height: 49px;
-  object-fit: none;
-  object-position: 0 0;
+  background-position: 0px 0px;
 }
 
 .switcher--post {
@@ -533,6 +537,10 @@ object {
   margin: 2px;
   width: 10px;
   height: 10px;
+  background: -o-linear-gradient(#888888 0%, #7a7a7a 20%, #4a4a4a 100%);
+  background: -ms-linear-gradient(#888888 0%, #7a7a7a 20%, #4a4a4a 100%);
+  background: -moz-linear-gradient(#888888 0%, #7a7a7a 20%, #4a4a4a 100%);
+  background: -webkit-linear-gradient(#888888 0%, #7a7a7a 20%, #4a4a4a 100%);
   background: linear-gradient(#888888 0%, #7a7a7a 20%, #4a4a4a 100%);
   border: 1px solid rgba(0, 0, 0, 0.7);
 }
@@ -561,23 +569,25 @@ object {
   margin-top: 18px;
 }
 
-.updates__img {
+.sprite-img--updates-news {
   float: left;
   width: 49px;
   height: 49px;
-  object-fit: none;
+  background-position: -51px 0;
 }
 
-.updates__img--news {
-  object-position: -51px 0;
+.sprite-img--updates-category {
+  float: left;
+  width: 49px;
+  height: 49px;
+  background-position: -102px 0;
 }
 
-.updates__img--category {
-  object-position: -102px 0;
-}
-
-.updates__img--blog {
-  object-position: -153px 0;
+.sprite-img--updates-blog {
+  float: left;
+  width: 49px;
+  height: 49px;
+  background-position: -153px 0;
 }
 
 .updates__caption {
@@ -634,46 +644,46 @@ object {
   margin-left: 65px;
 }
 
-.logos__img1 {
+.sprite-img--logos-img1 {
+  display: inline-block;
   width: 69px;
   height: 64px;
-  object-fit: none;
-  object-position: 0 -52px;
+  background-position: 0 -52px;
 }
 
-.logos__img2 {
+.sprite-img--logos-img2 {
+  display: inline-block;
   width: 72px;
   height: 64px;
-  object-fit: none;
-  object-position: -72px -52px;
+  background-position: -72px -52px;
 }
 
-.logos__img3 {
+.sprite-img--logos-img3 {
+  display: inline-block;
   width: 65px;
   height: 65px;
-  object-fit: none;
-  object-position: -146px -52px;
+  background-position: -146px -52px;
 }
 
-.logos__img4 {
+.sprite-img--logos-img4 {
+  display: inline-block;
   width: 50px;
   height: 63px;
-  object-fit: none;
-  object-position: -214px -6px;
+  background-position: -214px -6px;
 }
 
-.logos__img5 {
+.sprite-img--logos-img5 {
+  display: inline-block;
   width: 103px;
   height: 21px;
-  object-fit: none;
-  object-position: -214px -74px;
+  background-position: -214px -74px;
 }
 
-.logos__img6 {
+.sprite-img--logos-img6 {
+  display: inline-block;
   width: 78px;
   height: 61px;
-  object-fit: none;
-  object-position: -269px -3px;
+  background-position: -269px -3px;
 }
 
 /* Comments */
