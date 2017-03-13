@@ -76,12 +76,6 @@ footer {
 
 /* About Block */
 
-.about {
-  background: transparent;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#745083, endColorstr=#322539);
-  zoom: 1;
-}
-
 .sprite-img--wrench {
   width: 29px;
   height: 29px;

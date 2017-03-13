@@ -145,6 +145,7 @@ object {
   width: 60%;
   height: 10px;
   background: url(../img/block-shadow.png) top center no-repeat;
+  background: -moz-radial-gradient(ellipse at top, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 75%);
   background: radial-gradient(ellipse at top, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 75%);
   border-radius: 0 0 100% 100%;
   content: "";
@@ -328,10 +329,13 @@ object {
 /* About */
 
 .about {
+  background: transparent;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#745083, endColorstr=#322539);
   background: -moz-linear-gradient(#745083, #322539);
   background: linear-gradient(#745083, #322539);
   border-top: 1px solid #33253a;
   border-bottom: 1px solid #1d2f37;
+  zoom: 1;
 }
 
 .wrapper--about {
@@ -421,6 +425,7 @@ object {
 .switcher__link--slider:hover {
   width: 10px;
   height: 10px;
+  background: #fdfdfd; /* For IE 9 Support */
   background: -o-linear-gradient(#fdfdfd, #dedede);
   background: -moz-linear-gradient(#fdfdfd, #dedede);
   background: -ms-linear-gradient(#fdfdfd, #dedede);
@@ -537,6 +542,7 @@ object {
   margin: 2px;
   width: 10px;
   height: 10px;
+  background: #4a4a4a; /* For IE 9 Support */
   background: -o-linear-gradient(#888888 0%, #7a7a7a 20%, #4a4a4a 100%);
   background: -ms-linear-gradient(#888888 0%, #7a7a7a 20%, #4a4a4a 100%);
   background: -moz-linear-gradient(#888888 0%, #7a7a7a 20%, #4a4a4a 100%);
