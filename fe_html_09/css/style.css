@@ -130,12 +130,12 @@ object {
   text-transform: uppercase;
 }
 
-.article__h {
+.article__title {
   font-family: "League Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
 }
 
-.article__p {
+.article__text {
   font-family: "Open Sans Light", Arial, Tahoma, sans-serif;
 }
 
@@ -162,17 +162,17 @@ object {
   object-position: -358px 0;
 }
 
-.text-320,
-.text-480,
-.text-768,
-.text-960 {
+.text-mobile,
+.text-tablet-p,
+.text-tablet-l,
+.text-desktop {
   display: none;
 }
 
-.block-320,
-.block-480,
-.block-768,
-.block-960 {
+.block-mobile,
+.block-tablet-p,
+.block-tablet-l,
+.block-desktop {
   display: none;
 }
 
@@ -211,17 +211,6 @@ object {
   width: 3px;
   box-shadow: 0px 0px 5px 2px white;
   content: "";
-}
-
-.logo__tail--main {
-  text-shadow: none;
-  color: #745083;
-  background: -webkit-linear-gradient(#745083, #33263a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background: -o-linear-gradient(#745083, #33263a);
-  -o-background-clip: text;
-  -o-text-fill-color: transparent;
 }
 
 .menu--header {
@@ -294,7 +283,7 @@ object {
   width: 515px;
 }
 
-.article__h--slider-h2 {
+.article__title--slider-h2 {
   font-size: 60px;
   color: #fefefe;
   letter-spacing: -0.45px;
@@ -302,14 +291,14 @@ object {
   text-transform: none;
 }
 
-.article__h--slider-h3 {
+.article__title--slider-h3 {
   font-size: 32px;
   color: #edbfff;
   letter-spacing: -0.05px;
   text-shadow: 0 1px #000;
 }
 
-.article__p--slider {
+.article__text--slider {
   margin-top: 6px;
   height: 144px;
   font-size: 18px;
@@ -371,14 +360,14 @@ object {
   height: 29px;
 }
 
-.article__h--about {
+.article__title--about {
   margin-left: 1px;
   font-size: 30px;
   color: white;
   text-shadow: 1px 1px 1px #000;
 }
 
-.article__p--about {
+.article__text--about {
   margin-top: 9px;
   height: 120px;
   font-size: 16px;
@@ -489,16 +478,16 @@ object {
   content: "";
 }
 
-.article__h--post {
+.article__title--post {
   font-size: 30px;
   color: #454545;
 }
 
-.article__h-span {
+.article__title-span {
   color: #edbfff;
 }
 
-.article__p--post {
+.article__text--post {
   margin-top: 10px;
   height: 168px;
   font-size: 16px;
@@ -560,7 +549,7 @@ object {
   width: 440px;
 }
 
-.updates__h {
+.updates__title {
   font-family: "League Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 30px;
   color: #454545;
@@ -717,11 +706,7 @@ object {
   color: #454545;
 }
 
-.logo__tail--comment {
-  color: #b9b9b9;
-}
-
-.article__h--comment {
+.article__title--comment {
   font-size: 30px;
   color: #454545;
 }
@@ -735,7 +720,7 @@ object {
   letter-spacing: -0.15px;
 }
 
-.article__p--comment {
+.article__text--comment {
   margin-top: 11px;
   line-height: 24px;
   letter-spacing: -0.1px;

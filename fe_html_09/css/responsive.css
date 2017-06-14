@@ -1,5 +1,6 @@
 /* Responsive Stylesheet */
 
+/* Mobile */
 @media screen and (max-width: 479px) {
   
   /* Common */
@@ -8,11 +9,11 @@
     min-width: 320px;
   }
 
-  .text-320 {
+  .text-mobile {
     display: inline;
   }
 
-  .block-320 {
+  .block-mobile {
     display: block;
   }
 
@@ -125,12 +126,12 @@
     width: auto;
   }
 
-  .article__h--slider-h2 {
+  .article__title--slider-h2 {
     font-size: 36px;
     letter-spacing: -0.2px;
   }
 
-  .article__h--slider-h3 {
+  .article__title--slider-h3 {
     margin-top: 2px;
     font-size: 18px;
     transform: scale(1.0, 1.09);
@@ -170,11 +171,11 @@
     box-sizing: border-box;
   }
 
-  .article__h--about {
+  .article__title--about {
     font-size: 24px;
   }
 
-  .article__p--about {
+  .article__text--about {
     margin-top: 4px;
     margin-left: 1px;
     height: 70px;
@@ -216,12 +217,12 @@
     width: auto;
   }
 
-  .article__h--post {
+  .article__title--post {
     width: 100px;
     font-size: 24px;
   }
 
-  .article__p--post {
+  .article__text--post {
     margin-top: 5px;
     margin-left: 3px;
     letter-spacing: -0.04px;
@@ -285,59 +286,60 @@
 
   /* Spotfixes */
 
-  .mt-16-320 {
+  .mt-16-mobile {
     margin-top: 16px;
   }
 
-  .mt-40-320 {
+  .mt-40-mobile {
     margin-top: 40px;
   }
 
-  .mt-22-320 {
+  .mt-22-mobile {
     margin-top: 22px;
   }
 
-  .mt-58-320 {
+  .mt-58-mobile {
     margin-top: 58px;
   }
 
-  .mt-59-320 {
+  .mt-59-mobile {
     margin-top: 59px;
   }
 
-  .mt-60-320 {
+  .mt-60-mobile {
     margin-top: 60px;
   }
 
-  .mb-1-320 {
+  .mb-1-mobile {
     margin-bottom: 1px;
   }
 
-  .mb-40-320 {
+  .mb-40-mobile {
     margin-bottom: 40px;
   }
 
-  .ml-1-320 {
+  .ml-1-mobile {
     margin-left: 1px;
   }
 
-  .ml-29-320 {
+  .ml-29-mobile {
     margin-left: 29px;
   }
 
-  .ml-55-320 {
+  .ml-55-mobile {
     margin-left: 55px;
   }
 
-  .ml-56-320 {
+  .ml-56-mobile {
     margin-left: 56px;
   }
 
-  .ml-65-320 {
+  .ml-65-mobile {
     margin-left: 65px;
   }
 }
 
+/* Tablet Portrait tablet-p */
 @media screen and (min-width: 480px) and (max-width: 767px) {
   
   /* Common */
@@ -346,11 +348,11 @@
     min-width: 480px;
   }
 
-  .text-480 {
+  .text-tablet-p {
     display: inline;
   }
 
-  .block-480 {
+  .block-tablet-p {
     display: block;
   }
 
@@ -458,11 +460,11 @@
     width: auto;
   }
 
-  .article__h--slider-h2 {
+  .article__title--slider-h2 {
     font-size: 36px;
   }
 
-  .article__h--slider-h3 {
+  .article__title--slider-h3 {
     margin-top: 2px;
     font-size: 18px;
   }
@@ -501,11 +503,11 @@
     box-sizing: border-box;
   }
 
-  .article__h--about {
+  .article__title--about {
     font-size: 24px;
   }
 
-  .article__p--about {
+  .article__text--about {
     margin-top: 4px;
     margin-left: 1px;
     height: auto;
@@ -549,7 +551,7 @@
     width: auto;
   }
 
-  .article__p--post {
+  .article__text--post {
     margin-top: 15px;
     letter-spacing: -0.06px;
   }
@@ -600,11 +602,11 @@
     height: auto;
   }
 
-  .article__h--comment {
+  .article__title--comment {
     font-size: 24px;
   }
 
-  .article__p--comment {
+  .article__text--comment {
     margin-top: 10px;
     font-size: 16px;
     height: 95px;
@@ -636,63 +638,64 @@
 
   /* Spotfixes */
 
-  .mt-17-480 {
+  .mt-17-tablet-p {
     margin-top: 17px;
   }
 
-  .mt-19-480 {
+  .mt-19-tablet-p {
     margin-top: 19px;
   }
 
-  .mt-23-480 {
+  .mt-23-tablet-p {
     margin-top: 23px;
   }
 
-  .mt-24-480 {
+  .mt-24-tablet-p {
     margin-top: 24px;
   }
 
-  .mt-44-480 {
+  .mt-44-tablet-p {
     margin-top: 44px;
   }
 
-  .ml-40-480 {
+  .ml-40-tablet-p {
     margin-left: 40px;
   }
 
-  .ml-54-480 {
+  .ml-54-tablet-p {
     margin-left: 54px;
   }
 
-  .ml-56-480 {
+  .ml-56-tablet-p {
     margin-left: 56px;
   }
 
-  .ml-58-480 {
+  .ml-58-tablet-p {
     margin-left: 58px;
   }
 
-  .mb-28-480 {
+  .mb-28-tablet-p {
     margin-bottom: 28px;
   }
 
-  .mb-59-480 {
+  .mb-59-tablet-p {
     margin-bottom: 59px;
   }
 
-  .pr-0-480 {
+  .pr-0-tablet-p {
     padding-right: 0px;
   }
 
-  .pr-25-480 {
+  .pr-25-tablet-p {
     padding-right: 25px;
   }
 
-  .pr-26-480 {
+  .pr-26-tablet-p {
     padding-right: 26px;
   }
 }
 
+/* Tablet Landscape tablet-l */
 @media screen and (min-width: 768px) and (max-width: 959px) {
   
   /* Common */
@@ -701,11 +704,11 @@
     min-width: 768px;
   }
 
-  .text-768 {
+  .text-tablet-l {
     display: inline;
   }
 
-  .block-768 {
+  .block-tablet-l {
     display: block;
   }
 
@@ -731,10 +734,6 @@
     display: none;
   }
 
-  .logo__tail--main {
-    margin-left: 3px;
-  }
-
   .menu--header {
     float: left;
     margin-top: 29px;
@@ -751,11 +750,11 @@
     padding-top: 98px;
   }
 
-  .article__h {
+  .article__title {
     font-size: 24px;
   }
 
-  .article__p {
+  .article__text {
     font-size: 16px;
   }
 
@@ -764,19 +763,19 @@
     width: 270px;
   }
 
-  .article__h--slider-h2 {
+  .article__title--slider-h2 {
     font-size: 48px;
     letter-spacing: -0.4px;
   }
 
-  .article__h--slider-h3 {
+  .article__title--slider-h3 {
     margin-top: 8px;
     letter-spacing: -0.03px;
     white-space: nowrap;
     overflow: hidden;
   }
 
-  .article__p--slider {
+  .article__text--slider {
     margin-top: 2px;
     height: 104px;
   }
@@ -834,7 +833,7 @@
     content: url(../img/wrench.svg);
   }
 
-  .article__p--about {
+  .article__text--about {
     margin-top: 4px;
     margin-left: 1px;
     height: 141px;
@@ -866,11 +865,11 @@
     display: none;
   }
 
-  .article__h--post {
+  .article__title--post {
     width: 115px;
   }
 
-  .article__p--post {
+  .article__text--post {
     margin-top: 9px;
     height: 141px;
   }
@@ -918,7 +917,7 @@
     height: 200px;
   }
 
-  .article__p--comment {
+  .article__text--comment {
     margin-top: 10px;
   }
 
@@ -943,75 +942,76 @@
 
   /* Spotfixes */
 
-  .mt-1-768 {
+  .mt-1-tablet-l {
     margin-top: 1px;
   }
 
-  .mt-2-768 {
+  .mt-2-tablet-l {
     margin-top: 2px;
   }
 
-  .mt-17-768 {
+  .mt-17-tablet-l {
     margin-top: 17px;
   }
 
-  .mt-19-768 {
+  .mt-19-tablet-l {
     margin-top: 19px;
   }
 
-  .mt-22-768 {
+  .mt-22-tablet-l {
     margin-top: 22px;
   }  
 
-  .ml-0-768 {
+  .ml-0-tablet-l {
     margin-left: 0px;
   }
 
-  .ml-50-768 {
+  .ml-50-tablet-l {
     margin-left: 50px;
   }
 
-  .ml-54-768 {
+  .ml-54-tablet-l {
     margin-left: 54px;
   }
 
-  .ml-56-768 {
+  .ml-56-tablet-l {
     margin-left: 56px;
   }
 
-  .ml-58-768 {
+  .ml-58-tablet-l {
     margin-left: 58px;
   }
 
-  .ml-65-768 {
+  .ml-65-tablet-l {
     margin-left: 65px;
   }
 
-  .ml-98-768 {
+  .ml-98-tablet-l {
     margin-left: 98px;
   }
 
-  .ml-107-768 {
+  .ml-107-tablet-l {
     margin-left: 107px;
   }
 
-  .mr-0-768 {
+  .mr-0-tablet-l {
     margin-right: 0px;
   }
 
-  .mr-6-768 {
+  .mr-6-tablet-l {
     margin-right: 6px;
   }
 
-  .mr-7-768 {
+  .mr-7-tablet-l {
     margin-right: 7px;
   }
 
-  .mr-32-768 {
+  .mr-32-tablet-l {
     margin-right: 32px;
   }
 }
 
+/* Desktop */
 @media screen and (min-width: 960px) {
   
   /* Common */
@@ -1025,11 +1025,11 @@
     display: none;
   }
 
-  .text-960 {
+  .text-desktop {
     display: inline;
   }
 
-  .block-960 {
+  .block-desktop {
     display: block;
   }
 
@@ -1039,67 +1039,67 @@
 
   /* Spotfixes */
 
-  .mt-1-960 {
+  .mt-1-desktop {
     margin-top: 1px;
   }
 
-  .mt-2-960 {
+  .mt-2-desktop {
     margin-top: 2px;
   }
 
-  .mt-9-960 {
+  .mt-9-desktop {
     margin-top: 9px;
   }
 
-  .mt-15-960 {
+  .mt-15-desktop {
     margin-top: 15px;
   }
 
-  .mt-22-960 {
+  .mt-22-desktop {
     margin-top: 22px;
   }
 
-  .mr-0-960 {
+  .mr-0-desktop {
     margin-right: 0;
   }
 
-  .mr-1-960 {
+  .mr-1-desktop {
     margin-right: 1px;
   }
 
-  .mr-60-960 {
+  .mr-60-desktop {
     margin-right: 60px;
   }
 
-  .ml-64-960 {
+  .ml-64-desktop {
     margin-left: 64px;
   }
 
-  .ml-66-960 {
+  .ml-66-desktop {
     margin-left: 66px;
   }
 
-  .ml-68-960 {
+  .ml-68-desktop {
     margin-left: 68px;
   }
 
-  .ml-75-960 {
+  .ml-75-desktop {
     margin-left: 75px;
   }
 
-  .ml-115-960 {
+  .ml-115-desktop {
     margin-left: 115px;
   }
 
-  .ml-118-960 {
+  .ml-118-desktop {
     margin-left: 118px;
   }
 
-  .pr-0-960 {
+  .pr-0-desktop {
     padding-right: 0px;
   }
 
-  .pr-44-960 {
+  .pr-44-desktop {
     padding-right: 44px;
   }
 }
@@ -1110,7 +1110,7 @@
     display: block;
   }
 
-  .text-960 {
+  .text-desktop {
     display: inline;
   }
 }
