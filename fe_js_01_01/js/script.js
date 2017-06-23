@@ -19,3 +19,12 @@ function pow(number, power) {
     }
   }
 }
+
+var number = prompt('Please, enter the number');
+var power = prompt('Please, enter the power of number');
+var result = pow(number, power);
+if (Number.isNaN(result)) {
+  console.log('Function is not able to calculate. Please, check your input params: number = ' + number + '; power = ' + power + '. Power shoud be an integer value. Also be sure number and power do not equal 0 simultaneously.');
+} else {
+  console.log(number + '^' + power + ' = ', result);
+}
