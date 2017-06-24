@@ -34,7 +34,9 @@ function pow(x, n) {
 
 var x = window.prompt('Please, enter the x');
 var n = window.prompt('Please, enter the n of x');
+
 var result = pow(x, n);
+
 if (Number.isNaN(result)) {
   window.console.log('Function is not able to calculate. Please, check your input params: x = ' + x + '; n = ' + n + '. Power should be an integer value. Also be sure x and n do not equal 0 simultaneously.');
 } else {
