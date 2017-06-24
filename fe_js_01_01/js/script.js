@@ -1,30 +1,37 @@
-function pow(number, power) {
-  number = Number(number);
-  power = Number(power);
-  if (!Number.isInteger(power)) {
+/**
+ * Returns x to power of n only if n is integer
+ *
+ * @param {number} x to be powered
+ * @param {number} n the power
+ * @returns {number} x to the power of n
+ */
+function pow(x, n) {
+  x = Number(x);
+  n = Number(n);
+  if (!Number.isInteger(n)) {
     return NaN;
   }
-  if (power === 0) {
-    return number === 0 ? NaN : 1;
+  if (n === 0) {
+    return x === 0 ? NaN : 1;
   } else {
-    var tmpNumber = number;
-    var tmpPower = power;
+    var tmpNumber = x;
+    var tmpPower = n;
     while (--tmpPower > 0) {
-      number *= tmpNumber;
+      x *= tmpNumber;
     }
-    if (power > 0) {
-      return number;
+    if (n > 0) {
+      return x;
     } else {
-      return 1 / number;
+      return 1 / x;
     }
   }
 }
 
-var number = prompt('Please, enter the number');
-var power = prompt('Please, enter the power of number');
-var result = pow(number, power);
+var x = prompt('Please, enter the x');
+var n = prompt('Please, enter the n of x');
+var result = pow(x, n);
 if (Number.isNaN(result)) {
-  console.log('Function is not able to calculate. Please, check your input params: number = ' + number + '; power = ' + power + '. Power shoud be an integer value. Also be sure number and power do not equal 0 simultaneously.');
+  console.log('Function is not able to calculate. Please, check your input params: x = ' + x + '; n = ' + n + '. Power shoud be an integer value. Also be sure x and n do not equal 0 simultaneously.');
 } else {
-  console.log(number + '^' + power + ' = ', result);
+  console.log(x + '^' + n + ' = ', result);
 }
