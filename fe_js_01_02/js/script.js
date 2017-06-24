@@ -3,7 +3,7 @@ var names = [];
 var specifiedNamePos = -1;
 
 for (var i = 0; i < ARR_SIZE; ++i) {
-  names[i] = window.prompt('Please, enter the name ' + (i + 1));
+  names[i] = window.prompt('Please, enter the name ' + (i + 1), '');
 }
 
 do {

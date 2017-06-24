@@ -8,6 +8,10 @@
 function pow(x, n) {
   "use strict";
 
+  if (!x || !n) {
+    return NaN;
+  }
+
   x = Number(x);
   n = Number(n);
 
@@ -32,8 +36,8 @@ function pow(x, n) {
   return 1 / x;
 }
 
-var x = window.prompt('Please, enter the x');
-var n = window.prompt('Please, enter the n of x');
+var x = window.prompt('Please, enter the x', '');
+var n = window.prompt('Please, enter the n of x', '');
 
 var result = pow(x, n);
 
