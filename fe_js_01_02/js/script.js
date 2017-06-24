@@ -1,4 +1,4 @@
-var ARR_SIZE = 2;
+var ARR_SIZE = 5;
 var names = [];
 var specifiedNamePos = -1;
 
@@ -8,13 +8,12 @@ for (var i = 0; i < ARR_SIZE; ++i) {
 
 do {
   var specifiedName = prompt('Please, specify a name to find it or type "exit" to exit');
-  if ('exit' == specifiedName) {
-    break;
-  }
+  if ('exit' == specifiedName) break;
   
   for (var i = 0; i < ARR_SIZE; ++i) {
     if (specifiedName == names[i]) {
       specifiedNamePos = i;
+      break;
     }
   }
   
