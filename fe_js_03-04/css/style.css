@@ -1,18 +1,13 @@
+body {
+    background: url("../img/concrete-texture.png") repeat;
+}
+
 ul {
     list-style: none;
 }
 
 .wrapper {
     margin: 0 auto;
-    width: 600px;
-    height: 800px;
-    background-color: #2aabd2;
-}
-
-.title {
-    font-family: "Open Sans Light", Arial, Tahoma, sans-serif;
-}
-
-.question {
-    background-color: #9d9d9d;
+    min-width: 500px;
+    width: 40%;
 }
