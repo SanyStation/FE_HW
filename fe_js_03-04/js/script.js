@@ -1,3 +1,4 @@
+//TODO comments
 var pageConstructor = {
 
   WRAPPER_CLASS : 'wrapper',
@@ -5,14 +6,14 @@ var pageConstructor = {
   QUESTION_CLASS : 'question',
   QUESTION_HEADER_CLASS : 'question__header',
   QUESTION_OPTION_CLASS : 'question__option',
-
+  //TODO comments
   createWrapper : function () {
     "use strict";
     var wrapper = document.createElement('form');
     wrapper.classList.add(this.WRAPPER_CLASS);
     return document.body.appendChild(wrapper);
   },
-
+  //TODO comments
   createHeader : function (tagName, className, titleName, parentElement) {
     "use strict";
     var title = document.createElement(tagName);
@@ -20,7 +21,7 @@ var pageConstructor = {
     title.innerHTML = titleName;
     return parentElement.appendChild(title);
   },
-
+  //TODO comments
   createQuestion : function (questionTitle, questionOptions, questionType, correctOptions, parentElement) {
     "use strict";
     questionType = 'checkbox' === questionType ? 'checkbox' : 'radio';
@@ -55,9 +56,9 @@ var pageConstructor = {
     parentElement.appendChild(question);
   }
 };
-
+//TODO comments
 var idGenerator = {
-
+  //TODO comments
   generateId : function (tagName) {
     "use strict";
     if (typeof this.generateId.counter === 'undefined') {
