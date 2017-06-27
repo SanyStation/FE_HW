@@ -1,4 +1,32 @@
-//TODO comments
+/**
+ * This class is designed to generate page for test.
+ * There are only two types of test:
+ *   1. with single correct option (based on radio buttons)
+ *   2. with plural correct options (based on checkboxes)
+ *
+ * @type {{NAVBAR_CLASS: string,
+ *         NAVBAR_TYPE_CLASS: string,
+ *         NAVBAR_HEADER: string,
+ *         NAVBAR_REF: string,
+ *         NAVBAR_CONTAINER: string,
+ *         WRAPPER_CLASS: string,
+ *         QUESTION_CLASS: string,
+ *         QUESTION_CLASS_TYPE: string,
+ *         QUESTION_HEADER_CLASS: string,
+ *         QUESTION_TITLE_CLASS: string,
+ *         QUESTION_BODY_CLASS: string,
+ *         QUESTION_LIST_CLASS: string,
+ *         QUESTION_LIST_ITEM_CLASS: string,
+ *         QUESTION_INPUT_RADIO_CLASS: string,
+ *         QUESTION_INPUT_CHECKBOX_CLASS: string,
+ *         BUTTON_CLASS: string, BUTTON_SUBMIT_CLASS: string,
+ *
+ *         createNavbar: testConstructor.createNavbar,
+ *         createWrapper: testConstructor.createWrapper,
+ *         createHeader: testConstructor.createHeader,
+ *         createQuestion: testConstructor.createQuestion,
+ *         createButtonSubmit: testConstructor.createButtonSubmit}}
+ */
 var testConstructor = {
 
   NAVBAR_CLASS : 'navbar',
@@ -21,7 +49,11 @@ var testConstructor = {
   BUTTON_CLASS : 'btn',
   BUTTON_SUBMIT_CLASS : 'btn-primary',
 
-  //TODO comments
+  /**
+   * This function creates top navbar.
+   *
+   * @returns {Node} newly created navbar dom element
+   */
   createNavbar : function () {
     'use strict';
     var navBar = document.createElement('nav');
@@ -43,7 +75,12 @@ var testConstructor = {
     return document.body.appendChild(navBar);
   },
 
-  //TODO comments
+  /**
+   * This function creates form-wrapper.
+   * It uses as container to gather all questions in itself.
+   *
+   * @returns {Node} newly created form-wrapper dom element
+   */
   createWrapper : function () {
     'use strict';
     var wrapper = document.createElement('form');
@@ -52,7 +89,15 @@ var testConstructor = {
     return document.body.appendChild(wrapper);
   },
 
-  //TODO comments
+  /**
+   * This function creates header for specified parentElement element.
+   *
+   * @param {string} tagName name of tag (e.g. h1, h2, h3 ...)
+   * @param {string} className name of class for the header
+   * @param {string} titleName name of header (text node)
+   * @param {XML|Node} parentElement parent element which header will be created for
+   * @returns {XML|Node} newly created header dom element
+   */
   createHeader : function (tagName, className, titleName, parentElement) {
     'use strict';
     var title = document.createElement(tagName);
@@ -61,7 +106,16 @@ var testConstructor = {
     return parentElement.appendChild(title);
   },
 
-  //TODO comments
+  /**
+   * This function creates question.
+   * The question consists of question header and question body.
+   *
+   * @param {string} questionTitle name of question (text node)
+   * @param {Array.<string>} questionOptions array of question options
+   * @param {string} questionType type of question (only one correct option - radio; few correct options - checkbox)
+   * @param {Array.<number>} correctOptions array of positions of correct options (isn't used yet)
+   * @param {XML|Node} parentElement parent element which question will be created for
+   */
   createQuestion : function (questionTitle, questionOptions, questionType, correctOptions, parentElement) {
     'use strict';
     var question = document.createElement('div');
@@ -87,7 +141,7 @@ var testConstructor = {
       var option = document.createElement('input');
       option.setAttribute('type', questionType);
       option.setAttribute('name', questionTitle);
-      option.setAttribute('value', 'option' + i);
+      option.setAttribute('value', 'option' + (i + 1));
 
       var optionTitle = document.createElement('label');
       optionTitle.appendChild(option);
@@ -97,13 +151,18 @@ var testConstructor = {
     }
   },
 
-  //TODO comments
+  /**
+   * Function creates button to submit a test.
+   *
+   * @param parentElement parent element which question will be created for
+   * @returns {XML|Node} newly created button dom element
+   */
   createButtonSubmit : function (parentElement) {
     'use strict';
     var button = document.createElement('button');
     button.classList.add(this.BUTTON_CLASS, this.BUTTON_SUBMIT_CLASS);
     button.innerHTML = 'Submit Test';
-    parentElement.appendChild(button);
+    return parentElement.appendChild(button);
   }
 };
 
@@ -112,7 +171,7 @@ var correctOptions = [1, 2];
 
 testConstructor.createNavbar();
 var wrapper = testConstructor.createWrapper();
-testConstructor.createQuestion('Question 1: The first question?', options, 'radio', 1, wrapper);
-testConstructor.createQuestion('Question 2: The second question?', options, 'radio', 1, wrapper);
+testConstructor.createQuestion('Question 1: The first question?', options, 'radio', [1], wrapper);
+testConstructor.createQuestion('Question 2: The second question?', options, 'radio', [1], wrapper);
 testConstructor.createQuestion('Question 3: The third question?', options, 'checkbox', correctOptions, wrapper);
 testConstructor.createButtonSubmit(wrapper);
