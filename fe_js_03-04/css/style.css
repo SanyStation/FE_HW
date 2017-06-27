@@ -1,9 +1,6 @@
 body {
+    padding-bottom: 50px;
     background: url("../img/concrete-texture.png") repeat;
-}
-
-ul {
-    list-style: none;
 }
 
 .wrapper {

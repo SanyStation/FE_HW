@@ -1,5 +1,5 @@
 //TODO comments
-var pageConstructor = {
+var testConstructor = {
 
   NAVBAR_CLASS : 'navbar',
   NAVBAR_TYPE_CLASS : 'navbar-inverse',
@@ -18,6 +18,9 @@ var pageConstructor = {
   QUESTION_INPUT_RADIO_CLASS : 'radio',
   QUESTION_INPUT_CHECKBOX_CLASS : 'checkbox',
 
+  BUTTON_CLASS : 'btn',
+  BUTTON_SUBMIT_CLASS : 'btn-primary',
+
   //TODO comments
   createNavbar : function () {
     'use strict';
@@ -33,6 +36,7 @@ var pageConstructor = {
 
     var navRef = document.createElement('a');
     navRef.classList.add(this.NAVBAR_REF);
+    navRef.setAttribute('href', '/');
     navRef.innerHTML = 'Programming Test';
     navHeader.appendChild(navRef);
 
@@ -44,6 +48,7 @@ var pageConstructor = {
     'use strict';
     var wrapper = document.createElement('form');
     wrapper.classList.add(this.WRAPPER_CLASS);
+    wrapper.setAttribute('action', 'index.html');
     return document.body.appendChild(wrapper);
   },
 
@@ -65,16 +70,12 @@ var pageConstructor = {
 
     var questionHeading = document.createElement('div');
     questionHeading.classList.add(this.QUESTION_HEADER_CLASS);
-    pageConstructor.createHeader('h4', this.QUESTION_TITLE_CLASS, questionTitle, questionHeading);
+    testConstructor.createHeader('h4', this.QUESTION_TITLE_CLASS, questionTitle, questionHeading);
     question.appendChild(questionHeading);
 
-    var questionBody = document.createElement('div');
-    questionBody.classList.add(this.QUESTION_BODY_CLASS);
-    question.appendChild(questionBody);
-
     var optionsList = document.createElement('ul');
-    optionsList.classList.add(this.QUESTION_LIST_CLASS);
-    questionBody.appendChild(optionsList);
+    optionsList.classList.add(this.QUESTION_LIST_CLASS, this.QUESTION_BODY_CLASS);
+    question.appendChild(optionsList);
 
     questionType = 'checkbox' === questionType ? 'checkbox' : 'radio';
 
@@ -94,15 +95,24 @@ var pageConstructor = {
       listItem.appendChild(optionTitle);
       optionsList.appendChild(listItem);
     }
+  },
+
+  //TODO comments
+  createButtonSubmit : function (parentElement) {
+    'use strict';
+    var button = document.createElement('button');
+    button.classList.add(this.BUTTON_CLASS, this.BUTTON_SUBMIT_CLASS);
+    button.innerHTML = 'Submit Test';
+    parentElement.appendChild(button);
   }
 };
 
 var options = ['Variant 1', 'Variant 2', 'Variant 3', 'Variant 4', 'Variant 5'];
 var correctOptions = [1, 2];
 
-pageConstructor.createNavbar();
-var wrapper = pageConstructor.createWrapper();
-pageConstructor.createQuestion('Question 1: The first question?', options, 'radio', 1, wrapper);
-pageConstructor.createQuestion('Question 2: The second question?', options, 'radio', 1, wrapper);
-pageConstructor.createQuestion('Question 3: The third question?', options, 'checkbox', correctOptions, wrapper);
-
+testConstructor.createNavbar();
+var wrapper = testConstructor.createWrapper();
+testConstructor.createQuestion('Question 1: The first question?', options, 'radio', 1, wrapper);
+testConstructor.createQuestion('Question 2: The second question?', options, 'radio', 1, wrapper);
+testConstructor.createQuestion('Question 3: The third question?', options, 'checkbox', correctOptions, wrapper);
+testConstructor.createButtonSubmit(wrapper);
