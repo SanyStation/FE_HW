@@ -36,7 +36,7 @@ var testConstructor = {
 
     var navRef = document.createElement('a');
     navRef.classList.add(this.NAVBAR_REF);
-    navRef.setAttribute('href', '/');
+    navRef.setAttribute('href', 'index.html');
     navRef.innerHTML = 'Programming Test';
     navHeader.appendChild(navRef);
 
