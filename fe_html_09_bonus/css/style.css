@@ -210,7 +210,7 @@ object {
   top: -4px;
   left: 20px;
   width: 3px;
-  box-shadow: 0px 0px 5px 2px white;
+  box-shadow: 0 0 5px 2px white;
   content: "";
 }
 
@@ -505,7 +505,7 @@ object {
 .sprite-img--post {
   width: 49px;
   height: 49px;
-  background-position: 0px 0px;
+  background-position: 0 0;
 }
 
 .switcher--post {
@@ -683,7 +683,6 @@ object {
 /* Comments */
 
 .comments {
-  /*height: 395px;*/
   background: #ececec;
   border-top: 1px solid #d8d8d8;
 }
