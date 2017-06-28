@@ -112,7 +112,7 @@ object {
   text-shadow: 1px 1.5px 2px rgba(0, 0, 0, 0.5);
 }
 
-.logo {
+.text-logo {
   font-family: "League Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 48px;
   text-transform: uppercase;
