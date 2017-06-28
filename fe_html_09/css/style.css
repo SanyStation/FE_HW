@@ -193,6 +193,7 @@ object {
 }
 
 .logo--main {
+  margin-top: 3px;
   float: left;
   position: relative;
   color: #fff;
@@ -203,13 +204,17 @@ object {
   color: white;
 }
 
+.logo__tail--comment {
+  color: #b9b9b9;
+}
+
 .logo--main:before {
   display: block;
   position: absolute;
-  top: -4px;
+  top: -8px;
   left: 20px;
   width: 3px;
-  box-shadow: 0 0 5px 2px white;
+  box-shadow: 0 0 7px 2px white;
   content: "";
 }
 
@@ -245,7 +250,7 @@ object {
 
 .slider {
   position: relative;
-  margin-top: 164px;
+  margin-top: 165px;
   height: 400px;
   background: rgba(0, 0, 0, 0.2);
 }
@@ -312,7 +317,7 @@ object {
 .article__figure--slider {
   position: absolute;
   top: -95px;
-  right: -375px;
+  right: -374px;
 }
 
 /* About */
@@ -444,7 +449,7 @@ object {
 
 .article--post {
   position: relative;
-  margin-left: 21px;
+  margin-left: 20px;
   padding: 29px 39px 35px;
   background: white;
   border-left: 1px solid #f6f6f6;
@@ -631,7 +636,7 @@ object {
 }
 
 .logos__list {
-  margin: 0 30px;
+  margin: 0 29px;
 }
 
 .logos__item {
@@ -733,7 +738,7 @@ object {
 }
 
 .wrapper--footer {
-  padding-top: 27px;
+  padding-top: 35px;
   padding-bottom: 48px;
 }
 
@@ -749,7 +754,8 @@ object {
 
 .designed-by {
   float: right;
-  margin-top: 16px;
+  margin-top: 8px;
+  margin-right: -1px;
   font-family: "Open Sans Light", Arial, Tahoma, sans-serif;
   font-size: 12px;
   color: white;
