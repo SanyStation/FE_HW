@@ -523,7 +523,7 @@
   .article__icon--comment,
   .article__icon--note {
     top: 2px;
-    left: -50px;
+    left: 10px;
     width: 29px;
     height: 29px;
     content: url(../img/wrench.svg);
@@ -818,16 +818,11 @@
     padding-top: 77px;
   }
 
-  .article--about {
-    margin-left: 83px;
-    width: 154px;
-  }
-
   .article__icon--wrench,
   .article__icon--comment,
   .article__icon--note {
     top: 2px;
-    left: -50px;
+    left: 6px;
     width: 29px;
     height: 29px;
     content: url(../img/wrench.svg);

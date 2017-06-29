@@ -119,12 +119,12 @@ object {
   text-shadow: 1px 1.5px 2px rgba(0, 0, 0, 0.5);
 }
 
-.menu__link:hover {
+.menu__link:hover, .link:hover {
   color: white;
   text-decoration: none;
 }
 
-.logo {
+.text-logo {
   font-family: "League Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 48px;
   text-transform: uppercase;
@@ -194,10 +194,15 @@ object {
 }
 
 .logo--main {
+  margin-top: 3px;
   float: left;
   position: relative;
   color: #fff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.logo__tail--comment {
+  color: #b9b9b9;
 }
 
 .logo__link--main {
@@ -207,10 +212,10 @@ object {
 .logo--main:before {
   display: block;
   position: absolute;
-  top: -4px;
+  top: -8px;
   left: 20px;
   width: 3px;
-  box-shadow: 0 0 5px 2px white;
+  box-shadow: 0 0 7px 2px white;
   content: "";
 }
 
@@ -246,7 +251,7 @@ object {
 
 .slider {
   position: relative;
-  margin-top: 164px;
+  margin-top: 165px;
   height: 400px;
   background: rgba(0, 0, 0, 0.2);
 }
@@ -313,7 +318,7 @@ object {
 .article__figure--slider {
   position: absolute;
   top: -95px;
-  right: -375px;
+  right: -374px;
 }
 
 /* About */
@@ -329,34 +334,33 @@ object {
 }
 
 .wrapper--about {
-  padding-top: 76px;
-  padding-bottom: 67px;
+  padding: 76px 0 67px 0;
 }
 
 .article--about {
+  padding: 0 35px 0 62px;
   position: relative;
   float: left;
-  margin-left: 64px;
-  width: 221px;
+  box-sizing: border-box;
 }
 
 .article__icon--wrench {
   top: 7px;
-  left: -52px;
+  left: 10px;
   width: 29px;
   height: 29px;
 }
 
 .article__icon--comment {
   top: 9px;
-  left: -54px;
+  left: 10px;
   width: 31px;
   height: 31px;
 }
 
 .article__icon--note {
   top: 7px;
-  left: -54px;
+  left: 10px;
   width: 29px;
   height: 29px;
 }
@@ -443,7 +447,7 @@ object {
 
 .article--post {
   position: relative;
-  margin-left: 21px;
+  margin-left: 20px;
   padding: 29px 39px 35px;
   background: white;
   border-left: 1px solid #f6f6f6;
@@ -612,6 +616,7 @@ object {
 }
 
 .link--read-more:hover {
+  color: #454545;
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
   transition: 0.2s all;
 }
@@ -630,7 +635,7 @@ object {
 }
 
 .logos__list {
-  margin: 0 30px;
+  margin: 0 29px;
 }
 
 .logos__item {
@@ -704,6 +709,11 @@ object {
   color: #454545;
 }
 
+.logo__link--comment:hover {
+  color: #454545;
+  text-decoration: none;
+}
+
 .article__title--comment {
   font-size: 30px;
   color: #454545;
@@ -732,7 +742,7 @@ object {
 }
 
 .wrapper--footer {
-  padding-top: 27px;
+  padding-top: 35px;
   padding-bottom: 48px;
 }
 
@@ -748,7 +758,8 @@ object {
 
 .designed-by {
   float: right;
-  margin-top: 16px;
+  margin-top: 8px;
+  margin-right: -1px;
   font-family: "Open Sans Light", Arial, Tahoma, sans-serif;
   font-size: 12px;
   color: white;
