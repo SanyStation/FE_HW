@@ -1,11 +1,7 @@
 body {
-  min-width: 480px;
-  padding-bottom: 50px;
+  min-width: 768px;
+  padding: 20px 0;
   background: url("../img/concrete-texture.png") repeat;
-}
-
-.container {
-  margin-top: 10px;
 }
 
 .stopwatch_board {
@@ -16,6 +12,6 @@ body {
 
 .stopwatch_split_btn,
 .stopwatch_launch_btn,
-.stopwatch_clear_btn {
-  width: 80px;
+.stopwatch_reset_btn {
+  width: 180px;
 }

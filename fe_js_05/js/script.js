@@ -4,14 +4,14 @@ var helper = {
   findDomElements : function(stopwatchObj) {
     "use strict";
     stopwatchObj.startPauseBtn = document.querySelector('.' + stopwatchObj.START_PAUSE_BTN_CLASS);
-    stopwatchObj.clearBtn = document.querySelector('.' + stopwatchObj.CLEAR_BTN_CLASS);
+    stopwatchObj.resetBtn = document.querySelector('.' + stopwatchObj.RESET_BTN_CLASS);
     stopwatchObj.timer = document.querySelector('.' + stopwatchObj.STOPWATCH_BOARD_CLASS);
   },
 
   applyEventListeners : function(stopwatchObj) {
     "use strict";
     stopwatchObj.startPauseBtn.addEventListener('click', stopwatchObj.startPauseStopwatch.bind(stopwatchObj));
-    stopwatchObj.clearBtn.addEventListener('click', stopwatchObj.clearStopwatch.bind(stopwatchObj));
+    stopwatchObj.resetBtn.addEventListener('click', stopwatchObj.resetStopwatch.bind(stopwatchObj));
   },
 
   changeClass : function(element, oldClass, newClass) {
@@ -24,13 +24,13 @@ var helper = {
 var stopwatch = {
 
   START_PAUSE_BTN_CLASS : 'stopwatch_launch_btn',
-  CLEAR_BTN_CLASS : 'stopwatch_clear_btn',
+  RESET_BTN_CLASS : 'stopwatch_clear_btn',
   STOPWATCH_BOARD_CLASS : 'stopwatch_board',
   INITIAL_BOARD_STATE : '00:00:00.000',
   START_STATE_BTN_CLASS : 'btn-success',
-  PAUSE_STATE_BTN_CLASS : 'btn-warning',
+  STOP_STATE_BTN_CLASS : 'btn-warning',
   START_BTN_TITLE : 'Start',
-  PAUSE_BTN_TITLE : 'Pause',
+  STOP_BTN_TITLE : 'Pause',
 
   isStarted : false,
   currentTimerValue : 0,
@@ -38,35 +38,35 @@ var stopwatch = {
 
   timer : null,
   startPauseBtn : null,
-  clearBtn : null,
+  resetBtn : null,
 
   startPauseStopwatch : function() {
     "use strict";
     if (!this.isStarted) {
-      this.timerId = setInterval(this.updateTimer.bind(this), 3);
-      helper.changeClass(this.startPauseBtn, this.START_STATE_BTN_CLASS, this.PAUSE_STATE_BTN_CLASS);
-      this.startPauseBtn.innerHTML = this.PAUSE_BTN_TITLE;
+      this.timerId = setInterval(this.updateTimer.bind(this), 23);
+      helper.changeClass(this.startPauseBtn, this.START_STATE_BTN_CLASS, this.STOP_STATE_BTN_CLASS);
+      this.startPauseBtn.innerHTML = this.STOP_BTN_TITLE;
     } else {
       clearInterval(this.timerId);
-      helper.changeClass(this.startPauseBtn, this.PAUSE_STATE_BTN_CLASS, this.START_STATE_BTN_CLASS);
+      helper.changeClass(this.startPauseBtn, this.STOP_STATE_BTN_CLASS, this.START_STATE_BTN_CLASS);
       this.startPauseBtn.innerHTML = this.START_BTN_TITLE;
     }
     this.isStarted = !this.isStarted;
   },
 
-  clearStopwatch : function() {
+  resetStopwatch : function() {
     "use strict";
     clearInterval(this.timerId);
     this.timer.innerHTML = this.INITIAL_BOARD_STATE;
     this.isStarted = !this.isStarted;
     this.currentTimerValue = 0;
-    helper.changeClass(this.startPauseBtn, this.PAUSE_STATE_BTN_CLASS, this.START_STATE_BTN_CLASS);
+    helper.changeClass(this.startPauseBtn, this.STOP_STATE_BTN_CLASS, this.START_STATE_BTN_CLASS);
     this.startPauseBtn.innerHTML = this.START_BTN_TITLE;
   },
 
   updateTimer : function() {
     "use strict";
-    this.currentTimerValue = this.currentTimerValue + 3;
+    this.currentTimerValue = this.currentTimerValue + 23;
     var millisecs = this.currentTimerValue % 1000;
     var seconds = Math.floor(this.currentTimerValue / 1000) % 60;
     var minutes = Math.floor(this.currentTimerValue / (1000 * 60)) % 60;
