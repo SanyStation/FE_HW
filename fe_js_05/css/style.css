@@ -1,0 +1,19 @@
+body {
+    min-width: 480px;
+    padding-bottom: 50px;
+    background: url("../img/concrete-texture.png") repeat;
+}
+
+.container {
+    margin-top: 10px;
+}
+
+.stopwatch_board {
+    font-family: "Lucida Console", Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 90px;
+    text-align: center;
+}
+
+.stopwatch_clear_btn {
+    float: right;
+}
