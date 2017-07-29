@@ -6,6 +6,7 @@ body {
 .tabs {
   display: flex;
   flex-direction: column;
+  position: relative;
   margin: 0 auto;
   padding: 2px;
   min-width: 480px;
