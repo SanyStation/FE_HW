@@ -52,6 +52,10 @@ body {
   z-index: 2;
 }
 
+.tabs__list__item--active > .tabs__list__item__link {
+  cursor: default;
+}
+
 .tabs__body {
   flex: 100%;
   padding: 25px 15px;
