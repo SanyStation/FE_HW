@@ -9,7 +9,25 @@
   <script src="js/script.js"></script>
 </head>
 <body>
-  <div class="form">
-  </div>
+  <form class="form">
+    <fieldset>
+      <div class="form__pair">
+        <label class="form__pair__label" for="firstname">First Name</label>
+        <input class="form__pair__field" type="text" id="firstname" name="firstname">
+        <em class="form__pair__hint">Please provide your first name</em>
+      </div>
+      <div class="form__pair">
+        <label class="form__pair__label" for="lastname">Last Name</label>
+        <input class="form__pair__field" type="text" id="lastname" name="lastname">
+        <em class="form__pair__hint">Please provide also your last name</em>
+      </div>
+      <div class="form__pair">
+        <label class="form__pair__label" for="address">Address</label>
+        <input class="form__pair__field" type="text" id="address" name="address">
+        <em class="form__pair__hint">Your home or work address</em>
+      </div>
+    </fieldset>
+    <input class="form__submit" type="submit" value="Submit">
+  </form>
 </body>
 </html>

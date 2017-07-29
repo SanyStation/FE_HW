@@ -2,3 +2,70 @@ body {
   padding: 20px;
   background: url("../img/concrete-texture.png") repeat;
 }
+
+.form {
+  margin: 0 auto;
+  padding: 10px;
+  width: 480px;
+  background: linear-gradient(rgb(245, 245, 245), rgb(224, 224, 224));
+  border: 1px solid #a2a2a2;
+  line-height: 50px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  border-radius: 7px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.form__pair__label {
+  display: inline-block;
+  width: 100px;
+}
+
+.form__pair {
+  position: relative;
+}
+
+.form__pair__hint {
+  display: none;
+  position: absolute;
+  top: 12px;
+  left: 300px;
+  width: 185px;
+  padding: 5px;
+  background: #769BC8;
+  border: 1px solid #7798be;
+  border-radius: 4px;
+  content: 'adfasd';
+  box-sizing: border-box;
+  line-height: 16px;
+  color: #fff;
+  box-shadow: 0 0 2px rgba(7, 0, 255, 0.5);
+}
+
+.form__pair__field {
+  height: 20px;
+  border: 1px solid #545454;
+  border-radius: 4px;
+}
+
+.form__pair__field:hover {
+  box-shadow: 0 0 2px rgba(7, 0, 255, 0.5);
+}
+
+.form__pair__field:focus {
+  outline-color: rgba(7, 0, 222, 0.3);
+}
+
+.form__submit {
+  width: 80px;
+  height: 30px;
+  background: linear-gradient(rgb(147, 189, 237), rgb(118, 155, 200));
+  border: 1px solid #bababa;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.form__submit:hover {
+  box-shadow: 0 0 2px rgba(7, 0, 255, 0.5);
+  cursor: pointer;
+}
