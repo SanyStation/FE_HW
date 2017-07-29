@@ -84,3 +84,7 @@ body {
   content: '';
   z-index: 1;
 }
+
+.tabs__body__tab_content:not(#tab-1) {
+  display: none;
+}
