@@ -1,13 +1,14 @@
 (function ($) {
   "use strict";
-  $(function () {
-    $('.jcarousel').jcarousel();
 
+  $(function() {
+    $('.jcarousel').jcarousel();
+    
     $('.jcarousel-control-prev')
-      .on('jcarouselcontrol:active', function () {
+      .on('jcarouselcontrol:active', function() {
         $(this).removeClass('inactive');
       })
-      .on('jcarouselcontrol:inactive', function () {
+      .on('jcarouselcontrol:inactive', function() {
         $(this).addClass('inactive');
       })
       .jcarouselControl({
@@ -15,10 +16,10 @@
       });
 
     $('.jcarousel-control-next')
-      .on('jcarouselcontrol:active', function () {
+      .on('jcarouselcontrol:active', function() {
         $(this).removeClass('inactive');
       })
-      .on('jcarouselcontrol:inactive', function () {
+      .on('jcarouselcontrol:inactive', function() {
         $(this).addClass('inactive');
       })
       .jcarouselControl({
@@ -26,10 +27,10 @@
       });
 
     $('.jcarousel-pagination')
-      .on('jcarouselpagination:active', 'a', function () {
+      .on('jcarouselpagination:active', 'a', function() {
         $(this).addClass('active');
       })
-      .on('jcarouselpagination:inactive', 'a', function () {
+      .on('jcarouselpagination:inactive', 'a', function() {
         $(this).removeClass('active');
       })
       .jcarouselPagination();
@@ -40,7 +41,11 @@
       changeCheckStart($(this));
     });
 
-
+    /**
+     * Function changes class of checkbox if it isn't disabled
+     *
+     * @param el input element that was clicked on
+     */
     function changeCheck(el) {
       var input = el.find("input").eq(0);
 
@@ -53,9 +58,13 @@
           input.prop("checked", false).focus();
         }
       }
-      return true;
     }
 
+    /**
+     * Function switches class of checkbox
+     *
+     * @param el input element that changed its state (from checked to unchecked or vice versa)
+     */
     function changeVisualCheck(input) {
       var wrapInput = input.parent();
       if (!input.prop("checked")) {
@@ -65,6 +74,12 @@
       }
     }
 
+    /**
+     * Function sets initial params for all checkboxes with class 'jquery-check' and
+     * creates additional span element to stylize and manipulate checkbox
+     *
+     * @param el checkbox with class 'jquery-check'
+     */
     function changeCheckStart(el) {
       try {
         var checkId = el.attr("id");
@@ -89,14 +104,15 @@
         el.next().bind("mousedown", function(e) {
           changeCheck($(this));
         });
+
         el.next().find("input").eq(0).bind("change", function(e) {
           changeVisualCheck($(this));
         });
+
         el.remove();
       } catch(e) {
         window.console.error('Error', e);
       }
-      return true;
     }
   });
 })(jQuery);

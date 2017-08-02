@@ -40,6 +40,8 @@ body {
   background-color: #efefef;
 }
 
+/* jQuery checkbox */
+
 .jquery-check {
   width: 17px;
   height: 17px;
@@ -59,6 +61,8 @@ body {
 .jquery-check input {
   display: none;
 }
+
+/* CSS checkbox */
 
 .css-check {
   position: absolute;
