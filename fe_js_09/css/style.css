@@ -1,4 +1,93 @@
 body {
   padding: 20px;
   background: url("../img/concrete-texture.png") repeat;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.clearfix:after {
+  display: table;
+  clear: both;
+  content: '';
+}
+
+.container {
+  margin: 0 auto;
+  width: 640px;
+}
+
+.checkbox-wrapper {
+  position: relative;
+  margin: 25px 0;
+  padding: 15px 5px;
+  width: 45%;
+  background-color: #efefef;
+  border: 1px solid #7a7a7a;
+}
+
+.checkbox-wrapper--left {
+  float: left;
+}
+
+.checkbox-wrapper--right {
+  float: right;
+}
+
+.checkbox-wrapper__title {
+  position: absolute;
+  top: -10px;
+  left: 5px;
+  font-style: italic;
+  background-color: #efefef;
+}
+
+.jquery-check {
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  cursor: pointer;
+  background: url(../img/checkbox-sprite.png);
+}
+
+.jquery-check--checked {
+  background-position: 0 -17px;
+}
+
+.jquery-check--disabled {
+  background-image: url(../img/checkbox-disabled.png);
+}
+
+.jquery-check input {
+  display: none;
+}
+
+.css-check {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+
+.css-label {
+  cursor: pointer;
+}
+
+.css-label:after {
+  content: ' ';
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  background: url(../img/checkbox-3.png);
+  position: relative;
+  top: 3px;
+  margin-left: 15px;
+}
+
+.css-check:checked + .css-label:after {
+  background-position: 0 -17px;
+}
+
+.css-check:disabled + .css-label:after {
+  background-position: 0 -34px;
+}
+
+.css-check:checked:disabled + .css-label:after {
+  background-position: 0 -51px;
 }

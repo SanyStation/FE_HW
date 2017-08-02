@@ -4,11 +4,83 @@
   <meta charset="UTF-8">
   <title>FE_JS-09</title>
   <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="lib/jcarousel/css/jcarousel.basic.css">
   <link rel="stylesheet" href="css/style.css">
-  <script src="lib/jquery-3.2.1/jquery-3.2.1.min.js"></script>
+  <link rel="stylesheet" href="lib/jquery.selectic/css/selectric.css">
+  <script src="lib/jquery-3.2.1/js/jquery-3.2.1.min.js"></script>
+  <script src="lib/jcarousel/js/jquery.jcarousel.min.js"></script>
+  <script src="lib/jquery.selectic/js/jquery.selectric.min.js"></script>
   <script src="js/script.js"></script>
 </head>
 <body>
-
+  <div class="container">
+    <div class="wrapper">
+      <div class="jcarousel-wrapper">
+        <div class="jcarousel">
+          <ul>
+            <li><img src="img/img1.jpg" width="600" height="400" alt="Img 1"></li>
+            <li><img src="img/img2.jpg" width="600" height="400" alt="Img 2"></li>
+            <li><img src="img/img3.jpg" width="600" height="400" alt="Img 3"></li>
+            <li><img src="img/img4.jpg" width="600" height="400" alt="Img 4"></li>
+            <li><img src="img/img5.jpg" width="600" height="400" alt="Img 5"></li>
+            <li><img src="img/img6.jpg" width="600" height="400" alt="Img 6"></li>
+          </ul>
+        </div>
+        <p class="photo-credits">
+          Photos by <a href="http://www.mw-fotografie.de">Marc Wiegelmann</a>
+        </p>
+        <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+        <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+        <p class="jcarousel-pagination"></p>
+      </div>
+      <select id="city" name="city">
+        <option value="">Київ</option>
+        <option value="2">Лівів</option>
+        <option value="3">Дніпро</option>
+        <option value="4">Харків</option>
+        <option value="2">Чернівці</option>
+        <option value="3">Запоріжжя</option>
+        <option value="4">Ужгород</option>
+      </select>
+    </div>
+    <div class="checkbox-wrapper checkbox-wrapper--left clearfix">
+      <span class="checkbox-wrapper__title">jQuery</span>
+      <div>
+        <label for="ch1">Label 1</label>
+        <input class="jquery-check" type="checkbox" id="ch1"/>
+      </div>
+      <div>
+        <label for="ch2">Label 2</label>
+        <input class="jquery-check" type="checkbox" id="ch2" checked="checked"/>
+      </div>
+      <div>
+        <label for="ch3">Label 3</label>
+        <input class="jquery-check" type="checkbox" id="ch3" disabled="disabled"/>
+      </div>
+      <div>
+        <label for="ch4">Label 4</label>
+        <input class="jquery-check" type="checkbox" id="ch4" checked="checked" disabled="disabled"/>
+      </div>
+    </div>
+    <div class="checkbox-wrapper checkbox-wrapper--right clearfix">
+      <span class="checkbox-wrapper__title">CSS</span>
+      <div>
+        <input class="css-check" type="checkbox" id="ch5"/>
+        <label class="css-label" for="ch5">Label 5</label>
+      </div>
+      <div>
+        <input class="css-check" type="checkbox" id="ch6" checked="checked"/>
+        <label class="css-label" for="ch6">Label 6</label>
+      </div>
+      <div>
+        <input class="css-check" type="checkbox" id="ch7" disabled="disabled"/>
+        <label class="css-label" for="ch7">Label 7</label>
+      </div>
+      <div>
+        <input class="css-check" type="checkbox" id="ch8" checked="checked" disabled="disabled"/>
+        <label class="css-label" for="ch8">Label 8</label>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
