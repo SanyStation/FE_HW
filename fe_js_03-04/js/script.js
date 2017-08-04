@@ -54,7 +54,7 @@ var testConstructor = {
    *
    * @returns {Node} newly created navbar dom element
    */
-  createNavbar : function () {
+  createNavbar : function() {
     'use strict';
     var navBar = document.createElement('nav');
     navBar.classList.add(this.NAVBAR_CLASS, this.NAVBAR_TYPE_CLASS);
@@ -81,7 +81,7 @@ var testConstructor = {
    *
    * @returns {Node} newly created form-wrapper dom element
    */
-  createWrapper : function () {
+  createWrapper : function() {
     'use strict';
     var wrapper = document.createElement('form');
     wrapper.classList.add(this.WRAPPER_CLASS);
@@ -98,7 +98,7 @@ var testConstructor = {
    * @param {XML|Node} parentElement parent element which header will be created for
    * @returns {XML|Node} newly created header dom element
    */
-  createHeader : function (tagName, className, titleName, parentElement) {
+  createHeader : function(tagName, className, titleName, parentElement) {
     'use strict';
     var title = document.createElement(tagName);
     title.classList.add(className);
@@ -116,7 +116,7 @@ var testConstructor = {
    * @param {Array.<number>} correctOptions array of positions of correct options (isn't used yet)
    * @param {XML|Node} parentElement parent element which question will be created for
    */
-  createQuestion : function (questionTitle, questionOptions, questionType, correctOptions, parentElement) {
+  createQuestion : function(questionTitle, questionOptions, questionType, correctOptions, parentElement) {
     'use strict';
     var question = document.createElement('div');
     question.classList.add(this.QUESTION_CLASS, this.QUESTION_CLASS_TYPE);
@@ -157,7 +157,7 @@ var testConstructor = {
    * @param parentElement parent element which question will be created for
    * @returns {XML|Node} newly created button dom element
    */
-  createButtonSubmit : function (parentElement) {
+  createButtonSubmit : function(parentElement) {
     'use strict';
     var button = document.createElement('button');
     button.classList.add(this.BUTTON_CLASS, this.BUTTON_SUBMIT_CLASS);

@@ -1,6 +1,17 @@
-
+/**
+ * This is utility class. It provides methods to manipulate with stopwatch object model.
+ *
+ * @type {{findDomElements: helper.findDomElements,
+ *         applyEventListeners: helper.applyEventListeners,
+ *         changeClass: helper.changeClass}}
+ */
 var helper = {
 
+  /**
+   * Function finds objects related to stopwatch object and assigns they to stopwatchObj.
+   *
+   * @param stopwatchObj object to manipulate with stopwatch
+   */
   findDomElements : function(stopwatchObj) {
     "use strict";
     stopwatchObj.startPauseBtn = document.querySelector('.' + stopwatchObj.START_PAUSE_BTN_CLASS);
@@ -10,6 +21,11 @@ var helper = {
     stopwatchObj.splitTable = document.querySelector('.' + stopwatchObj.SPLIT_TABLE_CLASS + ' tbody');
   },
 
+  /**
+   * Function applies event listeners for stopwatchObj.
+   *
+   * @param stopwatchObj object to manipulate with stopwatch
+   */
   applyEventListeners : function(stopwatchObj) {
     "use strict";
     stopwatchObj.startPauseBtn.addEventListener('click', stopwatchObj.startPauseStopwatch.bind(stopwatchObj));
@@ -17,6 +33,13 @@ var helper = {
     stopwatchObj.splitBtn.addEventListener('click', stopwatchObj.splitTime.bind(stopwatchObj));
   },
 
+  /**
+   * Function substitutes class oldClass for newClass.
+   *
+   * @param {XML|Node} element whose class will be substituted
+   * @param {string} oldClass class which will be removed
+   * @param {string} newClass class which will be added instead of oldClass
+   */
   changeClass : function(element, oldClass, newClass) {
     "use strict";
     element.classList.remove(oldClass);
@@ -24,6 +47,34 @@ var helper = {
   }
 };
 
+/**
+ * This object is created to manipulate with stopwatch.
+ *
+ * @type {{START_PAUSE_BTN_CLASS: string,
+ *         RESET_BTN_CLASS: string,
+ *         SPLIT_BTN_CLASS: string,
+ *         STOPWATCH_BOARD_CLASS: string,
+ *         INITIAL_BOARD_STATE: string,
+ *         START_STATE_BTN_CLASS: string,
+ *         STOP_STATE_BTN_CLASS: string,
+ *         SPLIT_TABLE_CLASS: string,
+ *         START_BTN_TITLE: string,
+ *         STOP_BTN_TITLE: string,
+ *         isStarted: boolean,
+ *         currentTimerValue: number,
+ *         timerId: number,
+ *         splits: number,
+ *         timer: null,
+ *         startPauseBtn: null,
+ *         resetBtn: null,
+ *         splitBtn: null,
+ *         splitTable: null,
+ *
+ *         startPauseStopwatch: stopwatch.startPauseStopwatch,
+ *         resetStopwatch: stopwatch.resetStopwatch,
+ *         splitTime: stopwatch.splitTime,
+ *         updateTimer: stopwatch.updateTimer}}
+ */
 var stopwatch = {
 
   START_PAUSE_BTN_CLASS : 'stopwatch_launch_btn',
@@ -49,6 +100,9 @@ var stopwatch = {
   splitBtn : null,
   splitTable : null,
 
+  /**
+   * Function switches state of stopwatch. It can be started or stopped.
+   */
   startPauseStopwatch : function() {
     "use strict";
     if (!this.isStarted) {
@@ -67,6 +121,9 @@ var stopwatch = {
     this.isStarted = !this.isStarted;
   },
 
+  /**
+   * Function resets stopwatch.
+   */
   resetStopwatch : function() {
     "use strict";
     clearInterval(this.timerId);
@@ -79,6 +136,9 @@ var stopwatch = {
     this.splits = 0;
   },
 
+  /**
+   * Function splits timer every time the 'Split' button is pressed and timer is in running mode.
+   */
   splitTime : function() {
     "use strict";
     if (this.isStarted) {
@@ -87,6 +147,9 @@ var stopwatch = {
     }
   },
 
+  /**
+   * Function updated stopwatch in the DOM.
+   */
   updateTimer : function() {
     "use strict";
     this.currentTimerValue = this.currentTimerValue + 23;
