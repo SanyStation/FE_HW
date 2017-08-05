@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FE_JS-09</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="lib/jquery-3.2.1/js/jquery-3.2.1.min.js"></script>
+  <script src="js/script.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <nav class="nav-pane">
+      <ul class="nav-pane__menu clearfix">
+        <li class="nav-pane__item"><a class="nav-pane__link" href="#">Nav 1</a></li>
+        <li class="nav-pane__item"><a class="nav-pane__link" href="#">Nav 2</a></li>
+        <li class="nav-pane__item menu-item__drop">
+          <a class="nav-pane__link nav-pane__link--dropdown" href="#">Nav 3</a>
+          <ul class="sub-menu sub-menu--dropdown">
+            <li class="sub-menu__item"><a class="sub-menu__link" href="#">Nav 3.1</a></li>
+            <li class="sub-menu__item"><a class="sub-menu__link" href="#">Nav 3.2</a></li>
+            <li class="sub-menu__item"><a class="sub-menu__link" href="#">Nav 3.3</a></li>
+            <li class="sub-menu__item menu-item__drop">
+              <a class="sub-menu__link sub-menu__link--dropright" href="#">Nav 3.4</a>
+              <ul class="sub-menu sub-menu--dropright">
+                <li class="sub-menu__item"><a class="sub-menu__link" href="#">Nav 3.4.1</a></li>
+                <li class="sub-menu__item menu-item__drop">
+                  <a class="sub-menu__link sub-menu__link--dropright" href="#">Nav 3.4.2</a>
+                  <ul class="sub-menu sub-menu--dropright">
+                    <li class="sub-menu__item"><a class="sub-menu__link" href="#">Nav 3.4.2.1</a></li>
+                    <li class="sub-menu__item"><a class="sub-menu__link" href="#">Nav 3.4.2.2</a></li>
+                    <li class="sub-menu__item"><a class="sub-menu__link" href="#">Nav 3.4.2.3</a></li>
+                    <li class="sub-menu__item"><a class="sub-menu__link" href="#">Nav 3.4.2.4</a></li>
+                    <li class="sub-menu__item"><a class="sub-menu__link sub-menu__link--last" href="#">Nav 3.4.2.5</a></li>
+                  </ul>
+                </li>
+                <li class="sub-menu__item"><a class="sub-menu__link" href="#">Nav 3.4.3</a></li>
+                <li class="sub-menu__item"><a class="sub-menu__link" href="#">Nav 3.4.4</a></li>
+                <li class="sub-menu__item"><a class="sub-menu__link sub-menu__link--last" href="#">Nav 3.4.5</a></li>
+              </ul>
+            </li>
+            <li class="sub-menu__item"><a class="sub-menu__link sub-menu__link--last" href="#">Nav 3.5</a></li>
+          </ul>
+        </li>
+        <li class="nav-pane__item"><a class="nav-pane__link" href="#">Nav 4</a></li>
+        <li class="nav-pane__item"><a class="nav-pane__link" href="#">Nav 5</a></li>
+      </ul>
+    </nav>
+  </div>
+</body>
+</html>
