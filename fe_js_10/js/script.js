@@ -4,7 +4,7 @@
   /**
    * Function is designed to draw menu by means of requestAnimationFrame.
    *
-   * @param {XML/Node} menuObj - menu object which will be drown
+   * @param {XML|Node} menuObj - menu object which will be drown
    * @param {Function} drawFunction - function which draws the menu
    * @param {Number} duration - duration of animation in milliseconds
    */
@@ -30,8 +30,8 @@
   /**
    * Function increases opacity of menu object in accordance with progress.
    *
-   * @param {XML/Node} menuObj - menu object which will be drown
-   * @param {Number} progress - real number from 0.0 till 1.0
+   * @param {XML|Node} menuObj - menu object which will be drown
+   * @param {Number} progress - real number from 0.0 to 1.0
    */
   function show(menuObj, progress) {
     if (progress > 0) {
@@ -49,7 +49,7 @@
   /**
    * Function decreases opacity of menu object in accordance with progress.
    *
-   * @param {XML/Node} menuObj - menu object which will be drown
+   * @param {XML|Node} menuObj - menu object which will be drown
    * @param {Number} progress - real number from 0.0 till 1.0
    */
   function hide(menuObj, progress) {
