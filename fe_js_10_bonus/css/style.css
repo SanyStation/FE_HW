@@ -1,0 +1,105 @@
+body {
+  padding: 20px;
+  background: url("../img/concrete-texture.png") repeat;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.clearfix:after {
+  display: table;
+  clear: both;
+  content: '';
+}
+
+.wrapper {
+  min-width: 1000px;
+}
+
+/* Navigation Pane */
+
+.nav-pane {
+  padding: 10px 0;
+  background-color: rgb(255, 100, 100);
+}
+
+.nav-pane__menu {
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1000px;
+}
+
+.nav-pane__item {
+  display: inline-block;
+  position: relative;
+}
+
+/* Submenu Navigation */
+
+.sub-menu {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 200px;
+  background-color: rgb(225, 75, 75);
+}
+
+.sub-menu__item {
+  display: block;
+  position: relative;
+  margin: 0;
+}
+
+.sub-menu--dropright {
+  position: absolute;
+  top: 0;
+  left: 200px;
+  margin: 0;
+}
+
+/* Style All Links */
+
+.nav-pane__link,
+.sub-menu__link {
+  display: block;
+  margin: 0 12px;
+  padding: 0 12px;
+  line-height: 40px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-pane__link:hover,
+.nav-pane__link:focus,
+.nav-pane__link:active,
+.sub-menu__link:hover,
+.sub-menu__link:focus,
+.sub-menu__link:active {
+  color: rgb(50, 50, 50);
+}
+
+/* Style Sub Level Links */
+
+.sub-menu__link {
+  margin: 0 10px;
+  padding: 0;
+  border-bottom: solid 1px rgb(200, 50, 50);
+}
+
+.sub-menu__link--last {
+  border-bottom: none;
+}
+
+/* Hide/Show Sub Menu Links */
+
+.sub-menu {
+  display: none;
+}
+
+/* Arrows For Dropdown and Dropright menus */
+
+.nav-pane__link--dropdown {
+  background: url('../img/arrow-down.png') no-repeat right 20px;
+}
+
+.sub-menu__link--dropright {
+  background: url('../img/arrow-right.png') no-repeat right 16px;
+}
