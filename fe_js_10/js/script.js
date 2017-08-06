@@ -25,6 +25,7 @@
         requestAnimationFrame(animate);
       }
     });
+
   }
 
   /**
@@ -68,10 +69,18 @@
     $('.menu-item__drop').hover(
       function() {
         var menu = $(this).children('.sub-menu');
+        var red = Math.round(Math.random() * 255);
+        window.console.log('red', red);
+        menu.animate({
+          'backgroundColor' : 'rgb(' + red + ', 75, 75)'
+        }, 200);
         drawMenu(menu, show, 200);
       },
       function() {
         var menu = $(this).children('.sub-menu');
+        menu.animate({
+          'backgroundColor' : 'rgb(225, 75, 75)'
+        }, 200);
         drawMenu(menu, hide, 200);
       }
     );
