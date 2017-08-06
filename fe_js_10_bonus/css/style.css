@@ -35,6 +35,7 @@ body {
 /* Submenu Navigation */
 
 .sub-menu {
+  display: none;
   position: absolute;
   top: 40px;
   left: 0;
@@ -86,12 +87,6 @@ body {
 
 .sub-menu__link--last {
   border-bottom: none;
-}
-
-/* Hide/Show Sub Menu Links */
-
-.sub-menu {
-  display: none;
 }
 
 /* Arrows For Dropdown and Dropright menus */
