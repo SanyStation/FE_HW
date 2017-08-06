@@ -5,7 +5,7 @@
  * @param {Function} drawFunction - function which draws the menu
  * @param {Number} duration - duration of animation in milliseconds
  */
-function drawMenu(menuObj, drawFunction, duration) {
+function drawMenu(menuObj, drawFunction, duration, color) {
   "use strict";
   if (duration < 1) {
     duration = 1;
@@ -17,7 +17,7 @@ function drawMenu(menuObj, drawFunction, duration) {
       timePassed = duration;
     }
 
-    drawFunction(menuObj, timePassed / duration, 'rgb(225, 75, 75)');
+    drawFunction(menuObj, timePassed / duration, color);
 
     if (timePassed < duration) {
       requestAnimationFrame(animate);
@@ -105,8 +105,9 @@ function ready() {
   var dropItems = document.getElementsByClassName('menu-item__drop');
   for (var i = 0; i < dropItems.length; ++i) {
     var dropDownMenu = dropItems[i].getElementsByClassName('sub-menu')[0];
-    dropItems[i].addEventListener('mouseenter', drawMenu.bind(null, dropDownMenu, show, 200));
-    dropItems[i].addEventListener('mouseleave', drawMenu.bind(null, dropDownMenu, hide, 200));
+    var color = document.defaultView.getComputedStyle(dropDownMenu, null)['backgroundColor'];
+    dropItems[i].addEventListener('mouseenter', drawMenu.bind(null, dropDownMenu, show, 200, color));
+    dropItems[i].addEventListener('mouseleave', drawMenu.bind(null, dropDownMenu, hide, 200, color));
   }
 }
 
