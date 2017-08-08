@@ -4,12 +4,20 @@
  * @param {XML|Node} menuObj - menu object which will be drown
  * @param {Function} drawFunction - function which draws the menu
  * @param {Number} duration - duration of animation in milliseconds
+ * @param {String} oldColor - represents string in rgb format (e.g. 'rgb(255, 10, 25)')
+ * @param {Function} colorFunction - function to generate new color
  */
-function drawMenu(menuObj, drawFunction, duration, color) {
+function drawMenu(menuObj, drawFunction, duration, oldColor, colorFunction) {
   "use strict";
   if (duration < 1) {
     duration = 1;
   }
+
+  var newColor = colorFunction();
+  var parsedOldColor = parseColor(oldColor);
+  var parsedNewColor = parseColor(newColor);
+  var colorValue = [parsedNewColor[0] - parsedOldColor[0], parsedNewColor[1] - parsedOldColor[1], parsedNewColor[2] - parsedOldColor[2]];
+
   var start = performance.now();
   requestAnimationFrame(function animate(time) {
     var timePassed = time - start;
@@ -17,7 +25,7 @@ function drawMenu(menuObj, drawFunction, duration, color) {
       timePassed = duration;
     }
 
-    drawFunction(menuObj, timePassed / duration, color);
+    drawFunction(menuObj, timePassed / duration, parsedOldColor, colorValue);
 
     if (timePassed < duration) {
       requestAnimationFrame(animate);
@@ -25,6 +33,16 @@ function drawMenu(menuObj, drawFunction, duration, color) {
   });
 }
 
+/**
+ * Function is created to parse text format of color to number format.
+ * Available formats:
+ * 1. Short hex format (3 symbols, e.g. #fab)
+ * 2. Full hex format (6 symbols, e.g. #ffaabb)
+ * 3. RGB format (e.g. rgb(255, 17, 48))
+ *
+ * @param {String} color - text format of color
+ * @returns {Array.<Number>} integer format of incoming color
+ */
 function parseColor(color) {
   "use strict";
 
@@ -51,7 +69,7 @@ function parseColor(color) {
   //RGB format
   colorValue = color.match(/^rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/i);
   if (colorValue) {
-    return [colorValue[1], colorValue[2], colorValue[3]];
+    return [parseInt(colorValue[1]), parseInt(colorValue[2]), parseInt(colorValue[3])];
   }
 }
 
@@ -60,19 +78,17 @@ function parseColor(color) {
  *
  * @param {XML|Node} menuObj - menu object which will be drown
  * @param {Number} progress - real number from 0.0 till 1.0
- * @param colorStatic - current color of menu
+ * @param {Array.<Number>} color - current color of menu
+ * @param {Array.<Number>} colorValue - delta of color
  */
-function show(menuObj, progress, colorStatic) {
+function show(menuObj, progress, color, colorValue) {
   "use strict";
   menuObj.style.display = 'block';
   menuObj.style.opacity = progress;
 
-  var color = parseColor(colorStatic);
-
-  var k = 0.3;
-  var red = Math.round(color[0] - color[0] * k * progress);
-  var green = Math.round(color[1] - color[1] * k * progress);
-  var blue = Math.round(color[2] - color[2] * k * progress);
+  var red = Math.round(color[0] + colorValue[0] * progress);
+  var green = Math.round(color[1] + colorValue[1] * progress);
+  var blue = Math.round(color[2] + colorValue[2] * progress);
   menuObj.style.backgroundColor = 'rgb(' + red + ', ' + green + ', ' + blue + ')';
 }
 
@@ -81,23 +97,24 @@ function show(menuObj, progress, colorStatic) {
  *
  * @param {XML|Node} menuObj - menu object which will be drown
  * @param {Number} progress - real number from 0.0 to 1.0
- * @param colorStatic - current color of menu
  */
-function hide(menuObj, progress, colorStatic) {
+function hide(menuObj, progress) {
   "use strict";
-  progress = 1 - progress;
-  if (progress > 0) {
-    menuObj.style.opacity = progress;
-    var color = parseColor(colorStatic);
-
-    var k = 0.3;
-    var red = Math.round((color[0] - color[0] * k) + color[0] * k * (1 - progress));
-    var green = Math.round((color[1] - color[1] * k) + color[1] * k * (1 - progress));
-    var blue = Math.round((color[2] - color[2] * k) + color[2] * k * (1 - progress));
-    menuObj.style.backgroundColor = 'rgb(' + red + ', ' + green + ', ' + blue + ')';
+  if (progress < 1) {
+    menuObj.style.opacity = 1 - progress;
   } else {
     menuObj.style.display = 'none';
   }
+}
+
+/**
+ * The utility function is designed to generate color with random red value.
+ *
+ * @returns {String} represents string in rgb format (e.g. 'rgb(255, 10, 25)').
+ */
+function getColor() {
+  "use strict";
+  return 'rgb(' + Math.round(Math.random() * 255) + ', 75, 75)';
 }
 
 function ready() {
@@ -105,9 +122,9 @@ function ready() {
   var dropItems = document.getElementsByClassName('menu-item__drop');
   for (var i = 0; i < dropItems.length; ++i) {
     var dropDownMenu = dropItems[i].getElementsByClassName('sub-menu')[0];
-    var color = document.defaultView.getComputedStyle(dropDownMenu, null)['backgroundColor'];
-    dropItems[i].addEventListener('mouseenter', drawMenu.bind(null, dropDownMenu, show, 200, color));
-    dropItems[i].addEventListener('mouseleave', drawMenu.bind(null, dropDownMenu, hide, 200, color));
+    var oldColor = document.defaultView.getComputedStyle(dropDownMenu, null).backgroundColor;
+    dropItems[i].addEventListener('mouseenter', drawMenu.bind(null, dropDownMenu, show, 200, oldColor, getColor));
+    dropItems[i].addEventListener('mouseleave', drawMenu.bind(null, dropDownMenu, hide, 200, oldColor, getColor));
   }
 }
 
