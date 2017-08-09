@@ -117,6 +117,9 @@ function getColor() {
   return 'rgb(' + Math.round(Math.random() * 255) + ', 75, 75)';
 }
 
+/**
+ * Function  adds event listeners for dropdown menus.
+ */
 function ready() {
   "use strict";
   var dropItems = document.getElementsByClassName('menu-item__drop');
