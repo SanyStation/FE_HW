@@ -1,0 +1,76 @@
+body {
+  padding: 20px;
+  background: url("../img/concrete-texture.png") repeat;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.clearfix:after {
+  display: table;
+  clear: both;
+  content: '';
+}
+
+.carousel {
+  margin: 0 auto;
+  padding: 20px 10px;
+  width: 745px;
+  border-top: 1px solid #968eff;
+  border-bottom: 1px solid #968eff;
+}
+
+.carousel__hider {
+  width: 575px;
+  overflow: hidden;
+  float: left;
+}
+
+.carousel__list {
+  position: relative;
+  list-style: none;
+  width: 10000px;
+  padding: 0;
+}
+
+.carousel__element {
+  display: block;
+  margin-right: 25px;
+  float: left;
+}
+
+.carousel__img {
+  max-width: 175px;
+}
+
+.carousel__description {
+  margin-top: 5px;
+  font-weight: 700;
+  color: #524c94;
+  text-align: center;
+}
+
+.carousel__arrow {
+  display: block;
+  float: left;
+  margin-top: 50px;
+  padding: 5px;
+  width: 60px;
+  border: 1px solid grey;
+  background: #000;
+  color: #f6f6f6;
+  outline: none;
+}
+
+.carousel__arrow:hover {
+  cursor: pointer;
+  box-shadow: 0 0 3px 0 #5b94ab;
+}
+
+.carousel__arrow--left {
+  margin-right: 25px;
+  border-radius: 20px 5px 5px 20px;
+}
+
+.carousel__arrow--right {
+  margin-left: 25px;
+  border-radius: 5px 20px 20px 5px;
+}
