@@ -2,7 +2,6 @@
   "use strict";
   
   $(function() {
-    var templateHtml = $('#item_tmpl').html();
     var data = {
       fullName : 'Гадя Петрович Хренова',
       job : 'Актёр',
@@ -16,6 +15,7 @@
       feedbackTitle : 'Мой фидбек:',
       feedback : 'Если нужно, могу сыграть миниатюру'
     };
-    $('body').append(window.tmpl(templateHtml, data));
+    var tmpl = _.template($('#item_tmpl').html());
+    $('body').append(tmpl(data));
   });
 })(jQuery);
