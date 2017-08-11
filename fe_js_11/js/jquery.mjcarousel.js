@@ -9,9 +9,9 @@
   $.fn.mjcarousel = function(params) {
     var options = $.extend(defaults, params);
 
-    var leftArrow = $(this).find('.carousel__arrow--left');
-    var rightArrow = $(this).find('.carousel__arrow--right');
-    var elementsList = $(this).find('.carousel__list');
+    var leftArrow = this.find('.carousel__arrow--left');
+    var rightArrow = this.find('.carousel__arrow--right');
+    var elementsList = this.find('.carousel__list');
 
     leftArrow.css({'background-color' : options.buttonColor});
     rightArrow.css({'background-color' : options.buttonColor});
