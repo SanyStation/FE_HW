@@ -1,13 +1,11 @@
 (function($) {
   "use strict";
 
-  var defaults = {
-    buttonColor : '#000',
-    animationSpeed : 500
-  };
-
   $.fn.mjcarousel = function(params) {
-    var options = $.extend(defaults, params);
+    var options = $.extend({
+      buttonColor : '#000',
+      animationSpeed : 500
+    }, params);
 
     var leftArrow = this.find('.carousel__arrow--left');
     var rightArrow = this.find('.carousel__arrow--right');
