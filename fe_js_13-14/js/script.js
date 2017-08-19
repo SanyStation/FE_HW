@@ -297,7 +297,7 @@
             questionLink.removeClass('skipped').addClass('answered');
             questionCard.remove();
           } else {
-            test.generateModalWindow('Empty selection', 'Please, choose one or several options (according to type of question)');
+            test.generateModalWindow('Empty selection', 'Please, choose one or several options (in accordance with type of question)');
             return;
           }
           if (nextQuestionId) {
