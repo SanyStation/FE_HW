@@ -9,12 +9,16 @@ body {
   content: '';
 }
 
+/* Common elements */
+
 .wrapper {
   margin: 0 auto;
   padding: 20px 10px;
   min-width: 700px;
   width: 50%;
 }
+
+/* Control Buttons */
 
 .btn-test {
   display: block;
@@ -23,21 +27,37 @@ body {
   height: 60px;
 }
 
-.question-card > .card-primary {
-  margin-top: 20px;
-  background-color: #0275d8;
-  border-color: #0275d8;
-  color: #fff;
+.btn-skip,
+.btn-submit {
+  margin: 20px 0 20px 10px;
+  float: right;
+}
+
+.btn-close {
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 28px;
+}
+
+.btn-ok {
+  float: right;
+}
+
+.btn-close:hover,
+.btn-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .btn-primary > input {
   display: none;
 }
 
-.btn-skip,
-.btn-submit {
-  margin: 20px 0 20px 10px;
-  float: right;
+.btn-primary.active {
+  background-color: #0057ae;
+  border-color: #0057ae;
 }
 
 .btn-stop {
@@ -45,14 +65,20 @@ body {
   float: left;
 }
 
+/* Question Card */
+
+.question-card > .card-primary {
+  margin-top: 20px;
+  background-color: #0275d8;
+  border-color: #0275d8;
+  color: #fff;
+}
+
+/* Question Options */
+
 .list-group-item > label {
   margin-bottom: 0;
   padding-left: 43px;
-}
-
-.btn-primary.active {
-  background-color: #0057ae;
-  border-color: #0057ae;
 }
 
 .list-group-item.selected {
@@ -66,6 +92,8 @@ body {
 .list-group-item.correct-answered {
   background-color: #bfe2c1;
 }
+
+/* Question nav-links */
 
 .nav-link {
   margin: 0 2px;
@@ -125,8 +153,21 @@ body {
   background-position: 21px 0;
 }
 
+/* Navbar timer */
+
 .navbar-timer {
   font-size: 1.5rem;
+}
+
+/* Modal */
+
+.modal-title {
+  font-size: 22px;
+  line-height: 31px;
+}
+
+.modal-text {
+  font-size: 18px;
 }
 
 .modal-window {
@@ -186,32 +227,4 @@ body {
 @keyframes animatetop {
   from {top: -300px; opacity: 0}
   to {top: 0; opacity: 1}
-}
-
-/* The Close Button */
-.btn-close {
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  line-height: 28px;
-}
-
-.btn-ok {
-  float: right;
-}
-
-.btn-close:hover,
-.btn-close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modal-title {
-  font-size: 22px;
-  line-height: 31px;
-}
-
-.modal-text {
-  font-size: 18px;
 }
