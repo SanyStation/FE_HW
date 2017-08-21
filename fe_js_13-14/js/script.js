@@ -448,7 +448,7 @@
           if (answers.length > 0) {
             localStorage.setItem('test.answers.' + activeQuestionId, JSON.stringify(answers));
             localStorage.removeItem('test.skipped.' + activeQuestionId);
-            questionLink.removeClass(constants.SKIPPED_CLASS).addClass(constants.ANSWERED_CLASS);//TODO Remove due to line below
+            questionLink.removeClass(constants.SKIPPED_CLASS).addClass(constants.ANSWERED_CLASS);
             questionCard.remove();
           } else {
             testConstructor.generateModalWindow('Empty selection', 'Please, choose one or several options (in accordance with type of question)');
