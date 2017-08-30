@@ -1,0 +1,113 @@
+{
+  "testTitle": "World Geography Test",
+  "questions": {
+    "q1": {
+      "name": "The Homolographic projection has the correct representation of",
+      "options": {
+        "o1": "shape",
+        "o2": "area",
+        "o3": "baring",
+        "o4": "distance"
+      },
+      "correct": "o2"
+    },
+    "q2": {
+      "name": "The higher the wind speed and the longer the fetch or distance of open water across which the wind blows and waves travel, the ____ waves and the ____ energy they process.",
+      "options": {
+        "o1": "larger, more",
+        "o2": "larger, less",
+        "o3": "smaller, more",
+        "o4": "smaller, less"
+      },
+      "correct": "o1"
+    },
+    "q3": {
+      "name": "The hazards of radiation belts include",
+      "options": {
+        "o1": "deterioration of electronic circuits",
+        "o2": "damage of solar cells of spacecraft",
+        "o3": "adverse effect on living organisms"
+      },
+      "correct": [
+        "o1",
+        "o2",
+        "o3"
+      ]
+    },
+    "q4": {
+      "name": "The great Victoria Desert is located in",
+      "options": {
+        "o1": "Canada",
+        "o2": "West Africa",
+        "o3": "Australia",
+        "o4": "North America"
+      },
+      "correct": "o3"
+    },
+    "q5": {
+      "name": "The intersecting lines drawn on maps and globes are",
+      "options": {
+        "o1": "latitudes",
+        "o2": "longitudes",
+        "o3": "geographic grids",
+        "o4": "None of the above"
+      },
+      "correct": "o3"
+    },
+    "q6": {
+      "name": "The light of distant stars is affected by",
+      "options": {
+        "o1": "the earth's atmosphere",
+        "o2": "interstellar dust",
+        "o3": "None of the above"
+      },
+      "correct": [
+        "o1",
+        "o2"
+        ]
+    },
+    "q7": {
+      "name": "The landmass of which of the following continents is the least?",
+      "options": {
+        "o1": "Africa",
+        "o2": "Asia",
+        "o3": "Australia",
+        "o4": "Europe"
+      },
+      "correct": "o3"
+    },
+    "q8": {
+      "name": "Without ____ the equator would be much hotter than it is while the poles would be much cooler.",
+      "options": {
+        "o1": "latitudinal redistribution of heat",
+        "o2": "cycle of air circulation",
+        "o3": "global wind pattern"
+      },
+      "correct": [
+        "o1",
+        "o2",
+        "o3"
+      ]
+    },
+    "q9": {
+      "name": "The habitats valuable for commercially harvested species are called",
+      "options": {
+        "o1": "coral reefs",
+        "o2": "sea grass bed",
+        "o3": "hot spots",
+        "o4": "None of the above"
+      },
+      "correct": "o2"
+    },
+    "q10": {
+      "name": "With the disintegration of USSR in end 1991, comprised of ____ Union Republics.",
+      "options": {
+        "o1": "15",
+        "o2": "10",
+        "o3": "5",
+        "o4": "25"
+      },
+      "correct": "o1"
+    }
+  }
+}

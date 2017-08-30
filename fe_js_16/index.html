@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FE_JS_16</title>
+  <link rel="stylesheet" href="lib/bootstrap-4.0.0-beta/css/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/bootstrap-4.0.0-beta/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="lib/bootstrap-4.0.0-beta/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="lib/jquery-3.2.1/jquery-3.2.1.min.js"></script>
+  <script src="lib/popper.js-1.11.1/js/popper.min.js"></script>
+  <script src="lib/bootstrap-4.0.0-beta/js/bootstrap.min.js"></script>
+  <script src="lib/lodash/js/lodash.js"></script>
+  <script src="js/script.js"></script>
+  <script type="text/html" id="nav-pane">
+    <nav class="navbar navbar-inverse navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><%= title %></a>
+        <span class="navbar-text navbar-timer">00:00:00</span>
+      </div>
+    </nav>
+  </script>
+  <script type="text/html" id="questions-pane">
+    <ul class="nav nav-pills">
+      <% for (var i = 0; i < ids.length; ++i) { %>
+      <li class="nav-item">
+        <a class="nav-link" href="#<%=ids[i]%>"><%= i + 1 %></a>
+      </li>
+      <% } %>
+    </ul>
+  </script>
+  <script type="text/html" id="question">
+    <div class="question-card">
+      <div class="card card-primary card-inverse">
+        <h4 class="card-header"><%- title %></h4>
+        <div class="card-block">
+          <ul class="list-group list-group-flush btn-group options-group" data-toggle="buttons">
+            <% Object.keys(options).forEach(function(key) { %>
+            <li class="list-group-item">
+              <label class="btn btn-primary">
+                <input type="<%=type%>" name="<%= id %>" value="<%= key %>">
+                <span><%= options[key] %></span>
+              </label>
+            </li>
+            <% }); %>
+          </ul>
+        </div>
+      </div>
+      <button type="button" class="btn btn-warning btn-stop">Stop Test</button>
+      <button type="button" class="btn btn-info btn-submit">Submit</button>
+      <button type="button" class="btn btn-secondary btn-skip">Skip</button>
+    </div>
+  </script>
+  <script type="text/html" id="modal">
+    <div class="modal-window">
+      <div class="modal-window-content">
+        <div class="modal-window-header">
+          <span class="btn-close">&times;</span>
+          <h3 class="modal-title"><%= title %></h3>
+        </div>
+        <div class="modal-window-body">
+          <p class="modal-text"><%= text %></p>
+        </div>
+        <div class="modal-window-footer clearfix">
+          <button type="button" class="btn btn-primary btn-ok">OK</button>
+        </div>
+      </div>
+    </div>
+  </script>
+</head>
+<body>
+</body>
+</html>
