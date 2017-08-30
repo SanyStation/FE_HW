@@ -1,3 +1,5 @@
+/* Common elements */
+
 html,
 body {
   height: 100%;
@@ -8,6 +10,8 @@ body {
   margin: 0 auto;
   width: 900px;
 }
+
+/* Search form and components */
 
 .search-form {
   display: flex;
@@ -53,6 +57,8 @@ body {
   background-color: #004a91;
 }
 
+/* Result Field */
+
 .search-result {
   display: none;
   flex-wrap: wrap;
@@ -68,13 +74,13 @@ body {
   flex-direction: column;
 }
 
-img {
-  border-radius: 5px;
-}
-
 .item {
   margin: 5px 0;
   transition: 0.4s transform;
+}
+
+.item-img {
+  border-radius: 5px;
 }
 
 .item:hover {
