@@ -138,7 +138,7 @@
    * This class represents a test. It contains different functions to manage and manipulate the test.
    * There are only two types of test:
    *   1. with single correct option (based on radio buttons)
-   *   2. with plural correct options (based on checkboxes)
+   *   2. with multiple correct options (based on checkboxes)
    *
    * @type {{testTitle: null,
    *         questions: null,
