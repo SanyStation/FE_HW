@@ -467,6 +467,7 @@
         localStorage.clear();
         self.init();
       });
+      localStorage.setItem('test.activeQuestion', activeQuestionId);
       self.activeQuestion = activeQuestionId;
     },
 
