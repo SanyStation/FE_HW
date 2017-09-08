@@ -378,7 +378,7 @@
      * It prints all information about the question:
      * question, possible options, buttons to skip, submit question and stop a test.
      *
-     * @param activeQuestionId
+     * @param activeQuestionId - id of active question
      */
     setActiveQuestion: function(activeQuestionId) {
       var self = this;
