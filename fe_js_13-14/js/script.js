@@ -224,7 +224,7 @@
      */
     getActiveQuestionId: function() {
       if (!this.activeQuestion) {
-        this.activeQuestion = localStorage.getItem('test.activeQuestion');
+        this.activeQuestion = localStorage.getItem('test.activeQuestion') || Object.keys(this.questions)[0];
       }
       return this.activeQuestion;
     },
@@ -273,7 +273,7 @@
         if (self.isTestFinished) {
           self.markQuestions();
         }
-        var activeQuestion = localStorage.getItem('test.activeQuestion') || Object.keys(self.questions)[0];
+        var activeQuestion = self.getActiveQuestionId();
         this.remove();
         self.setActiveQuestion(activeQuestion);
       });
