@@ -383,8 +383,7 @@
     setActiveQuestion: function(activeQuestionId) {
       var self = this;
       var questions = self.questions;
-      var questionCard = $('.' + constants.QUESTION_CARD_CLASS);
-      questionCard.remove();
+      $('.' + constants.QUESTION_CARD_CLASS).remove();
       $('.' + constants.NAVLINK_CLASS).removeClass(constants.ACTIVE_CLASS);
 
       var $selectedQuestion = helper.generateHtmlFromTemplate(constants.QUESTION_ID, {
@@ -449,7 +448,6 @@
             localStorage.setItem('test.answers.' + activeQuestionId, JSON.stringify(answers));
             localStorage.removeItem('test.skipped.' + activeQuestionId);
             questionLink.removeClass(constants.SKIPPED_CLASS).addClass(constants.ANSWERED_CLASS);
-            questionCard.remove();
           } else {
             testConstructor.generateModalWindow('Empty selection', 'Please, choose one or several options (in accordance with type of question)');
             return;
