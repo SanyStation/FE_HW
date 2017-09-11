@@ -22,13 +22,15 @@ body {
 
 .btn-test {
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
   width: 200px;
   height: 60px;
 }
 
 .btn-skip,
-.btn-submit {
+.btn-submit,
+.btn-save,
+.btn-delete {
   margin: 20px 0 20px 10px;
   float: right;
 }
@@ -40,7 +42,8 @@ body {
   line-height: 28px;
 }
 
-.btn-ok {
+.btn-ok,
+.btn-add-option {
   float: right;
 }
 
@@ -117,6 +120,10 @@ body {
 .nav-link.correct-answered {
   background-color: #bfe2c1;
   color: #3c3c3c;
+}
+
+.plus-question {
+  line-height: 20px;
 }
 
 .btn > input[type="radio"] + span:before {
@@ -227,4 +234,12 @@ body {
 @keyframes animatetop {
   from {top: -300px; opacity: 0}
   to {top: 0; opacity: 1}
+}
+
+.input-row {
+  margin: 15px 0;
+}
+
+.remove-option {
+  line-height: 14px;
 }

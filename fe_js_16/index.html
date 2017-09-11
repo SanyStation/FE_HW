@@ -12,6 +12,14 @@
   <script src="lib/bootstrap-4.0.0-beta/js/bootstrap.min.js"></script>
   <script src="lib/lodash/js/lodash.js"></script>
   <script src="js/script.js"></script>
+  <script type="text/html" id="controls">
+    <% if (constants.TEST_STATUS.IN_EDITING !== status) { %>
+    <button type="button" class="btn btn-test btn-info btn-start"><%= processButtonTitle %></button>
+    <% } %>
+    <% if (constants.TEST_STATUS.INITIAL === status || constants.TEST_STATUS.IN_EDITING === status) { %>
+    <button type="button" class="btn btn-test btn-primary btn-edit"><%= constants.TEST_STATUS.INITIAL === status ? 'Edit Test' : 'Continue Editing' %></button>
+    <% } %>
+  </script>
   <script type="text/html" id="nav-pane">
     <nav class="navbar navbar-inverse navbar-dark bg-dark">
       <div class="container">
@@ -23,8 +31,15 @@
   <script type="text/html" id="questions-pane">
     <ul class="nav nav-pills">
       <% for (var i = 0; i < ids.length; ++i) { %>
+      <% var isSkipped = localStorage.getItem('test.skipped.' + ids[i]); %>
+      <% var isAnswered = !$.isEmptyObject(localStorage.getItem('test.skipped.' + ids[i])); %>
       <li class="nav-item">
-        <a class="nav-link" href="#<%=ids[i]%>"><%= i + 1 %></a>
+        <a class="nav-link <%= isSkipped ? constants.SKIPPED_CLASS : isAnswered ? constants.ANSWERED_CLASS : '' %>" href="#<%=ids[i]%>"><%= i + 1 %></a>
+      </li>
+      <% } %>
+      <% if (constants.TEST_STATUS.IN_EDITING === status) { %>
+      <li class="nav-item">
+        <a class="nav-link plus-question" href=""><img src="img/plus-2x.png" alt="+"></a>
       </li>
       <% } %>
     </ul>
@@ -35,20 +50,30 @@
         <h4 class="card-header"><%- title %></h4>
         <div class="card-block">
           <ul class="list-group list-group-flush btn-group options-group" data-toggle="buttons">
-            <% Object.keys(options).forEach(function(key) { %>
-            <li class="list-group-item">
+            <% var isFinished = constants.TEST_STATUS.FINISHED === status; %>
+            <% var isAnswered = !$.isEmptyObject(answers); %>
+            <% $.each(options, function(key, value) { %>
+            <% var isExist = $.inArray(key, answers) > -1; %>
+            <% var isCorrect = $.inArray(key, correct) > -1; %>
+            <li class="list-group-item <%= isExist ? constants.SELECTED_CLASS : '' %>
+            <%= (isFinished ? (isCorrect ? constants.CORRECT_ANSWERED_CLASS : (isExist ? constants.WRONG_ANSWERED_CLASS : '')) : '') %>">
               <label class="btn btn-primary">
-                <input type="<%=type%>" name="<%= id %>" value="<%= key %>">
-                <span><%= options[key] %></span>
+                <input type="<%=type%>" name="<%= id %>" value="<%= key %>"
+                <%= isExist ? 'checked' : '' %>
+                <%= isAnswered || isFinished ? 'disabled' : '' %> >
+                <span><%= value %></span>
               </label>
             </li>
             <% }); %>
           </ul>
         </div>
       </div>
-      <button type="button" class="btn btn-warning btn-stop">Stop Test</button>
+      <button type="button" class="btn btn-warning btn-stop"><%= isFinished ? 'Back to the beginning' : 'Stop Test' %></button>
+      <% if (!isAnswered && !isFinished) { %>
       <button type="button" class="btn btn-info btn-submit">Submit</button>
+      <% if (!isSkipped) { %>
       <button type="button" class="btn btn-secondary btn-skip">Skip</button>
+      <% }} %>
     </div>
   </script>
   <script type="text/html" id="modal">
@@ -64,6 +89,40 @@
         <div class="modal-window-footer clearfix">
           <button type="button" class="btn btn-primary btn-ok">OK</button>
         </div>
+      </div>
+    </div>
+  </script>
+  <script type="text/html" id="edit-question">
+    <div class="input-group input-row">
+      <span class="input-group-addon" id="basic-addon1">Question</span>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="dropdown input-row">
+      <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Question Type
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item type-question-single" href="#">Single option question</a>
+        <a class="dropdown-item type-question-multiple" href="#">Multiple options question</a>
+      </div>
+      <button type="button" class="btn btn-success btn-add-option">Add Option</button>
+    </div>
+    <div class="input-row">
+      <button type="button" class="btn btn-warning btn-stop">Back to the beginning</button>
+      <button type="button" class="btn btn-primary btn-save">Save</button>
+      <button type="button" class="btn btn-danger btn-delete">Delete question</button>
+    </div>
+  </script>
+  <script type="text/html" id="question-option">
+    <div class="input-row">
+      <div class="input-group">
+        <span class="input-group-addon">
+          <a class="remove-option" href="#"><img src="img/minus-2x.png" alt="+"></a>
+        </span>
+        <span class="input-group-addon">
+          <input type="<%= questionType %>" class="option-input" name="options-group">
+        </span>
+        <input type="text" class="form-control">
       </div>
     </div>
   </script>

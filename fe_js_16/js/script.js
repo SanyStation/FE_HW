@@ -44,7 +44,8 @@
     NAVLINK_CLASS: 'nav-link',
     BUTTON_CLASS: 'btn',
     BUTTON_TEST_CLASS: 'btn-test',
-    BUTTON_TEST_START_CLASS: 'btn-info',
+    BUTTON_START_CLASS: 'btn-start',
+    BUTTON_EDIT_CLASS: 'btn-edit',
     TIMER_CLASS: 'navbar-timer',
     OPTIONS_GROUP_CLASS: 'options-group',
     QUESTION_CARD_CLASS: 'question-card',
@@ -58,11 +59,22 @@
     BUTTON_OK_CLASS: 'btn-ok',
     BUTTON_CLOSE_CLASS: 'btn-close',
     BUTTON_PRIMARY_CLASS: 'btn-primary',
+    BUTTON_INFO_CLASS: 'btn-info',
 
     ANSWERED_CLASS: 'answered',
     SKIPPED_CLASS: 'skipped',
     CORRECT_ANSWERED_CLASS: 'correct-answered',
-    WRONG_ANSWERED_CLASS: 'wrong-answered'
+    WRONG_ANSWERED_CLASS: 'wrong-answered',
+
+    RESOURCES_PATH: 'resources',
+    TEST_FILE: 'world_geography.json',
+
+    TEST_STATUS: {
+      INITIAL: 'initial',
+      IN_PROGRESS: 'in_progress',
+      FINISHED: 'finished',
+      IN_EDITING: 'in_editing'
+    }
   };
 
   /**
@@ -138,37 +150,18 @@
    * This class represents a test. It contains different functions to manage and manipulate the test.
    * There are only two types of test:
    *   1. with single correct option (based on radio buttons)
-   *   2. with plural correct options (based on checkboxes)
-   *
-   * @type {{testTitle: null,
-   *         questions: null,
-   *         activeQuestion: null,
-   *         isTestStarted: null,
-   *         isTestFinished: null,
-   *         $timer: null,
-   *         timerId: number,
-   *         currentTimerValue: number,
-   *         loadQuestions: loadQuestions,
-   *         init: init,
-   *         getActiveQuestionId: getActiveQuestionId,
-   *         startTest: startTest,
-   *         calculateResults: calculateResults,
-   *         markQuestions: markQuestions,
-   *         markOptions: markOptions,
-   *         finishTest: finishTest,
-   *         setActiveQuestion: setActiveQuestion,
-   *         updateTimer: updateTimer}}
+   *   2. with multiple correct options (based on checkboxes)
    */
   var test = {
 
-    testTitle : null,
-    questions : null,
-    activeQuestion : '',
-    isTestStarted : null,
-    isTestFinished : null,
-    $timer : null,
-    timerId : 0,
+    testTitle: null,
+    questions: null,
+    activeQuestion: '',
+    status: null,
+    $timer: null,
+    timerId: 0,
     currentTimerValue : 0,
+    questionType: 'radio',
 
     /**
      * Function loads and caches a test from file and writes it to localStorage.
@@ -178,7 +171,7 @@
         this.testTitle = localStorage.getItem('test.testTitle');
         this.questions = JSON.parse(localStorage.getItem('test.questions'));
       } else if (!localStorage.getItem('test.isLoaded')) {
-        $.getJSON("resources/world_geography.json", (function(data) {
+        $.getJSON(constants.RESOURCES_PATH + '/' + constants.TEST_FILE, (function(data) {
           this.questions = data.questions;
           this.testTitle = data.testTitle;
           $('.' + constants.NAVBAR_BRAND_CLASS).html(this.testTitle);
@@ -189,6 +182,15 @@
       }
     },
 
+    getStatus: function () {
+      return this.status || localStorage.getItem('test.status') || constants.TEST_STATUS.INITIAL;
+    },
+
+    setStatus: function(status) {
+      this.status = status;
+      localStorage.setItem('test.status', status);
+    },
+
     /**
      * Function initializes test.
      * It cleans body document content, loads questions and starts the test.
@@ -197,24 +199,44 @@
       var body = $('body');
       body.empty();
       this.loadQuestions();
-
-      this.isTestStarted = localStorage.getItem('test.isStarted');
-      this.isTestFinished = localStorage.getItem('test.isFinished');
+      this.status = this.getStatus();
 
       var navPane = helper.generateHtmlFromTemplate(constants.NAV_PANE_ID, {
-        title : test.testTitle
+        title : test.testTitle,
+        constants: constants
       });
       body.append(navPane);
 
       this.$timer = $('.' + constants.TIMER_CLASS);
       this.currentTimerValue = parseInt(localStorage.getItem('test.timer')) || 0;
-      this.updateTimer();
+      this.updateTimer(0);
 
-      var $wrapper = testConstructor.createWrapper();
-      var $button = testConstructor.createButton(
-        this.isTestFinished ? 'View Results' : this.isTestStarted ? 'Continue Test' : 'Start Test',
-        [constants.BUTTON_TEST_START_CLASS, constants.BUTTON_TEST_CLASS], $wrapper);
-      $button.on('click', this.startTest.bind(this));
+      var processButtonMessage = '';
+      switch(this.getStatus()) {
+        case constants.TEST_STATUS.INITIAL:
+          processButtonMessage = 'Start Test';
+          break;
+        case constants.TEST_STATUS.IN_PROGRESS:
+          processButtonMessage = 'Continue Test';
+          break;
+        case constants.TEST_STATUS.FINISHED:
+          processButtonMessage = 'Review Results';
+          break;
+        case constants.TEST_STATUS.IN_EDITING:
+          break;
+        default:
+          throw 'Wrong status of test: ' + this.getStatus();
+      }
+
+      var controls = helper.generateHtmlFromTemplate('controls', {
+        status: this.getStatus(),
+        processButtonTitle: processButtonMessage,
+        constants: constants
+      });
+      testConstructor.createWrapper().append(controls);
+      $('.' + constants.BUTTON_START_CLASS).on('click', this.proceedTest.bind(this));
+      $('.' + constants.BUTTON_EDIT_CLASS).on('click', this.editTest.bind(this));
+
     },
 
     /**
@@ -224,7 +246,7 @@
      */
     getActiveQuestionId: function() {
       if (!this.activeQuestion) {
-        this.activeQuestion = localStorage.getItem('test.activeQuestion');
+        this.activeQuestion = localStorage.getItem('test.activeQuestion') || Object.keys(this.questions)[0];
       }
       return this.activeQuestion;
     },
@@ -236,62 +258,81 @@
      * - continue test (when a test has been interrupted);
      * - view results (when a test has been finished).
      */
-    startTest: function() {
+    proceedTest: function() {
       var self = this;
-      $('.' + constants.BUTTON_TEST_START_CLASS).hide('fast', function() {
-        if (!self.isTestStarted && !self.isTestFinished) {
-          localStorage.setItem('test.isStarted', true);
-          self.currentTimerValue = 0;
-          self.timerId = setInterval(self.updateTimer.bind(self, constants.TIMER_VALUE), constants.TIMER_VALUE);
-          localStorage.setItem('test.timer.id', self.timerId);
-        } else if (self.isTestStarted) {
-          self.currentTimerValue = parseInt(localStorage.getItem('test.timer')) || 0;
-          self.timerId = setInterval(self.updateTimer.bind(self, constants.TIMER_VALUE), constants.TIMER_VALUE);
+      $('.' + constants.BUTTON_START_CLASS).hide('fast', function() {
+        if (constants.TEST_STATUS.INITIAL === self.getStatus()) {
+          self.startTest();
+        } else if (constants.TEST_STATUS.IN_PROGRESS === self.getStatus()) {
+          self.continueTest();
         }
-        var questionKeys = Object.keys(self.questions);
-        var questionsPane = helper.generateHtmlFromTemplate(constants.QUESTION_PANE_ID, {
-          ids : questionKeys
-        });
-        $('.' + constants.WRAPPER_CLASS).append(questionsPane);
-        for (var i = 0; i < questionKeys.length; ++i) {
-          var skippedAnswers = localStorage.getItem('test.skipped.' + questionKeys[i]);
-          if (skippedAnswers) {
-            $('a[href$=' + questionKeys[i] + ']').addClass(constants.SKIPPED_CLASS);
-          } else {
-            var answers = localStorage.getItem('test.answers.' + questionKeys[i]);
-            if (answers && answers.length > 0) {
-              $('a[href$=' + questionKeys[i] + ']').addClass(constants.ANSWERED_CLASS);
-            }
-          }
-        }
+        self.navPaneBuilder.setQuestionKeys(Object.keys(self.questions));
+        $('.' + constants.WRAPPER_CLASS).empty().append(self.navPaneBuilder.build());
+
         $('.' + constants.NAVLINK_CLASS).on('click', function() {
           var questionId = helper.normalizeId($(this).attr('href'));
           if (questionId !== self.getActiveQuestionId()) {
             self.setActiveQuestion(questionId);
           }
         });
-        if (self.isTestFinished) {
+        if (constants.TEST_STATUS.FINISHED === self.getStatus()) {
           self.markQuestions();
         }
-        var activeQuestion = localStorage.getItem('test.activeQuestion') || Object.keys(self.questions)[0];
-        this.remove();
+        var activeQuestion = self.getActiveQuestionId();
         self.setActiveQuestion(activeQuestion);
       });
     },
 
-    /**
-     * It's the helper function. It calculates total success rate at the and of a test.
-     *
-     * @param totalQuestions - total number of questions
-     * @param successAnswers - correct answered questions
-     * @returns {{totalQuestions: number, successAnswers: number, rate: number}}
-     */
-      calculateResults: function(totalQuestions, successAnswers) {
-      return {
-        totalQuestions : totalQuestions,
-        successAnswers : successAnswers,
-        rate : Math.round((successAnswers / totalQuestions * 1000)) / 10
-      };
+    editTest: function() {
+      var self = this;
+      $('.' + constants.BUTTON_EDIT_CLASS).hide('fast', function() {
+        self.setStatus(constants.TEST_STATUS.IN_EDITING);
+        self.navPaneBuilder.setQuestionKeys(Object.keys(self.questions));
+        self.navPaneBuilder.setStatus(self.getStatus());
+        var card = helper.generateHtmlFromTemplate('edit-question', {});
+
+        $('.' + constants.WRAPPER_CLASS).empty().append(self.navPaneBuilder.build()).append(card);
+        $('.' + constants.BUTTON_STOP_CLASS).on('click', self.resetTest.bind(self));
+        $('.' + constants.NAVLINK_CLASS).on('click', function() {
+          var questionId = helper.normalizeId($(this).attr('href'));
+          if (questionId !== self.getActiveQuestionId()) {
+            self.setEditQuestion(questionId);
+          }
+        });
+        $('.' + 'type-question-single').on('click', function() {
+          self.questionType = 'radio';
+          $('.' + 'option-input').each(function() {
+            $(this).attr('type', 'radio');
+          });
+        });
+        $('.' + 'type-question-multiple').on('click', function() {
+          self.questionType = 'checkbox';
+          $('.' + 'option-input').each(function() {
+            $(this).attr('type', 'checkbox');
+          });
+        });
+        $('.' + 'btn-add-option').on('click', function() {
+          var $option = helper.generateHtmlFromTemplate('question-option', {
+            questionType: self.questionType
+          });
+          $(this).parent().after($option);
+          $('.' + 'remove-option').on('click', function() {
+            $(this).parent().parent().parent().remove();
+          });
+        });
+      });
+    },
+
+    startTest: function() {
+      this.currentTimerValue = 0;
+      this.timerId = setInterval(this.updateTimer.bind(this, constants.TIMER_VALUE), constants.TIMER_VALUE);
+      localStorage.setItem('test.timer.id', this.timerId);
+      this.setStatus(constants.TEST_STATUS.IN_PROGRESS);
+    },
+
+    continueTest: function() {
+      this.currentTimerValue = parseInt(localStorage.getItem('test.timer')) || 0;
+      this.timerId = setInterval(this.updateTimer.bind(this, constants.TIMER_VALUE), constants.TIMER_VALUE);
     },
 
     /**
@@ -324,27 +365,18 @@
     },
 
     /**
-     * Function marks inputs of options of questions in a test.
-     * There are 2 types of options:
-     * 1. correct answered option;
-     * 2. wrong answered option.
+     * It's the helper function. It calculates total success rate at the and of a test.
      *
-     * @param questionId - id of selected question
+     * @param totalQuestions - total number of questions
+     * @param successAnswers - correct answered questions
+     * @returns {{totalQuestions: number, successAnswers: number, rate: number}}
      */
-    markOptions: function(questionId) {
-      var questions = this.questions;
-      var $options = $('.' + constants.OPTIONS_GROUP_CLASS);
-      var answers = helper.wrapInArray(JSON.parse(localStorage.getItem('test.answers.' + questionId)));
-      var correct = helper.wrapInArray(questions[questionId].correct);
-
-      for (var i = 0; i < answers.length; ++i) {
-        var input = $options.find('input[value=' + answers[i] + ']');
-        input.parent().parent().addClass(constants.WRONG_ANSWERED_CLASS);
-        input.attr('checked', true);
-      }
-      for (var j = 0; j < correct.length; ++j) {
-        $options.find('input[value=' + correct[j] + ']').parent().parent().addClass(constants.CORRECT_ANSWERED_CLASS);
-      }
+    calculateResults: function(totalQuestions, successAnswers) {
+      return {
+        totalQuestions : totalQuestions,
+        successAnswers : successAnswers,
+        rate : Math.round((successAnswers / totalQuestions * 1000)) / 10
+      };
     },
 
     /**
@@ -355,16 +387,9 @@
      * 2. 'Back to the beginning' - this button is allowed in a review mode after test was finished.
      */
     finishTest: function() {
-      localStorage.removeItem('test.isStarted');
-      localStorage.setItem('test.isFinished', true);
-      this.isTestStarted = null;
-      this.isTestFinished = true;
-
+      this.setStatus(constants.TEST_STATUS.FINISHED);
       clearTimeout(this.timerId);
-
-      var firstQuestion = helper.normalizeId($('.' + constants.NAVLINK_CLASS + ':first').attr('href'));
-      this.setActiveQuestion(firstQuestion);
-
+      this.setActiveQuestion(Object.keys(this.questions)[0]);
       var results = this.markQuestions();
       testConstructor.generateModalWindow('Test finished!', 'Total questions: ' +
         results.totalQuestions +
@@ -378,56 +403,31 @@
      * It prints all information about the question:
      * question, possible options, buttons to skip, submit question and stop a test.
      *
-     * @param activeQuestionId
+     * @param activeQuestionId - id of active question
      */
     setActiveQuestion: function(activeQuestionId) {
       var self = this;
-      var questions = self.questions;
-      var questionCard = $('.' + constants.QUESTION_CARD_CLASS);
-      questionCard.remove();
       $('.' + constants.NAVLINK_CLASS).removeClass(constants.ACTIVE_CLASS);
-
-      var $selectedQuestion = helper.generateHtmlFromTemplate(constants.QUESTION_ID, {
-        id : activeQuestionId,
-        title : questions[activeQuestionId].name,
-        type : Array.isArray(questions[activeQuestionId].correct) ? 'checkbox' : 'radio',
-        options : questions[activeQuestionId].options
-      });
-      $('.' + constants.WRAPPER_CLASS).append($selectedQuestion);
-
+      $('.' + constants.QUESTION_CARD_CLASS).remove();
       var questionLink = $('a[href$=' + activeQuestionId + ']');
-      var $buttonSubmit = $('.' + constants.BUTTON_SUBMIT_CLASS);
-      var $buttonSkip = $('.' + constants.BUTTON_SKIP_CLASS);
-      var $buttonStop = $('.' + constants.BUTTON_STOP_CLASS);
       questionLink.addClass(constants.ACTIVE_CLASS);
 
-      var answers = JSON.parse(localStorage.getItem('test.answers.' + activeQuestionId));
-      if (answers && answers.length > 0) {
-        for (var i = 0; i < answers.length; ++i) {
-          var input = $('input[value=' + answers[i] + ']');
-          input.parent().parent().addClass(constants.SELECTED_CLASS);
-          input.attr('checked', true);
-        }
-        $('.' + constants.BUTTON_PRIMARY_CLASS + ' > input').attr('disabled', true);
-        $buttonSubmit.remove();
-        $buttonSkip.remove();
-      }
+      this.questionBuilder.setId(activeQuestionId);
+      this.questionBuilder.setStatus(self.getStatus());
+      this.questionBuilder.setQuestions(self.questions);
+      this.questionBuilder.setSkipped(questionLink.hasClass(constants.SKIPPED_CLASS));
+      this.questionBuilder.setAnswers(JSON.parse(localStorage.getItem('test.answers.' + activeQuestionId)));
+      $('.' + constants.WRAPPER_CLASS).append(this.questionBuilder.build());
+
       var nextQuestionId = helper.normalizeId($('.' + constants.NAVLINK_CLASS + '.' + constants.ACTIVE_CLASS).parent().next().find('.' + constants.NAVLINK_CLASS).attr('href'));
 
-      if (self.isTestFinished) {
-        $buttonSkip.remove();
-        $buttonSubmit.remove();
-        $buttonStop.html('Back to the beginning');
-        self.markOptions(activeQuestionId);
-        $('.' + constants.BUTTON_PRIMARY_CLASS + ' > input').attr('disabled', true);
-      } else {
-        if (questionLink.hasClass(constants.SKIPPED_CLASS)) {
-          $buttonSkip.remove();
-        } else {
+      if (constants.TEST_STATUS.FINISHED !== self.getStatus()) {
+        var $buttonSubmit = $('.' + constants.BUTTON_SUBMIT_CLASS);
+        if (!questionLink.hasClass(constants.SKIPPED_CLASS)) {
+          var $buttonSkip = $('.' + constants.BUTTON_SKIP_CLASS);
           if (!nextQuestionId) {
             $buttonSubmit.html('Submit and Finish Test');
-            $buttonSkip.html('Skip and Finish Test');
-            $buttonSkip.on('click', function() {
+            $buttonSkip.html('Skip and Finish Test').on('click', function() {
               localStorage.setItem('test.skipped.' + activeQuestionId, true);
               questionLink.addClass(constants.SKIPPED_CLASS);
               self.finishTest();
@@ -441,7 +441,7 @@
           }
         }
         $buttonSubmit.on('click', function() {
-          answers = [];
+          var answers = [];
           $('.' + constants.BUTTON_PRIMARY_CLASS + '.' + constants.ACTIVE_CLASS + ' > input').each(function() {
             answers.push($(this).attr('value'));
           });
@@ -449,7 +449,6 @@
             localStorage.setItem('test.answers.' + activeQuestionId, JSON.stringify(answers));
             localStorage.removeItem('test.skipped.' + activeQuestionId);
             questionLink.removeClass(constants.SKIPPED_CLASS).addClass(constants.ANSWERED_CLASS);
-            questionCard.remove();
           } else {
             testConstructor.generateModalWindow('Empty selection', 'Please, choose one or several options (in accordance with type of question)');
             return;
@@ -461,13 +460,23 @@
           }
         });
       }
-      $buttonStop.on('click', function() {
-        self.questions = null;
-        clearInterval(self.timerId);
-        localStorage.clear();
-        self.init();
-      });
+      $('.' + constants.BUTTON_STOP_CLASS).on('click', self.resetTest.bind(self));
+      localStorage.setItem('test.activeQuestion', activeQuestionId);
       self.activeQuestion = activeQuestionId;
+    },
+
+    resetTest: function() {
+      this.setStatus(constants.TEST_STATUS.INITIAL);
+      this.questions = null;
+      clearInterval(this.timerId);
+      localStorage.clear();
+      this.activeQuestion = null;
+      this.init();
+    },
+
+    setEditQuestion: function() {
+      var self = this;
+      $('.' + constants.NAVLINK_CLASS).removeClass(constants.ACTIVE_CLASS);
     },
 
     /**
@@ -484,7 +493,125 @@
 
       this.$timer.html(('00' + hours).slice(-2) + ':' + ('00' + minutes).slice(-2) + ':' + ('00' + seconds).slice(-2));
       localStorage.setItem('test.timer', this.currentTimerValue);
+    },
+
+    questionBuilder: {
+
+      id: null,
+      questions: null,
+      answers: null,
+      status: null,
+      isSkipped: null,
+
+      setId: function(id) {
+        this.id = id;
+      },
+
+      setQuestions: function(questions) {
+        this.questions = questions;
+      },
+
+      setAnswers: function(answers) {
+        this.answers = answers;
+      },
+
+      setStatus: function(status) {
+        this.status = status;
+      },
+
+      setSkipped: function(isSkipped) {
+        this.isSkipped = isSkipped;
+      },
+
+      build: function() {
+        return helper.generateHtmlFromTemplate(constants.QUESTION_ID, {
+          id: this.id,
+          title: this.questions[this.id].name,
+          type: Array.isArray(this.questions[this.id].correct) ? 'checkbox' : 'radio',
+          options: this.questions[this.id].options,
+          answers: this.answers,
+          status: this.status,
+          correct: helper.wrapInArray(this.questions[this.id].correct),
+          isSkipped: this.isSkipped,
+          constants: constants
+        });
+      }
+    },
+
+    navPaneBuilder: {
+
+      questionKeys: null,
+      status: null,
+
+      setId: function(id) {
+        this.id = id;
+      },
+
+      setStatus: function(status) {
+        this.status = status;
+      },
+
+      setQuestionKeys: function(questionKeys) {
+        this.questionKeys = questionKeys;
+      },
+
+      build: function() {
+        return helper.generateHtmlFromTemplate(constants.QUESTION_PANE_ID, {
+          ids : this.questionKeys,
+          status: this.status,
+          constants: constants
+        });
+      }
     }
+  };
+
+  var testEditor = {
+
+    Question: function() {
+      this.title = null;
+      this.type = null;
+      this.options = [];
+      this.answers = [];
+
+      this.setTitle = function(title) {
+        this.title = title;
+      };
+
+      this.addOption = function(option) {
+        this.options.push(option);
+      };
+
+      this.addOptions = function(options) {
+        var self = this;
+        $.forEach(options, function(index, option) {
+          self.addOption(option);
+        });
+      };
+
+      this.addAnswer = function(answerIndex) {
+        this.answers.push(answerIndex);
+      };
+
+      this.addOptions = function(answers) {
+        var self = this;
+        $.forEach(answers, function(index, answer) {
+          self.addAnswer(answer);
+        });
+      };
+    },
+
+    QuestionRadio: function(title) {
+      testEditor.Question.call(this);
+      this.type = 'single';
+      this.title = title;
+    },
+
+    QuestionCheckbox: function(title) {
+      testEditor.Question.call(this);
+      this.type = 'multiple';
+      this.title = title;
+    }
+
   };
 
   /**
