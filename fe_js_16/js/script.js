@@ -478,6 +478,9 @@
           $(this).attr('type', 'checkbox');
         });
       });
+      $('.' + 'remove-option').on('click', function() {
+        $(this).parent().parent().parent().remove();
+      });
       $('.' + 'btn-add-option').on('click', function() {
         var $option = helper.generateHtmlFromTemplate('question-option', {
           questionType: self.questionType
