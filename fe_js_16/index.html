@@ -39,7 +39,7 @@
       <% } %>
       <% if (constants.TEST_STATUS.IN_EDITING === status) { %>
       <li class="nav-item">
-        <a class="nav-link plus-question" href=""><img src="img/plus-2x.png" alt="+"></a>
+        <a class="nav-link plus-question" href="#"><img src="img/plus-2x.png" alt="+"></a>
       </li>
       <% } %>
     </ul>
@@ -87,7 +87,8 @@
           <p class="modal-text"><%= text %></p>
         </div>
         <div class="modal-window-footer clearfix">
-          <button type="button" class="btn btn-primary btn-ok">OK</button>
+          <button type="button" class="btn btn-secondary btn-cancel">Cancel</button>
+          <button type="button" class="btn btn-warning btn-ok">OK</button>
         </div>
       </div>
     </div>
@@ -124,7 +125,7 @@
       <div class="input-row">
         <button type="button" class="btn btn-warning btn-stop">Back to the beginning</button>
         <button type="button" class="btn btn-primary btn-save">Save</button>
-        <button type="button" class="btn btn-danger btn-delete">Delete question</button>
+        <button type="button" class="btn btn-danger btn-delete">Delete</button>
       </div>
     </div>
   </script>

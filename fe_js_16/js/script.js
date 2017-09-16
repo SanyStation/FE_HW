@@ -120,7 +120,7 @@
      * @param {string} title - title of modal window
      * @param {string} text - message of modal window
      */
-    generateModalWindow: function(title, text) {
+    generateModalWindow: function(title, text, callback) {
       var modal = helper.generateHtmlFromTemplate(constants.MODAL_ID, {
         title : title,
         text : text
@@ -133,16 +133,18 @@
         $modal.remove();
       }
 
-      var $btnOk = $modal.find('.' + constants.BUTTON_OK_CLASS);
-      var $btnClose = $modal.find('.' + constants.BUTTON_CLOSE_CLASS);
-      $btnOk.on('click', hideModal);
-      $btnClose.on('click', hideModal);
-
-      $(window).on('click', function(event) {
-        if (event.target === $modal.get(0)) {
-          hideModal();
+      function doAction() {
+        if (callback) {
+          callback();
         }
+      }
+
+      $modal.find('.' + constants.BUTTON_OK_CLASS).on('click', function() {
+        hideModal();
+        doAction();
       });
+      $modal.find('.' + 'btn-cancel').on('click', hideModal);
+      $modal.find('.' + constants.BUTTON_CLOSE_CLASS).on('click', hideModal);
     }
   };
 
@@ -196,6 +198,7 @@
      * It cleans body document content, loads questions and starts the test.
      */
     init: function() {
+      var self = this;
       var body = $('body');
       body.empty();
       this.loadQuestions();
@@ -234,9 +237,12 @@
         constants: constants
       });
       testConstructor.createWrapper().append(controls);
-      $('.' + constants.BUTTON_START_CLASS).on('click', this.proceedTest.bind(this));
-      $('.' + constants.BUTTON_EDIT_CLASS).on('click', this.editTest.bind(this));
-
+      $('.' + constants.BUTTON_START_CLASS).on('click', function() {
+        $(this).hide('fast', self.proceedTest.bind(self));
+      });
+      $('.' + constants.BUTTON_EDIT_CLASS).on('click', function() {
+        $(this).hide('fast', self.editTest.bind(self));
+      });
     },
 
     /**
@@ -246,7 +252,7 @@
      */
     getActiveQuestionId: function() {
       if (!this.activeQuestion) {
-        this.activeQuestion = localStorage.getItem('test.activeQuestion') || Object.keys(this.questions)[0];
+        this.activeQuestion = Object.keys(this.questions)[0] || localStorage.getItem('test.activeQuestion');
       }
       return this.activeQuestion;
     },
@@ -265,45 +271,46 @@
      */
     proceedTest: function() {
       var self = this;
-      $('.' + constants.BUTTON_START_CLASS).hide('fast', function() {
-        if (constants.TEST_STATUS.INITIAL === self.getStatus()) {
-          self.startTest();
-        } else if (constants.TEST_STATUS.IN_PROGRESS === self.getStatus()) {
-          self.continueTest();
-        }
-        self.navPaneBuilder.setQuestionKeys(Object.keys(self.questions));
-        $('.' + constants.WRAPPER_CLASS).empty().append(self.navPaneBuilder.build());
+      if (constants.TEST_STATUS.INITIAL === self.getStatus()) {
+        self.startTest();
+      } else if (constants.TEST_STATUS.IN_PROGRESS === self.getStatus()) {
+        self.continueTest();
+      }
+      self.navPaneBuilder.setQuestionKeys(Object.keys(self.questions));
+      $('.' + constants.WRAPPER_CLASS).empty().append(self.navPaneBuilder.build());
 
-        $('.' + constants.NAVLINK_CLASS).on('click', function() {
-          var questionId = helper.normalizeId($(this).attr('href'));
-          if (questionId !== self.getActiveQuestionId()) {
-            self.showActiveQuestion(questionId);
-          }
-        });
-        if (constants.TEST_STATUS.FINISHED === self.getStatus()) {
-          self.markQuestions();
+      $('.' + constants.NAVLINK_CLASS).on('click', function() {
+        var questionId = helper.normalizeId($(this).attr('href'));
+        if (questionId !== self.getActiveQuestionId()) {
+          self.showActiveQuestion(questionId);
         }
-        var activeQuestion = self.getActiveQuestionId();
-        self.showActiveQuestion(activeQuestion);
       });
+      if (constants.TEST_STATUS.FINISHED === self.getStatus()) {
+        self.markQuestions();
+      }
+      var activeQuestion = self.getActiveQuestionId();
+      self.showActiveQuestion(activeQuestion);
     },
 
     editTest: function() {
       var self = this;
-      $('.' + constants.BUTTON_EDIT_CLASS).hide('fast', function() {
-        self.setStatus(constants.TEST_STATUS.IN_EDITING);
-        self.navPaneBuilder.setQuestionKeys(Object.keys(self.questions));
-        self.navPaneBuilder.setStatus(self.getStatus());
+      self.setStatus(constants.TEST_STATUS.IN_EDITING);
+      self.navPaneBuilder.setQuestionKeys(Object.keys(self.questions));
+      self.navPaneBuilder.setStatus(self.getStatus());
 
-        $('.' + constants.WRAPPER_CLASS).empty().append(self.navPaneBuilder.build());
-        self.showEditQuestion(self.getActiveQuestionId());
+      $('.' + constants.WRAPPER_CLASS).empty().append(self.navPaneBuilder.build());
+      self.showEditQuestion(self.getActiveQuestionId());
 
-        $('.' + constants.NAVLINK_CLASS).on('click', function() {
-          var questionId = helper.normalizeId($(this).attr('href'));
-          if (questionId !== self.getActiveQuestionId()) {
-            self.showEditQuestion(questionId);
-          }
-        });
+      $('.' + constants.NAVLINK_CLASS).not('.' + 'plus-question').on('click', function() {
+        var questionId = helper.normalizeId($(this).attr('href'));
+        if (questionId !== self.getActiveQuestionId()) {
+          self.showEditQuestion(questionId);
+        }
+      });
+
+      $('.' + 'plus-question').on('click', function(e) {
+        e.preventDefault();
+        self.showEditQuestion();
       });
     },
 
@@ -460,12 +467,18 @@
     showEditQuestion: function(activeQuestionId) {
       var self = this;
       $('.' + constants.NAVLINK_CLASS).removeClass(constants.ACTIVE_CLASS);
-      $('a[href$=' + activeQuestionId + ']').addClass(constants.ACTIVE_CLASS);
       $('.' + constants.QUESTION_CARD_CLASS).remove();
+      $('a[href$=' + activeQuestionId + ']').addClass(constants.ACTIVE_CLASS);
       var question = editableQuestionFactory.initializeQuestion(self.questions[activeQuestionId]);
       $('.' + constants.WRAPPER_CLASS).append(editableQuestionBuilder.build(question));
       self.setActiveQuestionId(activeQuestionId);
-      $('.' + constants.BUTTON_STOP_CLASS).on('click', self.resetTest.bind(self));
+      $('.' + constants.BUTTON_STOP_CLASS).on('click', function() {
+        testConstructor.generateModalWindow('Back to the beginning',
+          'You are about to quit editing window. All unsaved data will be lost.' +
+          '<br>Are you sure?', function() {
+            self.resetTest();
+          });
+      });
       $('.' + 'type-question-single').on('click', function() {
         self.questionType = 'radio';
         $('.' + 'option-input').each(function() {
@@ -489,6 +502,14 @@
         $('.' + 'remove-option').on('click', function() {
           $(this).parent().parent().parent().remove();
         });
+      });
+      $('.' + 'btn-delete').on('click', function() {
+        testConstructor.generateModalWindow('Delete question',
+          'This question will be deleted. Are you sure?', function() {
+            delete self.questions[activeQuestionId];
+            self.setActiveQuestionId(null);
+            self.editTest();
+          });
       });
     },
 
@@ -592,6 +613,7 @@
   var editableQuestionFactory = {
 
     initializeQuestion: function(questionObj) {
+      questionObj = questionObj || {};
       var type = Array.isArray(questionObj.correct) ? 'checkbox' : 'radio';
       var question = this.createQuestion(type);
       question.setTitle(questionObj.name);
@@ -749,6 +771,13 @@
         arg = [arg];
       }
       return arg;
+    },
+
+    generateNextAvailableId: function(existingIds) {
+      existingIds.sort();
+      var lastId = existingIds[existingIds.length - 1];
+      var nextId = parseInt(lastId.substring(1)) + 1;
+      return nextId;
     }
   };
 
