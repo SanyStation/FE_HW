@@ -310,7 +310,11 @@
 
       $('.' + 'plus-question').on('click', function(e) {
         e.preventDefault();
-        self.showEditQuestion();
+        testConstructor.generateModalWindow('Create new question',
+          'You are about to create new question. All unsaved data will be lost.' +
+          '<br>Are you sure?', function() {
+            self.showEditQuestion();
+          });
       });
     },
 
@@ -513,6 +517,10 @@
       });
     },
 
+    checkQuestionCorrectness: function() {
+
+    },
+
     /**
      * Function updated timer and sets the formatted value to the panel timer.
      *
@@ -605,7 +613,8 @@
       return helper.generateHtmlFromTemplate('edit-question', {
         title: question.getTitle(),
         type: question.getType(),
-        options: question.getOptions()
+        options: question.getOptions(),
+        correct: helper.wrapInArray(question.getCorrect())
       });
     }
   };
@@ -618,11 +627,7 @@
       var question = this.createQuestion(type);
       question.setTitle(questionObj.name);
       question.addOptions(questionObj.options);
-      if (type === 'radio') {
-        question.setAnswer(questionObj.correct);
-      } else {
-        question.addAnswers(questionObj.correct);
-      }
+      question.setCorrect(questionObj.correct);
       return question;
     },
 
@@ -638,6 +643,7 @@
       this.title = null;
       this.options = {};
       this.answers = null;
+      this.correct = null;
 
       this.getType = function() {
         throw 'This method should be implemeted by child class';
@@ -664,6 +670,22 @@
 
       this.getOptions = function() {
         return this.options;
+      };
+
+      this.getAnswers = function() {
+        return this.answers;
+      };
+
+      this.getCorrect = function() {
+        return this.correct;
+      };
+
+      this.setCorrect = function(correct) {
+        this.correct = correct;
+      };
+
+      this.getCorrect = function() {
+        return this.correct;
       };
     },
 

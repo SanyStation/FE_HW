@@ -100,7 +100,7 @@
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"><%= title %></textarea>
       </div>
       <div class="dropdown input-row">
-        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"                aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Question Type
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -112,12 +112,12 @@
       <% $.each(options, function(key, value) { %>
       <div class="input-row">
         <div class="input-group">
-        <span class="input-group-addon">
-          <a class="remove-option" href="#"><img src="img/minus-2x.png" alt="-"></a>
-        </span>
           <span class="input-group-addon">
-          <input type="<%= type %>" class="option-input" name="options-group">
-        </span>
+            <a class="remove-option" href="#"><img src="img/minus-2x.png" alt="-"></a>
+          </span>
+          <span class="input-group-addon">
+            <input type="<%= type %>" class="option-input" name="options-group" <%= $.inArray(key, correct) > -1 ? 'checked' : '' %>>
+          </span>
           <input type="text" class="form-control" value="<%= value %>">
         </div>
       </div>
