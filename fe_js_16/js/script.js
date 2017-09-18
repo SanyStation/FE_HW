@@ -164,6 +164,7 @@
     timerId: 0,
     currentTimerValue : 0,
     questionType: 'radio',
+    savedQuestion: null,
 
     /**
      * Function loads and caches a test from file and writes it to localStorage.
@@ -184,7 +185,23 @@
       }
     },
 
-    getStatus: function () {
+    saveQuestions: function() {
+      localStorage.setItem('test.questions', JSON.stringify(this.questions));
+    },
+
+    addQuestion: function(id, question) {
+      this.questions[id] = {
+        name: question.getTitle(),
+        options: question.getOptions(),
+        correct: question.getCorrect()
+      };
+    },
+
+    removeQuestion: function(id) {
+      delete this.questions[id];
+    },
+
+    getStatus: function() {
       return this.status || localStorage.getItem('test.status') || constants.TEST_STATUS.INITIAL;
     },
 
@@ -276,8 +293,9 @@
       } else if (constants.TEST_STATUS.IN_PROGRESS === self.getStatus()) {
         self.continueTest();
       }
-      self.navPaneBuilder.setQuestionKeys(Object.keys(self.questions));
-      $('.' + constants.WRAPPER_CLASS).empty().append(self.navPaneBuilder.build());
+      var navPaneBuilder = new self.NavPaneBuilder();
+      navPaneBuilder.setQuestionKeys(Object.keys(self.questions));
+      $('.' + constants.WRAPPER_CLASS).empty().append(navPaneBuilder.build());
 
       $('.' + constants.NAVLINK_CLASS).on('click', function() {
         var questionId = helper.normalizeId($(this).attr('href'));
@@ -295,26 +313,45 @@
     editTest: function() {
       var self = this;
       self.setStatus(constants.TEST_STATUS.IN_EDITING);
-      self.navPaneBuilder.setQuestionKeys(Object.keys(self.questions));
-      self.navPaneBuilder.setStatus(self.getStatus());
 
-      $('.' + constants.WRAPPER_CLASS).empty().append(self.navPaneBuilder.build());
+      var navPaneBuilder = new self.NavPaneBuilder();
+      navPaneBuilder.setQuestionKeys(Object.keys(self.questions));
+      navPaneBuilder.setStatus(self.getStatus());
+
+      $('.' + constants.WRAPPER_CLASS).empty().append(navPaneBuilder.build());
       self.showEditQuestion(self.getActiveQuestionId());
 
       $('.' + constants.NAVLINK_CLASS).not('.' + 'plus-question').on('click', function() {
-        var questionId = helper.normalizeId($(this).attr('href'));
-        if (questionId !== self.getActiveQuestionId()) {
-          self.showEditQuestion(questionId);
+        var innerSelf = this;
+        var currentQuestion = self.fetchQuestion();
+        function callback() {
+          var questionId = helper.normalizeId($(innerSelf).attr('href'));
+          if (questionId !== self.getActiveQuestionId()) {
+            self.showEditQuestion(questionId);
+          }
+        }
+        if (!currentQuestion.compare(self.savedQuestion)) {
+          testConstructor.generateModalWindow('Next question',
+            'You are about to switch to the next question. All unsaved data will be lost.' +
+            '<br>Are you sure?', callback);
+        } else {
+          callback();
         }
       });
 
       $('.' + 'plus-question').on('click', function(e) {
         e.preventDefault();
-        testConstructor.generateModalWindow('Create new question',
-          'You are about to create new question. All unsaved data will be lost.' +
-          '<br>Are you sure?', function() {
-            self.showEditQuestion();
-          });
+        var currentQuestion = self.fetchQuestion();
+        function callback() {
+          self.showEditQuestion('new');
+        }
+        if (!currentQuestion.compare(self.savedQuestion)) {
+          testConstructor.generateModalWindow('Create new question',
+            'You are about to create new question. All unsaved data will be lost.' +
+            '<br>Are you sure?', callback);
+        } else {
+          callback();
+        }
       });
     },
 
@@ -407,12 +444,14 @@
       var questionLink = $('a[href$=' + activeQuestionId + ']');
       questionLink.addClass(constants.ACTIVE_CLASS);
 
-      this.questionBuilder.setId(activeQuestionId);
-      this.questionBuilder.setStatus(self.getStatus());
-      this.questionBuilder.setQuestions(self.questions);
-      this.questionBuilder.setSkipped(questionLink.hasClass(constants.SKIPPED_CLASS));
-      this.questionBuilder.setAnswers(JSON.parse(localStorage.getItem('test.answers.' + activeQuestionId)));
-      $('.' + constants.WRAPPER_CLASS).append(this.questionBuilder.build());
+      var questionBuilder = new self.QuestionBuilder();
+
+      questionBuilder.setId(activeQuestionId);
+      questionBuilder.setStatus(self.getStatus());
+      questionBuilder.setQuestions(self.questions);
+      questionBuilder.setSkipped(questionLink.hasClass(constants.SKIPPED_CLASS));
+      questionBuilder.setAnswers(JSON.parse(localStorage.getItem('test.answers.' + activeQuestionId)));
+      $('.' + constants.WRAPPER_CLASS).append(questionBuilder.build());
 
       var nextQuestionId = helper.normalizeId($('.' + constants.NAVLINK_CLASS + '.' + constants.ACTIVE_CLASS).parent().next().find('.' + constants.NAVLINK_CLASS).attr('href'));
 
@@ -455,33 +494,54 @@
           }
         });
       }
-      $('.' + constants.BUTTON_STOP_CLASS).on('click', self.resetTest.bind(self));
+      $('.' + constants.BUTTON_STOP_CLASS).on('click', function() {
+        testConstructor.generateModalWindow('Back to the beginning',
+          'You are about to quit test. All your progress will be lost.' +
+          '<br>Are you sure?', function() {
+            self.resetTest();
+          });
+      });
       self.setActiveQuestionId(activeQuestionId);
     },
 
     resetTest: function() {
       this.setStatus(constants.TEST_STATUS.INITIAL);
-      this.questions = null;
       clearInterval(this.timerId);
-      localStorage.clear();
+
+      $.each(Object.keys(this.questions), function(key, value) {
+        localStorage.removeItem('test.answers.' + value);
+        localStorage.removeItem('test.skipped.' + value);
+      });
+
       this.activeQuestion = null;
+      this.questions = null;
       this.init();
     },
 
     showEditQuestion: function(activeQuestionId) {
       var self = this;
+      self.setActiveQuestionId(activeQuestionId);
       $('.' + constants.NAVLINK_CLASS).removeClass(constants.ACTIVE_CLASS);
       $('.' + constants.QUESTION_CARD_CLASS).remove();
       $('a[href$=' + activeQuestionId + ']').addClass(constants.ACTIVE_CLASS);
       var question = editableQuestionFactory.initializeQuestion(self.questions[activeQuestionId]);
+      self.questionType = question.getType();
       $('.' + constants.WRAPPER_CLASS).append(editableQuestionBuilder.build(question));
-      self.setActiveQuestionId(activeQuestionId);
+
+      self.savedQuestion = self.fetchQuestion();
+
       $('.' + constants.BUTTON_STOP_CLASS).on('click', function() {
-        testConstructor.generateModalWindow('Back to the beginning',
-          'You are about to quit editing window. All unsaved data will be lost.' +
-          '<br>Are you sure?', function() {
-            self.resetTest();
-          });
+        var currentQuestion = self.fetchQuestion();
+        function callback() {
+          self.resetTest();
+        }
+        if (!currentQuestion.compare(self.savedQuestion)) {
+          testConstructor.generateModalWindow('Back to the beginning',
+            'You are about to quit editing window. All unsaved data will be lost.' +
+            '<br>Are you sure?', callback);
+        } else {
+          callback();
+        }
       });
       $('.' + 'type-question-single').on('click', function() {
         self.questionType = 'radio';
@@ -499,8 +559,11 @@
         $(this).parent().parent().parent().remove();
       });
       $('.' + 'btn-add-option').on('click', function() {
+        var lastVal = $('.option-input').last().val() || 'o0';
+        var parsedNumber = parseInt(lastVal.substring(1));
         var $option = helper.generateHtmlFromTemplate('question-option', {
-          questionType: self.questionType
+          type: self.questionType,
+          value: 'o' + (parsedNumber + 1)
         });
         $('.' + 'input-row').last().before($option);
         $('.' + 'remove-option').on('click', function() {
@@ -510,15 +573,76 @@
       $('.' + 'btn-delete').on('click', function() {
         testConstructor.generateModalWindow('Delete question',
           'This question will be deleted. Are you sure?', function() {
-            delete self.questions[activeQuestionId];
+            self.removeQuestion(activeQuestionId);
+            self.saveQuestions();
             self.setActiveQuestionId(null);
             self.editTest();
           });
       });
+      $('.' + 'btn-save').on('click', function() {
+        if (self.checkHighlight()) {
+          var question = self.fetchQuestion();
+          var activeQuestionId = self.getActiveQuestionId();
+          var newQuestionId = activeQuestionId === 'new' ?
+            helper.generateNextAvailableId(Object.keys(self.questions)) : activeQuestionId;
+          self.addQuestion(newQuestionId, question);
+          self.setActiveQuestionId(newQuestionId);
+          self.saveQuestions();
+          self.editTest();
+        }
+      });
     },
 
-    checkQuestionCorrectness: function() {
+    fetchQuestion: function() {
+      var options = {};
+      var correct = [];
+      $('.' + 'input-field').each(function() {
+        var key = $(this).prev().find('.' + 'option-input').val();
+        options[key] = $(this).val();
+      });
+      $('.option-input:checked').each(function() {
+        correct.push($(this).val());
+      });
+      if (this.questionType === 'radio') {
+        correct = correct[0];
+      }
+      var question = editableQuestionFactory.createQuestion(this.questionType);
+      question.setTitle($('#exampleFormControlTextarea1').val());
+      question.addOptions(options);
+      question.setCorrect(correct);
+      return question;
+    },
 
+    checkHighlight: function() {
+      var textArea = $('#exampleFormControlTextarea1');
+      var title = textArea.val();
+      var isFilled = true;
+      if (!title) {
+        textArea.addClass('wrong-input');
+        isFilled = false;
+      } else {
+        textArea.removeClass('wrong-input');
+      }
+      $('.' + 'form-control').each(function() {
+        var value = $(this).val();
+        if (!value) {
+          $(this).addClass('wrong-input');
+          isFilled = false;
+        } else {
+          $(this).removeClass('wrong-input');
+        }
+      });
+      if (!isFilled) {
+        testConstructor.generateModalWindow('Correct the question',
+          'Please fill in the highlighted fields');
+        return false;
+      }
+      if ($('.option-input:checked').length === 0) {
+        testConstructor.generateModalWindow('Correct the question',
+          'Please select correct option' + (this.questionType === 'radio' ? '' : 's'));
+        return false;
+      }
+      return true;
     },
 
     /**
@@ -537,35 +661,35 @@
       localStorage.setItem('test.timer', this.currentTimerValue);
     },
 
-    questionBuilder: {
+    QuestionBuilder: function() {
+      
+      this.id = null;
+      this.questions = null;
+      this.answers = null;
+      this.status = null;
+      this.isSkipped = null;
 
-      id: null,
-      questions: null,
-      answers: null,
-      status: null,
-      isSkipped: null,
-
-      setId: function(id) {
+      this.setId = function(id) {
         this.id = id;
-      },
+      };
 
-      setQuestions: function(questions) {
+      this.setQuestions = function(questions) {
         this.questions = questions;
-      },
+      };
 
-      setAnswers: function(answers) {
+      this.setAnswers = function(answers) {
         this.answers = answers;
-      },
+      };
 
-      setStatus: function(status) {
+      this.setStatus = function(status) {
         this.status = status;
-      },
+      };
 
-      setSkipped: function(isSkipped) {
+      this.setSkipped = function(isSkipped) {
         this.isSkipped = isSkipped;
-      },
+      };
 
-      build: function() {
+      this.build = function() {
         return helper.generateHtmlFromTemplate(constants.QUESTION_ID, {
           id: this.id,
           title: this.questions[this.id].name,
@@ -577,33 +701,33 @@
           isSkipped: this.isSkipped,
           constants: constants
         });
-      }
+      };
     },
 
-    navPaneBuilder: {
+    NavPaneBuilder: function() {
 
-      questionKeys: null,
-      status: null,
+      this.questionKeys = null;
+      this.status = null;
 
-      setId: function(id) {
+      this.setId = function(id) {
         this.id = id;
-      },
+      };
 
-      setStatus: function(status) {
+      this.setStatus = function(status) {
         this.status = status;
-      },
+      };
 
-      setQuestionKeys: function(questionKeys) {
+      this.setQuestionKeys = function(questionKeys) {
         this.questionKeys = questionKeys;
-      },
+      };
 
-      build: function() {
+      this.build = function() {
         return helper.generateHtmlFromTemplate(constants.QUESTION_PANE_ID, {
           ids : this.questionKeys,
           status: this.status,
           constants: constants
         });
-      }
+      };
     }
   };
 
@@ -684,8 +808,20 @@
         this.correct = correct;
       };
 
-      this.getCorrect = function() {
-        return this.correct;
+      this.addCorrect = function(correct) {
+        var self = this;
+        $.each(correct, function(value) {
+          self.push(value);
+        });
+      };
+
+      this.compare = function(question) {
+        if (this.title !== question.title) { return false; }
+        if (this.getType() !== question.getType()) { return false; }
+        if (!_.isEqual(this.options, question.options)) { return false; }
+        if (!helper.compareArrays(helper.wrapInArray(this.answers), helper.wrapInArray(question.answers))) { return false; }
+        if (!helper.compareArrays(helper.wrapInArray(this.correct), helper.wrapInArray(question.correct))) { return false; }
+        return true;
       };
     },
 
@@ -697,10 +833,6 @@
           return 'radio';
         }
       };
-
-      this.setAnswer = function(answer) {
-        this.answers = answer;
-      };
     },
 
     QuestionCheckbox: function() {
@@ -710,18 +842,6 @@
         if (this instanceof editableQuestionFactory.QuestionCheckbox) {
           return 'checkbox';
         }
-      };
-
-      this.addAnswer = function(answer) {
-        this.answers = this.answers || [];
-        this.answers.push(answer);
-      };
-
-      this.addAnswers = function(answers) {
-        var self = this;
-        $.each(answers, function(key, value) {
-          self.addAnswer(value);
-        });
       };
     }
 
@@ -796,10 +916,12 @@
     },
 
     generateNextAvailableId: function(existingIds) {
-      existingIds.sort();
+      existingIds.sort(function(a, b) {
+        return parseInt(a.substring(1)) - parseInt(b.substring(1));
+      });
       var lastId = existingIds[existingIds.length - 1];
       var nextId = parseInt(lastId.substring(1)) + 1;
-      return nextId;
+      return 'q' + nextId;
     }
   };
 

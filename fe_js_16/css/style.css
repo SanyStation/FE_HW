@@ -227,7 +227,7 @@ body {
   padding: 5px 10px;
 }
 
- /*Add Animation */
+ /* Add Animation */
 @-webkit-keyframes animatetop {
   from {top: -300px; opacity: 0}
   to {top: 0; opacity: 1}
@@ -244,4 +244,12 @@ body {
 
 .remove-option {
   line-height: 14px;
+}
+
+.wrong-input {
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+.wrong-input:focus {
+  border-color: #ff0000;
 }

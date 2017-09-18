@@ -116,9 +116,9 @@
             <a class="remove-option" href="#"><img src="img/minus-2x.png" alt="-"></a>
           </span>
           <span class="input-group-addon">
-            <input type="<%= type %>" class="option-input" name="options-group" <%= $.inArray(key, correct) > -1 ? 'checked' : '' %>>
+            <input type="<%= type %>" class="option-input" name="options-group" value="<%= key %>" <%= $.inArray(key, correct) > -1 ? 'checked' : '' %>>
           </span>
-          <input type="text" class="form-control" value="<%= value %>">
+          <input type="text" class="form-control input-field" value="<%= value %>">
         </div>
       </div>
       <% }); %>
@@ -136,9 +136,9 @@
           <a class="remove-option" href="#"><img src="img/minus-2x.png" alt="-"></a>
         </span>
         <span class="input-group-addon">
-          <input type="<%= questionType %>" class="option-input" name="options-group">
+          <input type="<%= type %>" class="option-input" name="options-group" value="<%= value %>">
         </span>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control input-field">
       </div>
     </div>
   </script>
