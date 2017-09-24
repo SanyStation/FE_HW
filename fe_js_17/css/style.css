@@ -1,0 +1,7 @@
+/* Test CSS */
+
+body {
+  padding: 20px;
+  background: url("../../img/concrete-texture.png") repeat;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
