@@ -1,0 +1,14 @@
+{
+  "name": "fe_js_18",
+  "version": "0.1.0",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-uglify": "^3.0.0",
+    "pump": "^1.0.2",
+    "run-sequence": "^2.2.0"
+  }
+}
